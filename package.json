@@ -23,7 +23,8 @@
     "format:check": "prettier --check .",
     "mailscape": "node apps/crawler/dist/cli.js",
     "prepare": "husky || true",
-    "typecheck:tests": "pnpm exec tsc -p packages/parsers/test/tsconfig.json"
+    "typecheck:tests": "pnpm exec tsc -p packages/parsers/test/tsconfig.json",
+    "test:network": "MAILSCAPE_NETWORK_TESTS=1 vitest run --project dns-network"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -1,5 +1,26 @@
 import { defineConfig } from 'vitest/config';
 
+/**
+ * Network-dependent specs are opt-in. CI must never fail because somebody
+ * else's nameserver had a bad minute, so the default run excludes them
+ * entirely; `pnpm test:network` opts in.
+ */
+const includeNetworkTests = process.env.MAILSCAPE_NETWORK_TESTS === '1';
+
+const networkProjects = includeNetworkTests
+  ? [
+      {
+        test: {
+          name: 'dns-network',
+          root: './packages/dns',
+          include: ['test/**/*.network.test.ts'],
+          environment: 'node' as const,
+          testTimeout: 30_000,
+        },
+      },
+    ]
+  : [];
+
 export default defineConfig({
   test: {
     passWithNoTests: true,
@@ -31,15 +52,7 @@ export default defineConfig({
           environment: 'node',
         },
       },
-      {
-        test: {
-          name: 'dns-network',
-          root: './packages/dns',
-          include: ['test/**/*.network.test.ts'],
-          environment: 'node',
-          testTimeout: 30_000,
-        },
-      },
+      ...networkProjects,
       {
         test: {
           name: 'store',

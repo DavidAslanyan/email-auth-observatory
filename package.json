@@ -13,7 +13,7 @@
     "build": "tsc --build tsconfig.build.json",
     "build:web": "pnpm --filter @mailscape/web build",
     "clean": "tsc --build tsconfig.build.json --clean && rm -rf packages/*/dist apps/*/dist",
-    "typecheck": "tsc --build tsconfig.build.json --force",
+    "typecheck": "tsc --build tsconfig.build.json --force && pnpm typecheck:tests",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -22,7 +22,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "mailscape": "node apps/crawler/dist/cli.js",
-    "prepare": "husky || true"
+    "prepare": "husky || true",
+    "typecheck:tests": "pnpm exec tsc -p packages/parsers/test/tsconfig.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

@@ -1,0 +1,1011 @@
+{
+  "capturedAt": "2026-08-29T11:34:37.193Z",
+  "resolver": "1.1.1.1",
+  "domains": [
+    {
+      "domain": "cloudflare.com",
+      "spf": [
+        "v=spf1 ip4:199.15.212.0/22 ip4:173.245.48.0/20 include:_spf.google.com include:spf1.mcsv.net include:spf.mandrillapp.com include:mail.zendesk.com include:stspg-customer.com include:_spf.salesforce.com -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; sp=reject; adkim=r; aspf=r; pct=100; rua=mailto:a1c47f179bc04efd8ee4dcd4d85dfc65@dmarc-reports.cloudflare.net,mailto:rua@cloudflare.com"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://www.cloudflare.com/cloudflare_1171114652.svg; a=https://www.cloudflare.com/cloudflare_1171114652.pem"
+      ],
+      "mtaSts": ["v=STSv1;id=1769609691387;"],
+      "tlsRpt": ["v=TLSRPTv1; rua=mailto:rua@cloudflare.com;"],
+      "mx": [
+        {
+          "preference": 5,
+          "exchange": "mxa-canary.global.inbound.cf-emailsecurity.net."
+        },
+        {
+          "preference": 5,
+          "exchange": "mxb-canary.global.inbound.cf-emailsecurity.net."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxa.global.inbound.cf-emailsecurity.net."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb.global.inbound.cf-emailsecurity.net."
+        }
+      ]
+    },
+    {
+      "domain": "stripe.com",
+      "spf": [
+        "v=spf1 ip4:198.2.180.60/32 ip4:13.111.2.227/32 include:spf1.stripe.com include:greenhouse-outbound-mail.stripe.com include:_spf.qualtrics.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; fo=1; rua=mailto:dmarc-reports@stripe.com; ruf=mailto:dmarc-forensics@stripe.com;"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "alt2.aspmx.l.google.com."
+        },
+        {
+          "preference": 30,
+          "exchange": "aspmx2.googlemail.com."
+        },
+        {
+          "preference": 30,
+          "exchange": "aspmx3.googlemail.com."
+        }
+      ]
+    },
+    {
+      "domain": "shopify.com",
+      "spf": ["v=spf1 include:_spf.google.com include:mail.zendesk.com include:sendgrid.net ~all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; fo=1; rua=mailto:dmarc-aggregate@shopify.com;ruf=mailto:dmarc-reports@shopify.com"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://vmc.digicert.com/8833b699-1227-41ee-b185-cc2d9a08e213.svg; a=https://vmc.digicert.com/8833b699-1227-41ee-b185-cc2d9a08e213.pem;"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 1,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "alt3.aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "alt4.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt2.aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "reddit.com",
+      "spf": ["v=spf1 include:spf0.reddit.com -all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; ruf=mailto:reddit@us.cp-dmarc.com; rua=mailto:reddit@us.cp-dmarc.com"
+      ],
+      "bimi": ["v=BIMI1; l=https://www.redditstatic.com/emaildigest/reddit-logo.svg; a=;"],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 1,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "aspmx2.googlemail.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "aspmx3.googlemail.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt2.aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "twitch.tv",
+      "spf": [
+        "v=spf1 include:_spf.google.com include:amazonses.com include:_spf.twitch.tv include:aspmx.pardot.com a mx -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; adkim=s; aspf=s; fo=1; ri=3600; rua=mailto:report@dmarc.amazon.com; ruf=mailto:report@dmarc.amazon.com"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 30,
+          "exchange": "alt2.aspmx.l.google.com."
+        },
+        {
+          "preference": 40,
+          "exchange": "aspmx2.googlemail.com."
+        },
+        {
+          "preference": 50,
+          "exchange": "aspmx3.googlemail.com."
+        }
+      ]
+    },
+    {
+      "domain": "microsoft.com",
+      "spf": [
+        "v=spf1 include:_spf-a.microsoft.com include:_spf-b.microsoft.com include:_spf-c.microsoft.com include:_spf-ssg-a.msft.net include:_spf1-meo.microsoft.com -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; rua=mailto:itex-rua@microsoft.com; ruf=mailto:itex-ruf@microsoft.com; fo=1"
+      ],
+      "bimi": [],
+      "mtaSts": ["v=STSv1; id=20190225000000Z;"],
+      "tlsRpt": ["v=TLSRPTv1;rua=https://tlsrpt.azurewebsites.net/report"],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "microsoft-com.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "domain": "linkedin.com",
+      "spf": [
+        "v=spf1 ip4:199.101.162.0/25 ip4:108.174.3.0/24 ip4:108.174.6.0/24 ip4:108.174.0.0/24 ip6:2620:109:c00d:104::/64 ip6:2620:109:c006:104::/64 ip6:2620:109:c003:104::/64 ip6:2620:119:50c0:207::/64 ip4:199.101.161.130 mx mx:docusign.net ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:yfy3q-9359@rua.dmarc.emailanalyst.com; ruf=mailto:d@ruf.agari.com"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://media.licdn.com/media/AAYQAQQhAAgAAQAAAAAAABrLiVuNIZ3fRKGlFSn4hGZubg.svg; a=https://media.licdn.com/media/AAYABAQhAAgAAQAAAAAAAYFI0DP_wvHFSv6mYduMZuEwSA.pem;"
+      ],
+      "mtaSts": [],
+      "tlsRpt": ["v=TLSRPTv1; rua=mailto:tlsreports@linkedin.com"],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mail-a.linkedin.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mail-c.linkedin.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mail-d.linkedin.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mail.linkedin.com."
+        }
+      ]
+    },
+    {
+      "domain": "skype.com",
+      "spf": ["v=spf1 include:_spf-ssg-a.microsoft.com ip4:91.190.218.48 ip4:91.190.216.100 -all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; rua=mailto:rua@dmarc.microsoft,mailto:skype@rua.netcraft.com; fo=1; ruf=mailto:rua@dmarc.microsoft,mailto:skype@ruf.netcraft.com;"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "skype-com.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "domain": "dell.com",
+      "spf": ["v=spf1 include:%{ir}.%{v}.%{d}.spf.has.pphosted.com ~all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; rua=mailto:dmarc_rua@emaildefense.proofpoint.com,mailto:dmarc.reports.rua@dell.com; ruf=mailto:dmarc_ruf@emaildefense.proofpoint.com,mailto:dmarc.reports.ruf@dell.com;"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mxa-00154901.gslb.pphosted.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb-00154901.gslb.pphosted.com."
+        }
+      ]
+    },
+    {
+      "domain": "google.com",
+      "spf": ["v=spf1 include:_spf.google.com ~all"],
+      "dmarc": ["v=DMARC1; p=reject; rua=mailto:mailauth-reports@google.com"],
+      "bimi": [],
+      "mtaSts": ["v=STSv1; id=20210803T010101;"],
+      "tlsRpt": ["v=TLSRPTv1;rua=mailto:sts-reports@google.com"],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "smtp.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "amazon.com",
+      "spf": ["v=spf1 include:spf1.amazon.com include:spf2.amazon.com include:amazonses.com -all"],
+      "dmarc": [
+        "v=DMARC1;p=quarantine;pct=100;rua=mailto:report@dmarc.amazon.com;ruf=mailto:report@dmarc.amazon.com"
+      ],
+      "bimi": [
+        "v=BIMI1;l=https://d3frv9g52qce38.cloudfront.net/amazondefault/order_1424920778_logo.svg;a=https://d3frv9g52qce38.cloudfront.net/amazondefault/amazon_web_services_inc_2026.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 5,
+          "exchange": "amazon-smtp.amazon.com."
+        }
+      ]
+    },
+    {
+      "domain": "apple.com",
+      "spf": ["v=spf1 include:_spf.apple.com include:_spf-txn.apple.com ~all"],
+      "dmarc": [
+        "v=DMARC1; p=quarantine; sp=reject; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com;"
+      ],
+      "bimi": [
+        "v=BIMI1;l=https://www.apple.com/bimi/v2/apple.svg;a=https://www.apple.com/bimi/v2/apple.pem;"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mx-in.g.apple.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx-in-ma.apple.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx-in-rn.apple.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx-in-sg.apple.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx-in-hfd.apple.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx-in-vib.apple.com."
+        }
+      ]
+    },
+    {
+      "domain": "facebook.com",
+      "spf": ["v=spf1 redirect=_spf.facebook.com"],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:a@dmarc.facebookmail.com; ruf=mailto:fb-dmarc@datafeeds.phishlabs.com; pct=100"
+      ],
+      "bimi": [],
+      "mtaSts": ["v=STSv1; id=20191202T113700;"],
+      "tlsRpt": ["v=TLSRPTv1;rua=mailto:sts-reports@facebookmail.com"],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "smtpin.vvv.facebook.com."
+        }
+      ]
+    },
+    {
+      "domain": "netflix.com",
+      "spf": [
+        "v=spf1 include:_spf_ipv4.netflix.com include:_spf.google.com include:amazonses.com include:servers.mcsv.net include:_spf.salesforce.com include:_spf.createsend.com -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; rua=mailto:netflix@rua.netcraft.com,mailto:dmarcreports@netflix.com,mailto:dmarc_agg@dmarc.250ok.net;ruf=mailto:netflix@ruf.netcraft.com,mailto:dmarcreports@netflix.com,mailto:dmarc_fr@dmarc.250ok.net"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 1,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "aspmx2.googlemail.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "aspmx3.googlemail.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt2.aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "wikipedia.org",
+      "spf": ["v=spf1 include:_cidrs.wikimedia.org ~all"],
+      "dmarc": ["v=DMARC1; p=reject; rua=mailto:dmarc-rua@wikimedia.org;"],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mx-in1001.wikimedia.org."
+        },
+        {
+          "preference": 10,
+          "exchange": "mx-in2001.wikimedia.org."
+        }
+      ]
+    },
+    {
+      "domain": "mozilla.org",
+      "spf": [
+        "v=spf1 include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email include:_spf.mozilla.com include:_spf.google.com include:spf.fundraiseup.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; adkim=r; aspf=r; rua=mailto:dmarc_agg@vali.email,mailto:dmarc@mozilla.com"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://amplify.valimail.com/bimi/mozilla/-OHlHGABH88-mozilla_logo.svg; a=https://amplify.valimail.com/bimi/mozilla/-OHlHGABH88-mozilla_logo.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 5,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "aspmx3.googlemail.com."
+        },
+        {
+          "preference": 1,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt2.aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "github.com",
+      "spf": [
+        "v=spf1 ip4:192.30.252.0/22 include:spf.protection.outlook.com include:_netblocks.google.com include:_netblocks2.google.com include:mail.zendesk.com include:_spf.salesforce.com include:servers.mcsv.net include:mktomail.com include:sendgrid.net ip4:62.253.227.114 ip4:166.78.69.169 ip4:166.78.69.170 ip4:166.78.71.131 ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=quarantine; sp=reject; pct=100; rua=mailto:dmarc@github.com; ruf=mailto:dmarc@github.com; fo=1"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 0,
+          "exchange": "github-com.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "domain": "gitlab.com",
+      "spf": [
+        "v=spf1 include:mail.zendesk.com include:_spf.google.com include:mktomail.com include:_spf.salesforce.com include:_spf-ip.gitlab.com a:zgateway.zuora.com include:mailgun.org include:_spf.sendergen.com ip4:35.80.141.6/32 ip4:44.229.121.55/32 -all"
+      ],
+      "dmarc": ["v=DMARC1; p=reject; pct=100; rua=mailto:dmarc_agg@vali.email;"],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 1,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "alt3.aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "alt4.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt2.aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "paypal.com",
+      "spf": [
+        "v=spf1 include:pp._spf.paypal.com include:3ph1._spf.paypal.com include:3ph2._spf.paypal.com include:3ph3._spf.paypal.com include:3ph4._spf.paypal.com include:sendgrid.net include:aspmx.pardot.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email; ruf=mailto:d@ruf.agari.com,mailto:MTc4Mzcw@ruf.vali.email"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://www.paypalobjects.com/marketing/web/logos/paypal_ppe.svg; a=https://www.paypalobjects.com/marketing/web/logos/PPE_UK_DE_paypal_inc.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mx1.paypalcorp.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mx2.paypalcorp.com."
+        }
+      ]
+    },
+    {
+      "domain": "jpmorganchase.com",
+      "spf": [
+        "v=spf1 a:spf.jpmchase.com ip4:207.162.228.0/24 ip4:207.162.229.0/24 ip4:207.162.225.0/24 ip4:196.37.232.50 ip4:159.53.46.0/24 ip4:159.53.36.0/24 ip4:159.53.110.0/24 ip4:170.148.48.0/24 ip4:159.53.78.0/24 -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com; fo=1"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://vmc.digicert.com/47caa6f1-e37f-4edb-8b44-96e46edc570c.svg; a=https://vmc.digicert.com/47caa6f1-e37f-4edb-8b44-96e46edc570c.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": []
+    },
+    {
+      "domain": "bankofamerica.com",
+      "spf": [
+        "v=spf1 ip4:171.161.41.178 ip4:171.159.227.167 ip4:171.161.147.155 include:spf-0000ec15.pphosted.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; rua=mailto:auth.report_ns@bankofamerica.com; ruf=mailto:bankofamerica@ruf.agari.com"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://vmc.digicert.com/f0350c6b-c0e3-401c-b41b-500c66430c28.svg; a=https://vmc.digicert.com/f0350c6b-c0e3-401c-b41b-500c66430c28.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mxa-0000ec05.gslb.pphosted.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb-0000ec05.gslb.pphosted.com."
+        }
+      ]
+    },
+    {
+      "domain": "wellsfargo.com",
+      "spf": ["v=spf1 include:%{ir}.%{v}.%{d}.spf.has.pphosted.com ~all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; rua=mailto:dmarc_rua@emaildefense.proofpoint.com,mailto:tn1d3s4FQU@dmarc.inboxmonster.com; ruf=mailto:dmarc-ruf@wellsfargo.com;"
+      ],
+      "bimi": [
+        "v=BIMI1;l=https://vmc.digicert.com/b708cb37-d48f-49f9-b2b0-31d535685a66.svg;a=https://vmc.digicert.com/b708cb37-d48f-49f9-b2b0-31d535685a66.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mxa-00004003.gslb.pphosted.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb-00004003.gslb.pphosted.com."
+        }
+      ]
+    },
+    {
+      "domain": "hsbc.com",
+      "spf": [
+        "v=spf1 include:%{ir}.%{v}.%{d}.spf.has.pphosted.com include:spf-00299f02.pphosted.com include:spf1.hsbc.com include:spf2.hsbc.com include:spf3.hsbc.com include:spf-002f0603.pphosted.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; ri=3600; rua=mailto:dmarc_rua@emaildefense.proofpoint.com; ruf=mailto:dmarc_ruf@emaildefense.proofpoint.com"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mxa-00299f02.gslb.pphosted.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb-00299f02.gslb.pphosted.com."
+        }
+      ]
+    },
+    {
+      "domain": "irs.gov",
+      "spf": ["v=spf1 ip4:152.216.0.0/20 ip6:2610:30::/32 -all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:dmarc-agg-feed@ofdp.irs.gov,mailto:reports@dmarc.cyber.dhs.gov; ruf=mailto:dmarc-for-feed@ofdp.irs.gov; fo=1"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "emgc.irs.gov."
+        },
+        {
+          "preference": 10,
+          "exchange": "emge.irs.gov."
+        },
+        {
+          "preference": 20,
+          "exchange": "emgw.irs.gov."
+        }
+      ]
+    },
+    {
+      "domain": "nasa.gov",
+      "spf": [
+        "v=spf1 include:_spf-4a.nasa.gov include:_spf-4b.nasa.gov include:_spf-4c.nasa.gov include:_spf-4d.nasa.gov include:_spf-4g.nasa.gov include:_spf-4m.nasa.gov include:_spf-4x.nasa.gov include:_spf-6a.nasa.gov include:spf.protection.outlook.com -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; rua=mailto:dmarcmail@mail.nasa.gov,mailto:reports@dmarc.cyber.dhs.gov"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 0,
+          "exchange": "nasa-gov.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "domain": "cisa.gov",
+      "spf": [
+        "v=spf1 include:spf.dhs.gov include:spf.protection.outlook.com include:spf-00376703.gpphosted.com -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; pct=100; rua=mailto:DMARC@hq.dhs.gov, mailto:reports@dmarc.cyber.dhs.gov"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mxa-00376703.gslb.gpphosted.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb-00376703.gslb.gpphosted.com."
+        }
+      ]
+    },
+    {
+      "domain": "gov.uk",
+      "spf": ["v=spf1 -all"],
+      "dmarc": [
+        "v=DMARC1;p=reject;sp=none;np=reject;adkim=s;aspf=s;fo=1;rua=mailto:dmarc-rua@dmarc.service.gov.uk"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": []
+    },
+    {
+      "domain": "europa.eu",
+      "spf": ["v=spf1 -all"],
+      "dmarc": [],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mxa-00244802.gslb.pphosted.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mxb-00244802.gslb.pphosted.com."
+        },
+        {
+          "preference": 30,
+          "exchange": "europa-eu.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "domain": "protonmail.com",
+      "spf": ["v=spf1 include:_spf.protonmail.ch ~all"],
+      "dmarc": ["v=DMARC1; p=quarantine; fo=1; aspf=s; adkim=s;"],
+      "bimi": ["v=BIMI1; l=; a=;"],
+      "mtaSts": ["v=STSv1; id=190906205100Z;"],
+      "tlsRpt": ["v=TLSRPTv1; rua=https://reports.proton.me/reports/smtptls"],
+      "mx": [
+        {
+          "preference": 5,
+          "exchange": "mail.protonmail.ch."
+        },
+        {
+          "preference": 10,
+          "exchange": "mailsec.protonmail.ch."
+        }
+      ]
+    },
+    {
+      "domain": "fastmail.com",
+      "spf": ["v=spf1 include:spf.messagingengine.com ~all"],
+      "dmarc": ["v=DMARC1; p=none; rua=mailto:e3936a44@inbox.ondmarc.com"],
+      "bimi": [],
+      "mtaSts": ["v=STSv1; id=20260728T132000"],
+      "tlsRpt": ["v=TLSRPTv1; rua=mailto:e3936a44@inbox.ondmarc.com"],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "in1-smtp.messagingengine.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "in2-smtp.messagingengine.com."
+        }
+      ]
+    },
+    {
+      "domain": "zoho.com",
+      "spf": [
+        "v=spf1 include:spf.zoho.com include:zcsend.net include:spf.zohomail.com include:popspf.zohomail.com -all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; sp=reject; fo=0; rua=mailto:dmarcaggregation@zoho.com; ruf=mailto:dmarcaggregation@zoho.com"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": ["v=TLSRPTv1;rua=mailto:tlsaggregation@zoho.com"],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "smtpin.zoho.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "smtpin2.zoho.com."
+        },
+        {
+          "preference": 50,
+          "exchange": "smtpin3.zoho.com."
+        }
+      ]
+    },
+    {
+      "domain": "mailchimp.com",
+      "spf": [
+        "v=spf1 ip4:205.201.128.0/20 ip4:198.2.128.0/18 ip4:148.105.0.0/16 ip4:129.145.74.12 include:_spf.google.com include:mailsenders.netsuite.com include:_spf2.intuit.com include:_spf.qualtrics.com ip4:199.33.145.1 ip4:199.33.145.32 ip4:35.176.132.251 ip4:52.60.115.116 ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:19ezfriw@ag.dmarcian.com,mailto:dmarc_rua@emaildefense.proofpoint.com; ruf=mailto:19ezfriw@fr.dmarcian.com,mailto:dmarc_ruf@emaildefense.proofpoint.com;"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://eep.io/images/yzco4xsimv0y/kXdRxrKY0FSlPA5hyroFP/1c9b0474c45c40c75869ca2dd1f9d2df/MC-Freddie-Cavendish-square_tiny_ps.svg;"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 5,
+          "exchange": "mx1.intuit.iphmx.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "mx2.intuit.iphmx.com."
+        }
+      ]
+    },
+    {
+      "domain": "sendgrid.com",
+      "spf": [
+        "v=spf1 include:sendgrid.com._nspf.vali.email include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email include:stspg-customer.com ip4:167.89.60.95 ip4:50.31.36.205 ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; sp=reject; pct=100; adkim=r; aspf=r; rua=mailto:dmarc_agg@vali.email,mailto:dmarc_rua@sendgrid.com; ruf=mailto:dmarc@sendgrid.com; fo=1; rf=afrf; ri=86400"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://amplify.valimail.com/bimi/twilio/qMjF7wPTroQ-twilio_inc_1020931307.svg; a=https://amplify.valimail.com/bimi/twilio/qMjF7wPTroQ-twilio_inc_1020931307.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 0,
+          "exchange": "smtp.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "cnn.com",
+      "spf": [
+        "v=spf1 include:cnn.com._nspf.vali.email include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email include:mail.zendesk.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:dmarc_agg@vali.email; ruf=mailto:Njk3@ruf.vali.email"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://amplify.valimail.com/bimi/time-warner/R4Ezf5xK5ac-CNN.svg; a=https://amplify.valimail.com/bimi/time-warner/R4Ezf5xK5ac-CNN.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "cnn-com.mail.protection.outlook.com."
+        }
+      ]
+    },
+    {
+      "domain": "ebay.com",
+      "spf": [
+        "v=spf1 include:c._spf.ebay.com include:p._spf.ebay.com include:p2._spf.ebay.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:ebay@rua.agari.com; ruf=mailto:ebay@ruf.agari.com; fo=1; rf=afrf; pct=100"
+      ],
+      "bimi": [
+        "v=BIMI1;l=https://vmc.digicert.com/9e57aa28-3230-463f-b92e-ba8cd5612c17.svg;a=https://vmc.digicert.com/9e57aa28-3230-463f-b92e-ba8cd5612c17.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mx1.hc2186-24.iphmx.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mx2.hc2186-24.iphmx.com."
+        }
+      ]
+    },
+    {
+      "domain": "bbc.co.uk",
+      "spf": [
+        "v=spf1 ip4:212.58.224.0/19 ip4:132.185.0.0/16 +include:spf.sis.bbc.co.uk +include:spf.messagelabs.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1;p=reject;aspf=s;adkim=s;pct=100;fo=0;ri=86400; rua=mailto:dmarc_agg@vali.email;"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://vmc.digicert.com/ffc97feb-eec4-4634-888d-2ce5bfa3aabf.svg; a=https://vmc.digicert.com/ffc97feb-eec4-4634-888d-2ce5bfa3aabf.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "cluster1.eu.messagelabs.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "cluster1a.eu.messagelabs.com."
+        }
+      ]
+    },
+    {
+      "domain": "nytimes.com",
+      "spf": [
+        "v=spf1 include:nytimes.com._nspf.vali.email include:%{i}._ip.%{h}._ehlo.%{d}._spf.vali.email include:_spf.e.sparkpost.com include:amazonses.com ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:dmarc_agg@vali.email,mailto:dmarc.report@nytimes.com"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 1,
+          "exchange": "aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "alt3.aspmx.l.google.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "alt4.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt1.aspmx.l.google.com."
+        },
+        {
+          "preference": 5,
+          "exchange": "alt2.aspmx.l.google.com."
+        }
+      ]
+    },
+    {
+      "domain": "example.com",
+      "spf": ["v=spf1 -all"],
+      "dmarc": ["v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s"],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 0,
+          "exchange": "."
+        }
+      ]
+    },
+    {
+      "domain": "gstatic.com",
+      "spf": ["v=spf1 ?all"],
+      "dmarc": ["v=DMARC1; p=none; rua=mailto:mailauth-reports@google.com"],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": []
+    },
+    {
+      "domain": "akamai.com",
+      "spf": [
+        "v=spf1 ip4:72.246.0.0/15 ip4:23.0.0.0/12 ip4:96.6.0.0/15 ip4:23.72.0.0/13 ip4:80.67.64.0/19 ip4:184.50.0.0/15 ip4:104.64.0.0/10 ip4:173.222.0.0/15 ip4:2.16.0.0/13 ip4:209.200.128.0/18 ip4:72.52.0.0/18 ip4:23.192.0.0/11 ip4:184.24.0.0/13 ip4:125.56.128.0/17 ip4:193.108.152.0/22 ip4:193.108.88.0/21 ip4:60.254.128.0/18 ip4:92.122.0.0/15 ip4:96.16.0.0/15 ip4:204.8.48.0/22 ip6:2001:4878::0/32 ip4:208.185.229.0/24 ip4:208.185.235.0/24 ip4:184.84.0.0/14 ip4:23.32.0.0/11 ip4:23.64.0.0/14 ip4:95.100.0.0/15 ip4:88.221.0.0/16 ip4:84.53.128.0/18 ip4:69.192.0.0/16 ip4:195.245.124.0/22 ip4:212.113.160.0/19 ip4:67.231.157.127 ip4:67.231.149.131 ip6:2620:100:9001:583::1 ip6:2620:100:9005:57f::1 include:spf1.akamai.com  ~all"
+      ],
+      "dmarc": [
+        "v=DMARC1; p=reject; fo=1; rua=mailto:dmarc_rua@emaildefense.proofpoint.com; ruf=mailto:dmarc_ruf@emaildefense.proofpoint.com ; sp=none"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 20,
+          "exchange": "mx0a-00190b01.pphosted.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx0b-00190b01.pphosted.com."
+        }
+      ]
+    },
+    {
+      "domain": "yandex.ru",
+      "spf": ["v=spf1 redirect=_spf.yandex.ru"],
+      "dmarc": [
+        "v=DMARC1; p=none; fo=1; rua=mailto:dmarc_agg@auth.returnpath.net,mailto:dmarc-rua@yandex.ru; ruf=mailto:dmarc_afrf@auth.returnpath.net"
+      ],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 10,
+          "exchange": "mx.yandex.ru."
+        }
+      ]
+    },
+    {
+      "domain": "qq.com",
+      "spf": ["v=spf1 include:spf.mail.qq.com -all"],
+      "dmarc": ["v=DMARC1; p=quarantine; rua=mailto:mailauth-reports@qq.com"],
+      "bimi": [],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 30,
+          "exchange": "mx1.qq.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mx3.qq.com."
+        },
+        {
+          "preference": 20,
+          "exchange": "mx2.qq.com."
+        }
+      ]
+    },
+    {
+      "domain": "alibaba.com",
+      "spf": ["v=spf1 include:spf1.alibaba.mail.aliyun.com -all"],
+      "dmarc": [
+        "v=DMARC1; p=reject; rua=mailto:dmarc-ap@service.alibaba.com; ruf=mailto:dmarc-ap@service.alibaba.com"
+      ],
+      "bimi": [
+        "v=BIMI1; l=https://vmc.digicert.com/5f470942-237a-47c3-84d0-ca03b87850ad.svg; a=https://vmc.digicert.com/5f470942-237a-47c3-84d0-ca03b87850ad.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 20,
+          "exchange": "mx02.mail.alibaba.com."
+        },
+        {
+          "preference": 10,
+          "exchange": "mx01.mail.alibaba.com."
+        }
+      ]
+    },
+    {
+      "domain": "rakuten.co.jp",
+      "spf": ["v=spf1 include:spf01.rakuten.co.jp include:spf02.rakuten.co.jp ~all"],
+      "dmarc": ["v=DMARC1; p=reject; rua=mailto:dmarc-report-a@rx.rakuten.co.jp"],
+      "bimi": [
+        "v=BIMI1; l=https://r.r10s.jp/com/bimi/r_crimsonred/r_crimsonred.svg; a=https://r.r10s.jp/com/bimi/r_crimsonred/r_crimsonred_177085657.pem"
+      ],
+      "mtaSts": [],
+      "tlsRpt": [],
+      "mx": [
+        {
+          "preference": 0,
+          "exchange": "rakuten-co-jp.mail.protection.outlook.com."
+        }
+      ]
+    }
+  ]
+}

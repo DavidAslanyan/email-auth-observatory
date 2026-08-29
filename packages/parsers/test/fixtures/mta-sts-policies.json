@@ -1,0 +1,75 @@
+{
+  "capturedAt": "2026-08-29T11:35:54.882Z",
+  "policies": [
+    {
+      "domain": "microsoft.com",
+      "url": "https://mta-sts.microsoft.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\r\nmode: enforce\r\nmx: *.mail.protection.outlook.com\r\nmax_age: 604800\r\n"
+    },
+    {
+      "domain": "google.com",
+      "url": "https://mta-sts.google.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\r\nmode: enforce\r\nmx: smtp.google.com\r\nmx: aspmx.l.google.com\r\nmx: *.aspmx.l.google.com\r\nmax_age: 86400\r\n"
+    },
+    {
+      "domain": "facebook.com",
+      "url": "https://mta-sts.facebook.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: testing\nmax_age: 86400\nmx: smtpin.vvv.facebook.com\n"
+    },
+    {
+      "domain": "protonmail.com",
+      "url": "https://mta-sts.protonmail.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: enforce\nmx: mail.protonmail.ch\nmx: mailsec.protonmail.ch\nmax_age: 604800"
+    },
+    {
+      "domain": "fastmail.com",
+      "url": "https://mta-sts.fastmail.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: testing\nmx: *.messagingengine.com\nmax_age: 86400\n"
+    },
+    {
+      "domain": "yahoo.com",
+      "url": "https://mta-sts.yahoo.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: testing\nmx: *.am0.yahoodns.net\nmx: *.mail.gm0.yahoodns.net\nmx: *.mail.am0.yahoodns.net\nmax_age: 86400\n"
+    },
+    {
+      "domain": "comcast.net",
+      "url": "https://mta-sts.comcast.net/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: enforce \nmx: mx2c1.comcast.net\nmx: mx2h1.comcast.net\nmx: mx1a1.comcast.net\nmx: mx1h1.comcast.net\nmx: mx1c1.comcast.net\nmx: mx2a1.comcast.net\nmx: mx1.ge.comcast.net\nmx: mx2.ge.comcast.net\nmx: mx1.mxge.comcast.net\nmx: mx2.mxge.comcast.net\nmax_age: 2592000"
+    },
+    {
+      "domain": "gmx.net",
+      "url": "https://mta-sts.gmx.net/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: testing\nmx: mx00.emig.gmx.net\nmx: mx01.emig.gmx.net\nmax_age: 604800\n"
+    },
+    {
+      "domain": "web.de",
+      "url": "https://mta-sts.web.de/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: testing\nmx: mx-ha02.web.de\nmx: mx-ha03.web.de\nmax_age: 604800\n"
+    },
+    {
+      "domain": "mail.ru",
+      "url": "https://mta-sts.mail.ru/.well-known/mta-sts.txt",
+      "body": "version: STSv1\r\nmode: testing\r\nmx: mxs.mail.ru\r\nmx: emx.mail.ru\r\nmx: mx2.corp.mail.ru\r\nmax_age: 86400\r\n"
+    },
+    {
+      "domain": "ncsc.gov.uk",
+      "url": "https://mta-sts.ncsc.gov.uk/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: enforce\nmx: ncsc-gov-uk.mail.protection.outlook.com\nmax_age: 1209600"
+    },
+    {
+      "domain": "posteo.de",
+      "url": "https://mta-sts.posteo.de/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: enforce\nmx: mx01.posteo.de\nmx: mx02.posteo.de\nmx: mx03.posteo.de\nmx: mx04.posteo.de\nmx: posteo.de\nmax_age: 1209600\n"
+    },
+    {
+      "domain": "mailbox.org",
+      "url": "https://mta-sts.mailbox.org/.well-known/mta-sts.txt",
+      "body": "version: STSv1\nmode: enforce\nmax_age: 2419200\nmx: *.mailbox.org\nmx: mx1.mailbox.org\nmx: mx2.mailbox.org\nmx: mx3.mailbox.org\nmx: mx4.mailbox.org\nmx: mxtls1.mailbox.org\nmx: mxtls2.mailbox.org\n"
+    },
+    {
+      "domain": "tutanota.com",
+      "url": "https://mta-sts.tutanota.com/.well-known/mta-sts.txt",
+      "body": "version: STSv1\r\nmode: enforce\r\nmx: mail.tutanota.de\r\nmax_age: 86400"
+    }
+  ]
+}

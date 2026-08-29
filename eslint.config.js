@@ -26,7 +26,9 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         projectService: {
-          // Root-level tooling config lives outside every package tsconfig.
+          // Root-level tooling config only. Test directories carry their own
+          // tsconfig.json (non-composite, noEmit) so tests are type-aware
+          // linted and type-checked without being emitted into dist.
           allowDefaultProject: ['*.ts', '*.js'],
         },
         tsconfigRootDir: import.meta.dirname,
@@ -149,8 +151,25 @@ export default tseslint.config(
   },
 
   {
-    files: ['**/*.js'],
+    files: ['**/*.js', '**/*.mjs'],
     ...tseslint.configs.disableTypeChecked,
+  },
+
+  {
+    // Fixture capture scripts run under Node with no bundler and no types.
+    files: ['scripts/**/*.mjs'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        fetch: 'readonly',
+        URL: 'readonly',
+        AbortSignal: 'readonly',
+      },
+    },
+    rules: {
+      'no-console': 'off',
+    },
   },
 
   prettier,

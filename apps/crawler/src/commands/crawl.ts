@@ -10,6 +10,7 @@ import {
 import { Resolver } from '@mailscape/dns';
 import {
   appendJsonl,
+  confirmDisappearances,
   diffSnapshots,
   loadSnapshotMap,
   paths,
@@ -124,6 +125,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
   const degraded = stats.unknownRate > config.unknownRateDegradedThreshold;
 
   let events: ChangeEvent[] = [];
+  let retracted = 0;
   if (options.dryRun) {
     logger.info({ shard: name }, 'dry run: no files written');
   } else {
@@ -133,9 +135,37 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
       },
     });
     const diff = diffSnapshots(previous, snapshots);
-    events = diff.events;
+    // A resolver that answers NOERROR with an incomplete answer set looks
+    // exactly like a domain that withdrew a record. Confirm before recording:
+    // disappearances are a tiny fraction of a crawl, and a false weakening
+    // event is the most damaging kind of wrong entry this dataset can hold.
+    const confirmLimiter = new Bottleneck({ maxConcurrent: config.domainConcurrency });
+    const confirmed = await confirmDisappearances(previous, diff, (snapshot) =>
+      confirmLimiter.schedule(async () => {
+        try {
+          return await probeDomain(resolver, {
+            domain: snapshot.domain,
+            rank: snapshot.rank,
+            listId,
+          });
+        } catch {
+          // A failed confirmation is not evidence; keep the original result.
+          return undefined;
+        }
+      }),
+    );
+    await confirmLimiter.stop();
 
-    await writeSnapshot(name, diff.snapshots);
+    if (confirmed.contradicted.length > 0) {
+      logger.warn(
+        { domains: confirmed.contradicted, retracted: confirmed.retracted },
+        'second lookup contradicted a claimed disappearance; the first answer was incomplete',
+      );
+    }
+    events = confirmed.events;
+    retracted = confirmed.retracted;
+
+    await writeSnapshot(name, confirmed.snapshots);
     for (const event of events) await appendJsonl(paths.changes(date), event);
     await clearCheckpoint(name);
   }
@@ -162,6 +192,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     degraded,
     byResolver: stats.byResolver,
     changesEmitted: events.length,
+    disappearancesRetracted: retracted,
   };
 }
 

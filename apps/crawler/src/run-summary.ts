@@ -20,6 +20,7 @@ export async function emitRunSummary(summary: RunSummary): Promise<void> {
     ['Unknown rate', `${(summary.unknownRate * 100).toFixed(2)}%`],
     ['Degraded', summary.degraded ? '**yes**' : 'no'],
     ['Changes', String(summary.changesEmitted)],
+    ['Disappearances retracted', String(summary.disappearancesRetracted ?? 0)],
     ['Elapsed', `${(summary.elapsedMs / 1000).toFixed(1)}s`],
     ['Resolver: local', String(summary.byResolver.local)],
     ['Resolver: Cloudflare DoH', String(summary.byResolver['doh-cloudflare'])],

@@ -242,4 +242,9 @@ export interface RunSummary {
   degraded: boolean;
   byResolver: Record<ResolverTier, number>;
   changesEmitted: number;
+  /**
+   * Claimed disappearances a second lookup contradicted. Above zero means the
+   * resolver returned an incomplete answer set at least once during the run.
+   */
+  disappearancesRetracted?: number | undefined;
 }

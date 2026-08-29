@@ -34,9 +34,15 @@ jobs:
             | tee /tmp/summary.json
 
           SUMMARY=$(grep -o '{"command".*}' /tmp/summary.json | tail -1)
-          RATE=$(printf '%s' "$SUMMARY" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>console.log(JSON.parse(d).unknownRate))')
-          LOCAL=$(printf '%s' "$SUMMARY" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{const s=JSON.parse(d);console.log(s.byResolver.local)})')
-          TOTAL=$(printf '%s' "$SUMMARY" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>console.log(JSON.parse(d).lookupsTotal))')
+          read -r RATE LOCAL DOH TOTAL <<<"$(printf '%s' "$SUMMARY" | node -e '
+            let d = "";
+            process.stdin.on("data", (c) => (d += c)).on("end", () => {
+              const s = JSON.parse(d);
+              const doh = s.byResolver["doh-cloudflare"] + s.byResolver["doh-google"];
+              console.log(s.unknownRate, s.byResolver.local, doh, s.lookupsTotal);
+            });
+          ')"
+          LOCAL_SHARE=$(awk "BEGIN { printf \"%.4f\", ${LOCAL} / ${TOTAL} }")
 
           {
             echo "### Runner DNS check"
@@ -44,15 +50,41 @@ jobs:
             echo "| Metric | Value |"
             echo "| --- | --- |"
             echo "| Lookups | ${TOTAL} |"
-            echo "| Answered locally | ${LOCAL} |"
+            echo "| Answered by local unbound | ${LOCAL} (${LOCAL_SHARE}) |"
+            echo "| Fell through to DoH | ${DOH} |"
             echo "| Unknown rate | ${RATE} |"
           } >> "$GITHUB_STEP_SUMMARY"
 
-          echo "unknown rate: ${RATE} over ${TOTAL} lookups (${LOCAL} answered by local unbound)"
+          echo "unknown rate ${RATE}; local ${LOCAL}/${TOTAL} (${LOCAL_SHARE}); DoH ${DOH}"
+
+          # Two independent gates. The unknown rate alone is NOT sufficient: a
+          # broken local resolver hides behind a healthy-looking unknown rate
+          # because the DoH tier catches everything it drops.
+          STATUS=0
 
           # 2% is the threshold above which a real run is marked degraded.
           if awk "BEGIN { exit !(${RATE} > 0.02) }"; then
-            echo "::error::unknown rate ${RATE} exceeds 2% — outbound UDP/53 is likely throttled on this runner"
-            exit 1
+            echo "::error::unknown rate ${RATE} exceeds 2%"
+            STATUS=1
           fi
-          echo "outbound UDP/53 looks healthy on GitHub-hosted runners"
+
+          # The DoH tier is budgeted for 1-3% of traffic. Above 5% the local
+          # resolver is broken, and raising the DoH limiter would paper over it.
+          if awk "BEGIN { exit !(${LOCAL_SHARE} < 0.95) }"; then
+            echo "::error::local unbound answered only ${LOCAL_SHARE} of lookups; DoH is carrying the crawl"
+            echo "--- unbound service state ---"
+            sudo systemctl status unbound --no-pager || true
+            echo "--- unbound log ---"
+            sudo journalctl -u unbound --no-pager -n 60 || true
+            echo "--- fd limits seen by the unbound process ---"
+            pgrep -x unbound | head -1 | xargs -r -I{} sudo cat /proc/{}/limits || true
+            echo "--- can this runner reach an authoritative server directly? ---"
+            dig @198.41.0.4 . NS +short +time=5 +tries=1 || echo "  root server a.root-servers.net UNREACHABLE over UDP/53"
+            dig @1.1.1.1 google.com +short +time=5 +tries=1 || echo "  1.1.1.1 UNREACHABLE over UDP/53"
+            STATUS=1
+          fi
+
+          if [ "$STATUS" -eq 0 ]; then
+            echo "outbound UDP/53 is healthy and local recursion is carrying the crawl"
+          fi
+          exit "$STATUS"

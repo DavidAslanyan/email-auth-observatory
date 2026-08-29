@@ -6,7 +6,13 @@ import type { Aggregate, ChangeEvent, HistoryEntry, IndexedDomain, Manifest } fr
  * no CORS, no rate limits, and the deployed site is a versioned artifact rather
  * than a view onto a moving target.
  */
-const BASE = `${import.meta.env.BASE_URL}data`;
+/**
+ * BASE_URL is '/' in dev but '/mailscape' on Pages, and GitHub's
+ * configure-pages emits base_path WITHOUT a trailing slash — so naive
+ * concatenation produced '/mailscapedata/latest.json'. Normalise once here
+ * rather than depending on how the deploy formats it.
+ */
+const BASE = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/data`;
 
 export class DataError extends Error {
   constructor(

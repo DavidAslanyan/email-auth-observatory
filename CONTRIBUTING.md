@@ -82,7 +82,7 @@ DKIM under a selector we did not guess is expected behaviour, not a bug. See
 ```bash
 pnpm install
 pnpm -r build
-pnpm test          # 441 tests, no network
+pnpm test          # the full suite, no network
 pnpm test:network  # the live DNS specs, opt-in
 pnpm lint && pnpm typecheck
 ```

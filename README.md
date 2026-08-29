@@ -135,10 +135,12 @@ somebody finds one. [The methodology](docs/METHODOLOGY.md) goes further.
 Tranco list (pinned per quarter)
       |
       v
-crawler  --  local unbound recursion, raw UDP/53 queries
-      |      DoH fallback (Cloudflare, then Google) only on `unknown`
+crawler  --  DoH on GitHub Actions (Cloudflare, then Google)
+      |      raw UDP/53 through local unbound on a self-hosted runner
       v
 snapshots/latest/*.jsonl   sorted by domain, overwritten in place
+      |                    (run timestamp in a sidecar, so an unchanged
+      |                     crawl produces a byte-identical file)
       |
       v
 diff  --  emits change events; NEVER when a lookup failed

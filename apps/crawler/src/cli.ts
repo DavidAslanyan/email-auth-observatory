@@ -19,6 +19,12 @@ Usage:
   mailscape crawl --tier 2 --auto
       Crawl one long-tail shard. --auto selects it from the day of year.
 
+  mailscape aggregate
+      Roll every shard up into data/aggregates/.
+
+  mailscape report [--date YYYY-MM-DD]
+      Write the daily human-readable report.
+
 Exit codes:
   0  success, including a degraded run (flagged in the data, not a crash)
   1  hard failure: no list available, no writable data directory
@@ -54,6 +60,18 @@ async function main(): Promise<number> {
       await emitRunSummary(summary);
       // A degraded run still exits zero: the data is published with the flag
       // set, which is the point. Only hard failures are non-zero.
+      return 0;
+    }
+
+    case 'aggregate': {
+      const { aggregateCommand } = await import('./commands/aggregate.js');
+      await emitRunSummary(await aggregateCommand());
+      return 0;
+    }
+
+    case 'report': {
+      const { reportCommand } = await import('./commands/report.js');
+      await emitRunSummary(await reportCommand({ date: flagString(args, 'date') }));
       return 0;
     }
 

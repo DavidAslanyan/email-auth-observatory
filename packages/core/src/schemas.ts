@@ -23,7 +23,6 @@ const lookupMetaShape = {
   status: lookupStatusSchema,
   rcode: z.string(),
   resolver: resolverTierSchema,
-  elapsedMs: z.number().nonnegative(),
   ad: z.boolean(),
   stale: z.boolean().optional(),
   lastSeenAt: z.string().optional(),
@@ -119,6 +118,15 @@ export const domainSnapshotSchema = z.object({
   tlsRpt: tlsRptStateSchema,
   mx: mxStateSchema,
   dkim: dkimStateSchema,
+});
+
+/**
+ * A snapshot line as it is stored on disk. `crawledAt` lives in the shard's
+ * sidecar rather than on every record, so it is optional here and put back by
+ * readSnapshot.
+ */
+export const storedSnapshotSchema = domainSnapshotSchema.extend({
+  crawledAt: z.string().optional(),
 });
 
 export const changeValueSchema = z.union([z.string(), z.number(), z.boolean(), z.null()]);

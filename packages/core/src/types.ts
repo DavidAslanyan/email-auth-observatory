@@ -24,12 +24,22 @@ export type ResolverTier = 'local' | 'doh-cloudflare' | 'doh-google';
 
 export type DnssecState = 'signed' | 'unsigned' | 'unknown';
 
+/**
+ * What is persisted about a lookup.
+ *
+ * Note what is NOT here: per-lookup latency. It is real telemetry and it lives
+ * on the resolver's DnsAnswer and in the run summary's percentiles, but storing
+ * it per record would change every line of every snapshot on every crawl. That
+ * defeats git delta compression completely — measured at 949 of 1,000 lines
+ * rewritten for 51 real changes — and the dataset is the git history, so that
+ * cost compounds forever in exchange for a number nobody queries.
+ */
 export interface LookupMeta {
   status: LookupStatus;
   /** 'NOERROR' | 'NXDOMAIN' | 'SERVFAIL' | 'REFUSED' | 'TIMEOUT' | ... */
   rcode: string;
+  /** Which tier answered. Provenance: a DoH answer may come from a shared cache. */
   resolver: ResolverTier;
-  elapsedMs: number;
   /** DNSSEC Authenticated Data flag. */
   ad: boolean;
   /**
@@ -241,6 +251,8 @@ export interface RunSummary {
   unknownRate: number;
   degraded: boolean;
   byResolver: Record<ResolverTier, number>;
+  /** Lookup latency, aggregated. Per-record timing is deliberately not stored. */
+  latencyMs?: { median: number; p95: number } | undefined;
   changesEmitted: number;
   /**
    * Claimed disappearances a second lookup contradicted. Above zero means the

@@ -29,6 +29,15 @@ export interface ProbeInput {
   domain: string;
   rank: number;
   listId: string;
+  /**
+   * The crawl run's timestamp, shared by every domain in the run.
+   *
+   * Uniform rather than per-domain on purpose: a per-domain timestamp changes
+   * every line of the snapshot on every crawl, so git can no longer tell an
+   * unchanged domain from a changed one. Within a run that finishes in minutes
+   * the extra precision carries no information anyway.
+   */
+  crawledAt?: string | undefined;
 }
 
 /**
@@ -44,7 +53,7 @@ export interface ProbeInput {
  */
 export async function probeDomain(resolver: Resolver, input: ProbeInput): Promise<DomainSnapshot> {
   const { domain, rank, listId } = input;
-  const crawledAt = new Date().toISOString();
+  const crawledAt = input.crawledAt ?? new Date().toISOString();
 
   const mxAnswer = await resolver.query(domain, 'MX');
   const mx = toMxState(mxAnswer);
@@ -79,14 +88,12 @@ function meta(answer: DnsAnswer): {
   status: LookupStatus;
   rcode: string;
   resolver: DnsAnswer['resolver'];
-  elapsedMs: number;
   ad: boolean;
 } {
   return {
     status: answer.status,
     rcode: answer.rcode,
     resolver: answer.resolver,
-    elapsedMs: answer.elapsedMs,
     ad: answer.ad,
   };
 }

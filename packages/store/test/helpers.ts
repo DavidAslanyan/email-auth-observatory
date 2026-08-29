@@ -18,7 +18,6 @@ const meta = (status: LookupStatus = 'ok') => ({
   status,
   rcode: status === 'ok' ? 'NOERROR' : status === 'unknown' ? 'SERVFAIL' : 'NOERROR',
   resolver: 'local' as const,
-  elapsedMs: 12,
   ad: false,
 });
 

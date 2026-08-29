@@ -32,7 +32,6 @@ function snapshot(domain: string): DomainSnapshot {
     status: 'ok' as const,
     rcode: 'NOERROR',
     resolver: 'local' as const,
-    elapsedMs: 1,
     ad: false,
   };
   return {

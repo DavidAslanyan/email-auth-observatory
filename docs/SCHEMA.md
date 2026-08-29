@@ -17,7 +17,8 @@ data/
 │   └── rollovers.jsonl      one line per list rollover
 ├── snapshots/latest/
 │   ├── tier1.jsonl          ranks 1-1000, one DomainSnapshot per line
-│   └── tier2-shard-{0..6}.jsonl
+│   ├── tier1.meta.json      the run timestamp for that shard
+│   └── tier2-shard-{0..6}.jsonl  (+ matching .meta.json)
 ├── changes/
 │   └── YYYY-MM-DD.jsonl     one ChangeEvent per line
 └── aggregates/
@@ -29,6 +30,28 @@ Snapshot files are **sorted by domain** and overwritten in place. They are not
 versioned per-day: the git history is the time series, and `data/changes/` is
 the index into it.
 
+### Why `crawledAt` is in a sidecar
+
+Each shard has a `<shard>.meta.json` holding `{ shard, crawledAt, domains }`,
+and the individual records omit `crawledAt`.
+
+A shard is written by exactly one crawl, so the run timestamp describes the
+file, not each of its lines. Repeating it per record changed **every** line on
+every crawl — measured at 949 of 1,000 lines rewritten for 51 real changes —
+which defeats git's delta compression just as thoroughly as an unsorted file
+does, and the git history *is* the dataset, so that cost compounds forever.
+With the timestamp in the sidecar, two consecutive crawls of unchanged domains
+produce a byte-identical file.
+
+This is a storage encoding only. Readers get `crawledAt` back on every record,
+so anything consuming `DomainSnapshot` sees the shape documented below. If you
+are parsing the JSONL directly, take `crawledAt` from the sidecar. Records that
+were carried forward still carry their own `lastSeenAt`, which is the
+per-record timing that actually matters.
+
+Per-lookup latency is deliberately not stored for the same reason; it appears
+as median and p95 in each run's summary instead.
+
 ## Shared: `LookupMeta`
 
 Every record state embeds these fields.
@@ -38,7 +61,6 @@ Every record state embeds these fields.
 | `status` | `ok` \| `nodata` \| `nxdomain` \| `unknown` | See [the four-state rule](METHODOLOGY.md#the-four-state-rule). `unknown` means *we* failed. |
 | `rcode` | string | `NOERROR`, `NXDOMAIN`, `SERVFAIL`, `REFUSED`, `TIMEOUT`, `NETWORK_ERROR`, … |
 | `resolver` | `local` \| `doh-cloudflare` \| `doh-google` | Which tier answered. |
-| `elapsedMs` | number | Round-trip time for the lookup. |
 | `ad` | boolean | DNSSEC Authenticated Data flag. |
 | `stale` | boolean? | Present and `true` when this value was carried forward because the lookup returned `unknown`. |
 | `lastSeenAt` | string? | ISO 8601 timestamp of the last **successful** observation. Only present when `stale`. |
@@ -54,7 +76,7 @@ One per line in `data/snapshots/latest/*.jsonl`.
 | `domain` | string | Lowercased apex domain. |
 | `rank` | number | Tranco rank in the pinned list. |
 | `listId` | string | The pinned Tranco list ID this was crawled against. |
-| `crawledAt` | string | ISO 8601 UTC. |
+| `crawledAt` | string | ISO 8601 UTC. Stored once per shard in the sidecar, not on each line — see above. |
 | `dnssec` | `signed` \| `unsigned` \| `unknown` | `signed` if any response carried AD. `unknown` only when every lookup failed. |
 
 ### `spf`

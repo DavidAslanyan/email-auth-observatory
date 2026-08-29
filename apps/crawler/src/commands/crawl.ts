@@ -54,6 +54,8 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
   const name = shardName(options.tier, shard);
   const date = utcDate(startedAt);
 
+  // One timestamp for every domain in the run — see ProbeInput.crawledAt.
+  const crawledAt = startedAt.toISOString();
   const targets = await selectTargets(options, shard);
   logger.info({ shard: name, listId, domains: targets.length }, 'starting crawl');
 
@@ -86,7 +88,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     pending.map((target) =>
       limiter.schedule(async () => {
         try {
-          const snapshot = await probeDomain(resolver, { ...target, listId });
+          const snapshot = await probeDomain(resolver, { ...target, listId, crawledAt });
           snapshots.push(snapshot);
         } catch (error) {
           // A probe should never throw — but if it does, one domain must not
@@ -147,6 +149,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
             domain: snapshot.domain,
             rank: snapshot.rank,
             listId,
+            crawledAt,
           });
         } catch {
           // A failed confirmation is not evidence; keep the original result.
@@ -165,7 +168,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     events = confirmed.events;
     retracted = confirmed.retracted;
 
-    await writeSnapshot(name, confirmed.snapshots);
+    await writeSnapshot(name, confirmed.snapshots, crawledAt);
     for (const event of events) await appendJsonl(paths.changes(date), event);
     await clearCheckpoint(name);
   }
@@ -191,6 +194,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     unknownRate: stats.unknownRate,
     degraded,
     byResolver: stats.byResolver,
+    latencyMs: stats.latencyMs,
     changesEmitted: events.length,
     disappearancesRetracted: retracted,
   };

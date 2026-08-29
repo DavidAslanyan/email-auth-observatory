@@ -55,6 +55,8 @@ export const paths = {
 
   snapshotDir: (): string => rel('data', 'snapshots', 'latest'),
   snapshot: (shard: string): string => rel('data', 'snapshots', 'latest', `${shard}.jsonl`),
+  /** Holds the run timestamp for a shard, so records need not repeat it. */
+  snapshotMeta: (shard: string): string => rel('data', 'snapshots', 'latest', `${shard}.meta.json`),
 
   changesDir: (): string => rel('data', 'changes'),
   changes: (date: string): string => rel('data', 'changes', `${date}.jsonl`),

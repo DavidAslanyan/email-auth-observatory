@@ -22,6 +22,12 @@ export async function emitRunSummary(summary: RunSummary): Promise<void> {
     ['Changes', String(summary.changesEmitted)],
     ['Disappearances retracted', String(summary.disappearancesRetracted ?? 0)],
     ['Elapsed', `${(summary.elapsedMs / 1000).toFixed(1)}s`],
+    [
+      'Lookup latency',
+      summary.latencyMs === undefined
+        ? 'n/a'
+        : `${summary.latencyMs.median}ms median, ${summary.latencyMs.p95}ms p95`,
+    ],
     ['Resolver: local', String(summary.byResolver.local)],
     ['Resolver: Cloudflare DoH', String(summary.byResolver['doh-cloudflare'])],
     ['Resolver: Google DoH', String(summary.byResolver['doh-google'])],

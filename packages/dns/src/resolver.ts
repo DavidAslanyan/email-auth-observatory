@@ -40,6 +40,14 @@ export const DEFAULT_RESOLVER_CONFIG: ResolverConfig = {
   dohMinTimeMs: 20,
 };
 
+function percentiles(samples: readonly number[]): { median: number; p95: number } {
+  if (samples.length === 0) return { median: 0, p95: 0 };
+  const sorted = [...samples].sort((a, b) => a - b);
+  const at = (q: number): number =>
+    sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * q))] ?? 0;
+  return { median: at(0.5), p95: at(0.95) };
+}
+
 const EMPTY_STATUS_COUNTS = (): Record<LookupStatus, number> => ({
   ok: 0,
   nodata: 0,
@@ -71,6 +79,8 @@ export class Resolver {
   #byStatus = EMPTY_STATUS_COUNTS();
   #byResolver = EMPTY_RESOLVER_COUNTS();
   #byRcode: Record<string, number> = {};
+  /** Sampled so a 100k-domain crawl does not retain a million numbers. */
+  #latencies: number[] = [];
   /** Nameserver -> count of unknown results, for outage attribution. */
   #unknownByAuthority = new Map<string, number>();
 
@@ -142,6 +152,7 @@ export class Resolver {
     this.#byStatus[answer.status] += 1;
     this.#byResolver[answer.resolver] += 1;
     this.#byRcode[answer.rcode] = (this.#byRcode[answer.rcode] ?? 0) + 1;
+    if (this.#latencies.length < 20_000) this.#latencies.push(answer.elapsedMs);
 
     if (answer.status === 'unknown') {
       for (const ns of answer.authority) {
@@ -157,6 +168,7 @@ export class Resolver {
       byResolver: { ...this.#byResolver },
       byRcode: { ...this.#byRcode },
       unknownRate: this.#total === 0 ? 0 : this.#byStatus.unknown / this.#total,
+      latencyMs: percentiles(this.#latencies),
     };
   }
 
@@ -177,6 +189,7 @@ export class Resolver {
     this.#byStatus = EMPTY_STATUS_COUNTS();
     this.#byResolver = EMPTY_RESOLVER_COUNTS();
     this.#byRcode = {};
+    this.#latencies = [];
     this.#unknownByAuthority = new Map();
   }
 

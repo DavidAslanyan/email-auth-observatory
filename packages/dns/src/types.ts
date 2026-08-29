@@ -38,4 +38,6 @@ export interface ResolverStats {
   unknownRate: number;
   /** Rcode counts, for spotting an authoritative-server outage in the report. */
   byRcode: Record<string, number>;
+  /** Aggregated latency. Per-record timing is deliberately not persisted. */
+  latencyMs: { median: number; p95: number };
 }

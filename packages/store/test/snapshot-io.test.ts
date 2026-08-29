@@ -117,3 +117,84 @@ describe('loadSnapshotMap', () => {
     expect((await loadSnapshotMap('tier2-shard-6')).size).toBe(0);
   });
 });
+
+describe('snapshot encoding: the run timestamp lives in a sidecar', () => {
+  it('produces a byte-identical file when nothing changed', async () => {
+    // The property the whole encoding exists for. With a per-record timestamp
+    // this diff was 100% of lines on every crawl.
+    const domains = ['a.example', 'b.example', 'c.example'];
+    const first = domains.map((domain) =>
+      snapshot({ domain, crawledAt: '2026-08-29T06:00:00.000Z' }),
+    );
+    await writeSnapshot('tier1', first, '2026-08-29T06:00:00.000Z');
+    const afterFirst = await readFile(paths.snapshot('tier1'), 'utf8');
+
+    // Same data, a later crawl.
+    const second = domains.map((domain) =>
+      snapshot({ domain, crawledAt: '2026-08-29T12:00:00.000Z' }),
+    );
+    await writeSnapshot('tier1', second, '2026-08-29T12:00:00.000Z');
+    const afterSecond = await readFile(paths.snapshot('tier1'), 'utf8');
+
+    expect(afterSecond).toBe(afterFirst);
+  });
+
+  it('changes only the line whose data actually changed', async () => {
+    const base = ['a.example', 'b.example', 'c.example'].map((domain) => snapshot({ domain }));
+    await writeSnapshot('tier1', base, '2026-08-29T06:00:00.000Z');
+    const before = (await readFile(paths.snapshot('tier1'), 'utf8')).trim().split('\n');
+
+    const changed = base.map((s) =>
+      s.domain === 'b.example'
+        ? snapshot({ domain: 'b.example', dmarc: { present: true, p: 'reject' } })
+        : s,
+    );
+    await writeSnapshot('tier1', changed, '2026-08-29T12:00:00.000Z');
+    const after = (await readFile(paths.snapshot('tier1'), 'utf8')).trim().split('\n');
+
+    const differing = after.filter((line, i) => line !== before[i]);
+    expect(differing).toHaveLength(1);
+  });
+
+  it('omits crawledAt from the stored line', async () => {
+    await writeSnapshot('tier1', [snapshot({ domain: 'a.example' })], '2026-08-29T06:00:00.000Z');
+    const line = JSON.parse((await readFile(paths.snapshot('tier1'), 'utf8')).trim()) as Record<
+      string,
+      unknown
+    >;
+    expect('crawledAt' in line).toBe(false);
+  });
+
+  it('puts crawledAt back on every record when reading', async () => {
+    await writeSnapshot('tier1', [snapshot({ domain: 'a.example' })], '2026-08-29T06:00:00.000Z');
+    const read = [];
+    for await (const s of readSnapshot('tier1')) read.push(s);
+    expect(read[0]?.crawledAt).toBe('2026-08-29T06:00:00.000Z');
+  });
+
+  it('writes a sidecar naming the shard, timestamp and record count', async () => {
+    await writeSnapshot(
+      'tier2-shard-3',
+      [snapshot({ domain: 'a.example' })],
+      '2026-08-29T06:00:00.000Z',
+    );
+    const meta = JSON.parse(await readFile(paths.snapshotMeta('tier2-shard-3'), 'utf8')) as Record<
+      string,
+      unknown
+    >;
+    expect(meta).toEqual({
+      shard: 'tier2-shard-3',
+      crawledAt: '2026-08-29T06:00:00.000Z',
+      domains: 1,
+    });
+  });
+
+  it('still reads a shard whose sidecar is missing', async () => {
+    // Shards written before this encoding existed carry crawledAt per record.
+    const { writeJsonl } = await import('../src/jsonl.js');
+    await writeJsonl(paths.snapshot('tier1'), [snapshot({ domain: 'a.example' })]);
+    const read = [];
+    for await (const s of readSnapshot('tier1')) read.push(s);
+    expect(read[0]?.crawledAt).toBe('2026-08-29T00:00:00.000Z');
+  });
+});

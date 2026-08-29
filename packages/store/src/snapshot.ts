@@ -24,11 +24,23 @@ export function shardFor(domain: string, shards: number = TIER2_SHARDS): number 
   return Math.abs(h) % shards;
 }
 
-/** Tier 2 rotates one shard per day. */
-export function shardForDayOfYear(date: Date, shards: number = TIER2_SHARDS): number {
+/**
+ * Which long-tail shard to crawl now.
+ *
+ * Two shards are crawled per day in separate runs, so each run passes its slot
+ * and they advance together through the rotation. With 28 shards that is full
+ * coverage of the long tail every fortnight, delivered as two modest bursts a
+ * day rather than one sustained hour at full rate.
+ */
+export function shardForDayOfYear(
+  date: Date,
+  shards: number = TIER2_SHARDS,
+  slot = 0,
+  slotsPerDay = 1,
+): number {
   const start = Date.UTC(date.getUTCFullYear(), 0, 0);
   const dayOfYear = Math.floor((date.getTime() - start) / 86_400_000);
-  return dayOfYear % shards;
+  return (dayOfYear * slotsPerDay + slot) % shards;
 }
 
 export function isTier1(rank: number): boolean {
@@ -48,7 +60,58 @@ const shardMetaSchema = z.object({
   shard: z.string(),
   crawledAt: z.string(),
   domains: z.number().int().nonnegative(),
+  /** Run-uniform values hoisted out of every record. */
+  listId: z.string().optional(),
+  resolver: z.string().optional(),
 });
+
+/**
+ * Values that are identical on essentially every record in a run.
+ *
+ * Measured on a real 20.6 MB shard: `resolver` repeated six times per domain
+ * cost 2.37 MB, `rcode` a further 1.8 MB (it is always NOERROR when status is
+ * ok, which `status` already says), and `listId` 0.23 MB. That is a fifth of
+ * the file spent restating the same three facts 14,131 times. They are stored
+ * once in the sidecar and restored on read, so only a reader parsing the JSONL
+ * by hand sees the difference — which docs/SCHEMA.md documents.
+ */
+const RECORD_KEYS = ['spf', 'dmarc', 'bimi', 'mtaSts', 'tlsRpt', 'mx'] as const;
+
+function compact(snapshot: DomainSnapshot, listId: string, resolver: string): unknown {
+  const line: Record<string, unknown> = { ...snapshot };
+  delete line.crawledAt;
+  if (snapshot.listId === listId) delete line.listId;
+
+  for (const key of RECORD_KEYS) {
+    const record = { ...snapshot[key] } as Record<string, unknown>;
+    if (record.resolver === resolver) delete record.resolver;
+    // NOERROR is implied by status 'ok'; anything else is kept verbatim.
+    if (record.status === 'ok' && record.rcode === 'NOERROR') delete record.rcode;
+    if (record.ad === false) delete record.ad;
+    line[key] = record;
+  }
+  return line;
+}
+
+function expand(
+  stored: Record<string, unknown>,
+  crawledAt: string,
+  listId: string,
+  resolver: string,
+): DomainSnapshot {
+  const out: Record<string, unknown> = { ...stored };
+  out.crawledAt = stored.crawledAt ?? crawledAt;
+  out.listId = stored.listId ?? listId;
+
+  for (const key of RECORD_KEYS) {
+    const record = { ...(stored[key] as Record<string, unknown>) };
+    record.resolver ??= resolver;
+    record.ad ??= false;
+    record.rcode ??= record.status === 'ok' ? 'NOERROR' : 'UNKNOWN';
+    out[key] = record;
+  }
+  return out as unknown as DomainSnapshot;
+}
 
 /**
  * Writes a snapshot shard, sorted by domain, with the run timestamp held once
@@ -73,15 +136,20 @@ export async function writeSnapshot(
   const sorted = [...snapshots].sort((a, b) => a.domain.localeCompare(b.domain, 'en'));
   const stamp = crawledAt ?? sorted[0]?.crawledAt ?? new Date().toISOString();
 
-  const stripped = sorted.map((snapshot) => {
-    // The run timestamp goes in the sidecar, not on every line.
-    const line: Omit<DomainSnapshot, 'crawledAt'> & { crawledAt?: string } = { ...snapshot };
-    delete line.crawledAt;
-    return line;
-  });
+  const listId = sorted[0]?.listId ?? '';
+  const resolver = commonestResolver(sorted);
 
-  const count = await writeJsonl(paths.snapshot(shard), stripped);
-  await writeJson(paths.snapshotMeta(shard), { shard, crawledAt: stamp, domains: count });
+  const count = await writeJsonl(
+    paths.snapshot(shard),
+    sorted.map((snapshot) => compact(snapshot, listId, resolver)),
+  );
+  await writeJson(paths.snapshotMeta(shard), {
+    shard,
+    crawledAt: stamp,
+    domains: count,
+    listId,
+    resolver,
+  });
   return count;
 }
 
@@ -95,11 +163,35 @@ export async function* readSnapshot(
   shard: string,
   options: ReadOptions = {},
 ): AsyncGenerator<DomainSnapshot> {
-  const crawledAt = (await readSnapshotCrawledAt(shard)) ?? '1970-01-01T00:00:00.000Z';
+  const meta = await readJson(paths.snapshotMeta(shard), shardMetaSchema);
+  const crawledAt = meta?.crawledAt ?? '1970-01-01T00:00:00.000Z';
+  const listId = meta?.listId ?? '';
+  const resolver = meta?.resolver ?? 'local';
+
   for await (const stored of readJsonl(paths.snapshot(shard), storedSnapshotSchema, options)) {
-    // Put the run timestamp back, so the domain model is unchanged.
-    yield { ...stored, crawledAt: stored.crawledAt ?? crawledAt };
+    // Put the hoisted values back, so the domain model is unchanged.
+    yield expand(stored, crawledAt, listId, resolver);
   }
+}
+
+/** The resolver tier that answered most records, which becomes the default. */
+function commonestResolver(snapshots: readonly DomainSnapshot[]): string {
+  const counts = new Map<string, number>();
+  for (const s of snapshots) {
+    for (const key of RECORD_KEYS) {
+      const r = s[key].resolver;
+      counts.set(r, (counts.get(r) ?? 0) + 1);
+    }
+  }
+  let best = 'local';
+  let bestCount = -1;
+  for (const [r, c] of counts) {
+    if (c > bestCount) {
+      best = r;
+      bestCount = c;
+    }
+  }
+  return best;
 }
 
 /** Loads a shard keyed by domain, for diffing against a fresh crawl. */

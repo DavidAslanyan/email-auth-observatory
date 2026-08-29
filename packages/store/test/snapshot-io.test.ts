@@ -182,11 +182,14 @@ describe('snapshot encoding: the run timestamp lives in a sidecar', () => {
       string,
       unknown
     >;
-    expect(meta).toEqual({
+    expect(meta).toMatchObject({
       shard: 'tier2-shard-3',
       crawledAt: '2026-08-29T06:00:00.000Z',
       domains: 1,
     });
+    // The run-uniform values hoisted out of every record live here too.
+    expect(meta.listId).toBe('TESTLIST');
+    expect(meta.resolver).toBe('local');
   });
 
   it('still reads a shard whose sidecar is missing', async () => {
@@ -196,5 +199,66 @@ describe('snapshot encoding: the run timestamp lives in a sidecar', () => {
     const read = [];
     for await (const s of readSnapshot('tier1')) read.push(s);
     expect(read[0]?.crawledAt).toBe('2026-08-29T00:00:00.000Z');
+  });
+});
+
+describe('snapshot encoding: run-uniform values are hoisted', () => {
+  it('omits listId, resolver, rcode and ad from a healthy record', async () => {
+    await writeSnapshot('tier1', [snapshot({ domain: 'a.example' })], '2026-08-29T06:00:00.000Z');
+    const line = JSON.parse((await readFile(paths.snapshot('tier1'), 'utf8')).trim()) as {
+      listId?: string;
+      spf: Record<string, unknown>;
+    };
+    expect(line.listId).toBeUndefined();
+    expect('resolver' in line.spf).toBe(false);
+    expect('rcode' in line.spf).toBe(false);
+    expect('ad' in line.spf).toBe(false);
+  });
+
+  it('restores every hoisted value on read', async () => {
+    await writeSnapshot('tier1', [snapshot({ domain: 'a.example' })], '2026-08-29T06:00:00.000Z');
+    const read = [];
+    for await (const s of readSnapshot('tier1')) read.push(s);
+    const got = read[0];
+    expect(got?.listId).toBe('TESTLIST');
+    expect(got?.spf.resolver).toBe('local');
+    expect(got?.spf.rcode).toBe('NOERROR');
+    expect(got?.spf.ad).toBe(false);
+  });
+
+  it('keeps an rcode that carries information beyond the status', async () => {
+    // SERVFAIL is exactly what must survive: it is why the value is unknown.
+    await writeSnapshot(
+      'tier1',
+      [snapshot({ domain: 'a.example', dmarc: { status: 'unknown', rcode: 'SERVFAIL' } })],
+      '2026-08-29T06:00:00.000Z',
+    );
+    const raw = (await readFile(paths.snapshot('tier1'), 'utf8')).trim();
+    expect(raw).toContain('SERVFAIL');
+
+    const read = [];
+    for await (const s of readSnapshot('tier1')) read.push(s);
+    expect(read[0]?.dmarc.rcode).toBe('SERVFAIL');
+    expect(read[0]?.dmarc.status).toBe('unknown');
+  });
+
+  it('keeps a resolver that differs from the run default', async () => {
+    const odd = snapshot({ domain: 'a.example', mx: { resolver: 'doh-google' } });
+    const usual = snapshot({ domain: 'b.example' });
+    await writeSnapshot('tier1', [odd, usual], '2026-08-29T06:00:00.000Z');
+
+    const map = await loadSnapshotMap('tier1');
+    expect(map.get('a.example')?.mx.resolver).toBe('doh-google');
+    expect(map.get('b.example')?.mx.resolver).toBe('local');
+  });
+
+  it('keeps a true DNSSEC ad flag', async () => {
+    await writeSnapshot(
+      'tier1',
+      [snapshot({ domain: 'a.example', dmarc: { ad: true } })],
+      '2026-08-29T06:00:00.000Z',
+    );
+    const map = await loadSnapshotMap('tier1');
+    expect(map.get('a.example')?.dmarc.ad).toBe(true);
   });
 });

@@ -1,5 +1,6 @@
 import {
   DKIM_GENERIC_SELECTORS,
+  DKIM_REFRESH_DAYS,
   DKIM_SELECTORS_BY_PROVIDER,
   RECORD_PREFIXES,
   type BimiState,
@@ -38,6 +39,13 @@ export interface ProbeInput {
    * the extra precision carries no information anyway.
    */
   crawledAt?: string | undefined;
+  /**
+   * The previous observation, when there is one. Used only to decide whether
+   * the DKIM selectors still need probing — see probeDkim.
+   */
+  previous?: DomainSnapshot | undefined;
+  /** Days a DKIM probe stays good for. */
+  dkimRefreshDays?: number | undefined;
 }
 
 /**
@@ -66,7 +74,19 @@ export async function probeDomain(resolver: Resolver, input: ProbeInput): Promis
     resolver.query(`${RECORD_PREFIXES.tlsRpt}.${domain}`, 'TXT'),
   ]);
 
-  const dkim = await probeDkim(resolver, domain, mx.provider);
+  const spf = toSpfState(apex);
+  const dmarc = toDmarcState(dmarcAnswer);
+
+  const dkim = await probeDkim(resolver, domain, {
+    provider: mx.provider,
+    crawledAt,
+    previous: input.previous,
+    refreshDays: input.dkimRefreshDays ?? DKIM_REFRESH_DAYS,
+    // A domain with no MX, no SPF and no DMARC is not sending mail, so there is
+    // nothing for DKIM to sign. Measured on a real shard: 3,035 such domains
+    // cost 24,280 lookups and yielded 10 findings out of 5,571.
+    sendsMail: mx.present || spf.present || dmarc.present,
+  });
 
   return {
     domain,
@@ -74,8 +94,8 @@ export async function probeDomain(resolver: Resolver, input: ProbeInput): Promis
     listId,
     crawledAt,
     dnssec: toDnssec([mxAnswer, apex, dmarcAnswer, bimiAnswer, mtaStsAnswer, tlsRptAnswer]),
-    spf: toSpfState(apex),
-    dmarc: toDmarcState(dmarcAnswer),
+    spf,
+    dmarc,
     bimi: toBimiState(bimiAnswer),
     mtaSts: toMtaStsState(mtaStsAnswer),
     tlsRpt: toTlsRptState(tlsRptAnswer),
@@ -266,11 +286,51 @@ function toMxState(answer: DnsAnswer): MxState {
  * never "this domain has no DKIM" — which is why there is no hasDkim field
  * anywhere in this codebase.
  */
+interface DkimProbeContext {
+  provider: string | undefined;
+  crawledAt: string;
+  previous: DomainSnapshot | undefined;
+  refreshDays: number;
+  sendsMail: boolean;
+}
+
+/**
+ * DKIM selector probe.
+ *
+ * Selectors cannot be enumerated from DNS, only guessed, so whatever this finds
+ * is a LOWER BOUND. Finding none means "none of the selectors we tried", never
+ * "this domain has no DKIM" — which is why there is no hasDkim field anywhere
+ * in this codebase.
+ *
+ * Probing is skipped in two cases, both of which are about not spending the
+ * project's DNS budget re-learning what has not changed:
+ *
+ *  - The domain publishes no MX, no SPF and no DMARC, so it is not sending
+ *    mail and has nothing to sign.
+ *  - The selectors were probed recently and the mail provider has not changed.
+ *    A provider change is the event that would actually change the selectors,
+ *    so it forces a fresh probe regardless of the cadence.
+ */
 async function probeDkim(
   resolver: Resolver,
   domain: string,
-  provider: string | undefined,
+  context: DkimProbeContext,
 ): Promise<DkimState> {
+  const { provider, crawledAt, previous, refreshDays, sendsMail } = context;
+
+  if (!sendsMail) {
+    return {
+      status: 'ok',
+      selectorsFound: [],
+      selectorsProbed: [],
+      probeStrategy: 'skipped',
+      probedAt: crawledAt,
+    };
+  }
+
+  const cached = reusableDkim(previous, provider, crawledAt, refreshDays);
+  if (cached) return cached;
+
   const known = provider === undefined ? undefined : DKIM_SELECTORS_BY_PROVIDER[provider];
 
   // A provider with an empty selector list (SES generates per-identity
@@ -281,6 +341,7 @@ async function probeDkim(
       selectorsFound: [],
       selectorsProbed: [],
       probeStrategy: 'skipped',
+      probedAt: crawledAt,
     };
   }
 
@@ -303,5 +364,33 @@ async function probeDkim(
     selectorsFound: results.filter((r) => r.found).map((r) => r.selector),
     selectorsProbed: selectors,
     probeStrategy: strategy,
+    probedAt: crawledAt,
+  };
+}
+
+/** The previous DKIM result, when it is still good for this observation. */
+function reusableDkim(
+  previous: DomainSnapshot | undefined,
+  provider: string | undefined,
+  crawledAt: string,
+  refreshDays: number,
+): DkimState | undefined {
+  if (previous === undefined) return undefined;
+  // A provider change is exactly the event that changes a domain's selectors.
+  if (previous.mx.provider !== provider) return undefined;
+
+  const probedAt = previous.dkim.probedAt;
+  if (probedAt === undefined) return undefined;
+
+  const ageMs = Date.parse(crawledAt) - Date.parse(probedAt);
+  if (!Number.isFinite(ageMs) || ageMs < 0) return undefined;
+  if (ageMs > refreshDays * 86_400_000) return undefined;
+
+  return {
+    status: previous.dkim.status,
+    selectorsFound: previous.dkim.selectorsFound,
+    selectorsProbed: previous.dkim.selectorsProbed,
+    probeStrategy: 'cached',
+    probedAt,
   };
 }

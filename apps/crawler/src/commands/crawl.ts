@@ -31,6 +31,9 @@ export interface CrawlOptions {
   tier: 1 | 2;
   shard?: number | undefined;
   auto?: boolean | undefined;
+  /** Which of the day's tier-2 runs this is, when using --auto. */
+  slot?: number | undefined;
+  slotsPerDay?: number | undefined;
   limit?: number | undefined;
   dryRun?: boolean | undefined;
 }
@@ -71,6 +74,12 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     dohMinTimeMs: config.dohMinTimeMs,
   });
 
+  // Loaded before probing, not after: the DKIM cadence needs to know what was
+  // found last time, and the diff needs the same map afterwards.
+  const previous = await loadSnapshotMap(name, {
+    onInvalid: (_line, index, error) => { logger.warn({ shard: name, line: index, error }, 'skipping invalid snapshot line'); },
+  });
+
   // Resume a crawl the runner killed. GitHub runners have a hard six-hour
   // limit and are pre-empted; losing four hours of work is not acceptable.
   const resumed = await readCheckpoint(name, listId, date);
@@ -88,7 +97,13 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     pending.map((target) =>
       limiter.schedule(async () => {
         try {
-          const snapshot = await probeDomain(resolver, { ...target, listId, crawledAt });
+          const snapshot = await probeDomain(resolver, {
+            ...target,
+            listId,
+            crawledAt,
+            previous: previous.get(target.domain),
+            dkimRefreshDays: config.dkimRefreshDays,
+          });
           snapshots.push(snapshot);
         } catch (error) {
           // A probe should never throw — but if it does, one domain must not
@@ -150,6 +165,8 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
             rank: snapshot.rank,
             listId,
             crawledAt,
+            previous: previous.get(snapshot.domain),
+            dkimRefreshDays: config.dkimRefreshDays,
           });
         } catch {
           // A failed confirmation is not evidence; keep the original result.
@@ -202,7 +219,9 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
 
 function resolveShard(options: CrawlOptions, at: Date): number {
   if (options.tier === 1) return 0;
-  if (options.auto === true) return shardForDayOfYear(at, TIER2_SHARDS);
+  if (options.auto === true) {
+    return shardForDayOfYear(at, TIER2_SHARDS, options.slot ?? 0, options.slotsPerDay ?? 1);
+  }
   return options.shard ?? 0;
 }
 

@@ -105,14 +105,39 @@ practice and is not flagged here. Recursive counting is a v2 feature.
 
 ### The long tail is observed weekly, not daily
 
-- **Tier 1** (ranks 1–1,000) is crawled every 6 hours.
-- **Tier 2** (ranks 1,001–100,000) is split into 7 shards by an FNV-1a hash of
-  the domain name, and one shard is crawled per day.
+- **Tier 1** (ranks 1–1,000) is crawled twice a day.
+- **Tier 2** (ranks 1,001–100,000) is split into 28 shards by an FNV-1a hash of
+  the domain name, and two shards are crawled per day.
 
-So a change to a rank-50,000 domain is detected within 7 days, not within 24
-hours, and its change event is dated when it was *observed*, not when it
-happened. Shards hash the domain rather than the rank so that a domain stays in
-the same shard across list rollovers.
+So a change to a rank-50,000 domain is detected within about a fortnight, not
+within 24 hours, and its change event is dated when it was *observed*, not when
+it happened. Shards hash the domain rather than the rank so that a domain stays
+in the same shard across list rollovers.
+
+These cadences are deliberately modest. Crawling on GitHub Actions means
+resolving over a free public DoH endpoint (see below), and the honest constraint
+is that this project is a guest there. Smaller, more frequent shards also spread
+the load: the same coverage arrives as several short bursts a day rather than
+one sustained hour at full rate.
+
+### DKIM is probed on a slower cadence than everything else
+
+DKIM selector probing was measured at **57% of every DNS query the crawl made** —
+more than SPF, DMARC, BIMI, MTA-STS, TLS-RPT and MX combined. It is also the one
+field that is a lower bound by definition, and selectors rotate on the order of
+months while DMARC policy changes weekly.
+
+So selectors are re-probed every 60 days, when a domain is first seen, or when
+its mail provider changes — the event that would actually change them. In
+between, the previous result is carried forward and marked `probeStrategy:
+"cached"`, with `probedAt` recording when it was really queried.
+
+Probing is skipped entirely for domains publishing no MX, no SPF and no DMARC:
+they are not sending mail, so there is nothing to sign. Measured on a real
+shard, those 3,035 domains cost 24,280 lookups and yielded DKIM on 10 of them.
+
+Together these took a warm long-tail observation from 11.3 lookups per domain to
+6.0 — the six that are actually the subject of this dataset.
 
 ### `unknown` carry-forward means some values are remembered, not observed
 

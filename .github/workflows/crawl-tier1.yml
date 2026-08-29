@@ -2,7 +2,10 @@ name: Crawl tier 1
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    # Twice a day, not four times. The top 1,000 do not change hourly, and this
+    # halves the query volume against a free public resolver.
+    - cron: '5 1 * * *'
+    - cron: '5 13 * * *'
   workflow_dispatch:
 
 permissions:

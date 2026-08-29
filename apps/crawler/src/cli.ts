@@ -16,8 +16,9 @@ Usage:
       Crawl the top 1000 domains.
 
   mailscape crawl --tier 2 --shard <0-6> [--limit <n>] [--dry-run]
-  mailscape crawl --tier 2 --auto
-      Crawl one long-tail shard. --auto selects it from the day of year.
+  mailscape crawl --tier 2 --auto [--slot <n> --slots-per-day <n>]
+      Crawl one long-tail shard. --auto selects it from the day of year;
+      --slot distinguishes the day's several runs so they advance together.
 
   mailscape aggregate
       Roll every shard up into data/aggregates/.
@@ -54,6 +55,8 @@ async function main(): Promise<number> {
         tier,
         shard: flagNumber(args, 'shard'),
         auto: flagBoolean(args, 'auto'),
+        slot: flagNumber(args, 'slot'),
+        slotsPerDay: flagNumber(args, 'slots-per-day'),
         limit: flagNumber(args, 'limit'),
         dryRun: flagBoolean(args, 'dry-run'),
       });

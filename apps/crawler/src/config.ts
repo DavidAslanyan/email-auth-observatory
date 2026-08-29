@@ -1,4 +1,4 @@
-import { TIMEOUTS, UNKNOWN_RATE_DEGRADED_THRESHOLD } from '@mailscape/core';
+import { DKIM_REFRESH_DAYS, TIMEOUTS, UNKNOWN_RATE_DEGRADED_THRESHOLD } from '@mailscape/core';
 
 /**
  * Every tunable in the project, in one place, each overridable by environment
@@ -21,6 +21,7 @@ export interface Config {
   policyFetchTimeoutMs: number;
   policyFetchConcurrency: number;
   checkpointEvery: number;
+  dkimRefreshDays: number;
   unknownRateDegradedThreshold: number;
   trancoApiBase: string;
   userAgent: string;
@@ -68,6 +69,7 @@ export function loadConfig(): Config {
     policyFetchTimeoutMs: num('MAILSCAPE_POLICY_TIMEOUT_MS', TIMEOUTS.policyFetchMs),
     policyFetchConcurrency: num('MAILSCAPE_POLICY_CONCURRENCY', 8),
     checkpointEvery: num('MAILSCAPE_CHECKPOINT_EVERY', 500),
+    dkimRefreshDays: num('MAILSCAPE_DKIM_REFRESH_DAYS', DKIM_REFRESH_DAYS),
     unknownRateDegradedThreshold: num(
       'MAILSCAPE_UNKNOWN_THRESHOLD',
       UNKNOWN_RATE_DEGRADED_THRESHOLD,

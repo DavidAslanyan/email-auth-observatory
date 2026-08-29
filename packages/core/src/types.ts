@@ -148,7 +148,13 @@ export interface MxState extends LookupMeta {
   isNullMx: boolean;
 }
 
-export type DkimProbeStrategy = 'mx-conditional' | 'generic-fallback' | 'skipped';
+export type DkimProbeStrategy =
+  | 'mx-conditional'
+  | 'generic-fallback'
+  /** No mail infrastructure at all, so there is nothing to sign. */
+  | 'skipped'
+  /** Carried forward: selectors were probed recently and rarely change. */
+  | 'cached';
 
 export interface DkimState {
   status: LookupStatus;
@@ -160,6 +166,13 @@ export interface DkimState {
   selectorsFound: string[];
   selectorsProbed: string[];
   probeStrategy: DkimProbeStrategy;
+  /**
+   * When the selectors were last actually queried, as opposed to carried
+   * forward. DKIM keys rotate on the order of months while SPF and DMARC change
+   * weekly, so re-probing every selector on every crawl spends most of the
+   * project's DNS budget re-learning something that did not change.
+   */
+  probedAt?: string | undefined;
 }
 
 export interface DomainSnapshot {

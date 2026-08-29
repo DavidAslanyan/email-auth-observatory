@@ -17,8 +17,8 @@ data/
 │   └── rollovers.jsonl      one line per list rollover
 ├── snapshots/latest/
 │   ├── tier1.jsonl          ranks 1-1000, one DomainSnapshot per line
-│   ├── tier1.meta.json      the run timestamp for that shard
-│   └── tier2-shard-{0..6}.jsonl  (+ matching .meta.json)
+│   ├── tier1.meta.json      run timestamp, list id, resolver for that shard
+│   └── tier2-shard-{0..27}.jsonl  (+ matching .meta.json)
 ├── changes/
 │   └── YYYY-MM-DD.jsonl     one ChangeEvent per line
 └── aggregates/
@@ -30,10 +30,11 @@ Snapshot files are **sorted by domain** and overwritten in place. They are not
 versioned per-day: the git history is the time series, and `data/changes/` is
 the index into it.
 
-### Why `crawledAt` is in a sidecar
+### Why some fields are in a sidecar
 
-Each shard has a `<shard>.meta.json` holding `{ shard, crawledAt, domains }`,
-and the individual records omit `crawledAt`.
+Each shard has a `<shard>.meta.json` holding
+`{ shard, crawledAt, domains, listId, resolver }`, and the records omit what it
+already says.
 
 A shard is written by exactly one crawl, so the run timestamp describes the
 file, not each of its lines. Repeating it per record changed **every** line on
@@ -43,11 +44,25 @@ does, and the git history *is* the dataset, so that cost compounds forever.
 With the timestamp in the sidecar, two consecutive crawls of unchanged domains
 produce a byte-identical file.
 
-This is a storage encoding only. Readers get `crawledAt` back on every record,
-so anything consuming `DomainSnapshot` sees the shape documented below. If you
-are parsing the JSONL directly, take `crawledAt` from the sidecar. Records that
-were carried forward still carry their own `lastSeenAt`, which is the
-per-record timing that actually matters.
+The same argument applies to values that are identical on essentially every
+record. Measured on a real 20.6 MB shard, `resolver` repeated six times per
+domain cost 2.37 MB, `rcode` a further 1.8 MB, and `listId` 0.23 MB — a fifth of
+the file restating three facts 14,131 times. So:
+
+- `listId` and `resolver` live in the sidecar; a record carries them only when
+  it differs from the run (a lookup that fell through to another resolver tier).
+- `rcode` is omitted when `status` is `ok`, because it is `NOERROR` by
+  definition then. **Any other rcode is always stored** — `SERVFAIL` is
+  precisely the thing that must survive, since it is *why* a value is unknown.
+- `ad` is omitted when false.
+
+Together this is 21% off every shard, and off every future diff.
+
+This is a storage encoding only. Readers get all of it back on every record, so
+anything consuming `DomainSnapshot` sees the shape documented below. If you are
+parsing the JSONL directly, read the sidecar first. Records that were carried
+forward still carry their own `lastSeenAt`, which is the per-record timing that
+actually matters.
 
 Per-lookup latency is deliberately not stored for the same reason; it appears
 as median and p95 in each run's summary instead.
@@ -162,7 +177,8 @@ writes `pct=100` would be invisible.
 | `status` | LookupStatus | `unknown` only when every selector probe failed. |
 | `selectorsFound` | string[] | Selectors that answered. **A lower bound, always.** |
 | `selectorsProbed` | string[] | Which selectors were tried. |
-| `probeStrategy` | `mx-conditional` \| `generic-fallback` \| `skipped` | `mx-conditional` used the provider's known selectors; `skipped` means the provider generates per-identity selectors that cannot be guessed. |
+| `probeStrategy` | `mx-conditional` \| `generic-fallback` \| `skipped` \| `cached` | `mx-conditional` used the provider's known selectors. `skipped` means either the provider generates per-identity selectors that cannot be guessed, or the domain publishes no MX, SPF or DMARC and so sends no mail. `cached` means the selectors were carried forward — see `probedAt`. |
+| `probedAt` | string? | When the selectors were last actually queried. DKIM probing was 57% of every query the crawl made, and selectors rotate on the order of months, so they are re-probed every 60 days, on first sighting, or when the mail provider changes — the event that would actually change them. |
 
 There is deliberately **no `hasDkim` field.** See
 [limitations](METHODOLOGY.md#dkim-findings-are-a-lower-bound-always).

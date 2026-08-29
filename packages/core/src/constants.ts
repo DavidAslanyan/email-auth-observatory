@@ -91,11 +91,30 @@ export const DKIM_GENERIC_SELECTORS = [
  */
 export const UNKNOWN_RATE_DEGRADED_THRESHOLD = 0.02;
 
-/** Ranks 1..TIER1_MAX_RANK are crawled every six hours. */
+/**
+ * How long a DKIM selector probe stays good for.
+ *
+ * Measured on a real long-tail shard: DKIM probes were 57% of every query the
+ * crawl made. Selectors are a lower bound by definition and rotate on the order
+ * of months, so re-deriving them on every observation buys almost nothing and
+ * costs more than half the DNS budget. They are re-probed on this cadence, when
+ * a domain is first seen, or when its mail provider changes — which is the event
+ * that would actually change its selectors.
+ */
+export const DKIM_REFRESH_DAYS = 60;
+
+/** Ranks 1..TIER1_MAX_RANK are crawled every twelve hours. */
+
 export const TIER1_MAX_RANK = 1000;
 /** Ranks TIER1_MAX_RANK+1..TIER2_MAX_RANK are split across TIER2_SHARDS. */
 export const TIER2_MAX_RANK = 100_000;
-export const TIER2_SHARDS = 7;
+/**
+ * The long tail is split across this many shards, two of which are crawled per
+ * day — so every long-tail domain is observed roughly fortnightly. Smaller,
+ * more frequent shards also spread the load: the same coverage arrives as
+ * several gentle bursts rather than one sustained hour at full rate.
+ */
+export const TIER2_SHARDS = 28;
 
 /** RFC 7208 section 4.6.4. */
 export const SPF_MAX_DNS_LOOKUPS = 10;

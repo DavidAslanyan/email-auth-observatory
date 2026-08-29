@@ -104,10 +104,16 @@ somebody finds one. [The methodology](docs/METHODOLOGY.md) goes further.
   lookup-requiring terms in the record itself. We do not expand nested
   `include:` chains, which is where records actually breach the RFC 7208 limit
   of ten. `exceedsLookupLimit` therefore under-reports.
-- **The long tail is observed weekly, not daily.** The top 1,000 are crawled
-  every six hours; ranks 1,001–100,000 are split across seven shards, one per
-  day. A change to a rank-50,000 domain is detected within seven days, and its
-  event is dated when it was *observed*, not when it happened.
+- **The long tail is observed fortnightly, not daily.** The top 1,000 are
+  crawled twice a day; ranks 1,001–100,000 are split across 28 shards, two per
+  day. A change to a rank-50,000 domain is detected within about two weeks, and
+  its event is dated when it was *observed*, not when it happened. The cadence
+  is deliberately modest because crawls resolve over a free public endpoint and
+  this project is a guest there.
+- **DKIM selectors are probed every 60 days, not every crawl.** They were 57% of
+  all queries, they are a lower bound by definition, and they rotate on the
+  order of months. In between, the previous result is carried forward and marked
+  `cached`. A provider change forces a fresh probe.
 - **Some values are remembered, not observed.** When a lookup fails we record
   `unknown`, carry the previous value forward and mark it `stale: true` with the
   timestamp of the last successful observation. A failure never produces a change

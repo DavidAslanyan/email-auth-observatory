@@ -16,7 +16,12 @@ export const dmarcPolicySchema = z.enum(['none', 'quarantine', 'reject']);
 export const dmarcAlignmentSchema = z.enum(['r', 's']);
 export const spfQualifierSchema = z.enum(['+', '-', '~', '?']);
 export const mtaStsModeSchema = z.enum(['enforce', 'testing', 'none']);
-export const dkimProbeStrategySchema = z.enum(['mx-conditional', 'generic-fallback', 'skipped']);
+export const dkimProbeStrategySchema = z.enum([
+  'mx-conditional',
+  'generic-fallback',
+  'skipped',
+  'cached',
+]);
 export const changeKindSchema = z.enum(['added', 'removed', 'modified', 'first_seen']);
 
 const lookupMetaShape = {
@@ -103,6 +108,7 @@ export const dkimStateSchema = z.object({
   selectorsFound: z.array(z.string()),
   selectorsProbed: z.array(z.string()),
   probeStrategy: dkimProbeStrategySchema,
+  probedAt: z.string().optional(),
 });
 
 export const domainSnapshotSchema = z.object({
@@ -125,8 +131,36 @@ export const domainSnapshotSchema = z.object({
  * sidecar rather than on every record, so it is optional here and put back by
  * readSnapshot.
  */
+/**
+ * A snapshot line as it is stored on disk.
+ *
+ * Values that are identical across a whole run — the crawl timestamp, the list
+ * id, the resolver tier — are held once in the shard's sidecar instead of on
+ * every record, and `rcode`/`ad` are omitted when they carry no information
+ * beyond `status`. They are all optional here and restored by readSnapshot, so
+ * the domain model is unchanged.
+ */
+const storedMetaShape = {
+  status: lookupStatusSchema,
+  rcode: z.string().optional(),
+  resolver: resolverTierSchema.optional(),
+  ad: z.boolean().optional(),
+  stale: z.boolean().optional(),
+  lastSeenAt: z.string().optional(),
+};
+
+const relax = <T extends z.ZodRawShape>(schema: z.ZodObject<T>) =>
+  schema.omit({ rcode: true, resolver: true, ad: true } as never).extend(storedMetaShape);
+
 export const storedSnapshotSchema = domainSnapshotSchema.extend({
   crawledAt: z.string().optional(),
+  listId: z.string().optional(),
+  spf: relax(spfStateSchema),
+  dmarc: relax(dmarcStateSchema),
+  bimi: relax(bimiStateSchema),
+  mtaSts: relax(mtaStsStateSchema),
+  tlsRpt: relax(tlsRptStateSchema),
+  mx: relax(mxStateSchema),
 });
 
 export const changeValueSchema = z.union([z.string(), z.number(), z.boolean(), z.null()]);

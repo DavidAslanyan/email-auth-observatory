@@ -18670,3 +18670,6 @@
 {"domain":"myartsonline.com","rank":99825,"field":"domain","kind":"first_seen","from":null,"to":"myartsonline.com","ts":"2026-08-29T14:31:13.339Z"}
 {"domain":"shenzhenair.com","rank":99219,"field":"domain","kind":"first_seen","from":null,"to":"shenzhenair.com","ts":"2026-08-29T14:31:13.339Z"}
 {"domain":"irimc.org","rank":99694,"field":"domain","kind":"first_seen","from":null,"to":"irimc.org","ts":"2026-08-29T14:31:13.339Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-08-29T14:49:02.617Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-08-29T14:49:02.617Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-08-29T14:49:02.617Z"}

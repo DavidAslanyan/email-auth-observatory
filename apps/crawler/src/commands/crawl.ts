@@ -77,7 +77,9 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
   // Loaded before probing, not after: the DKIM cadence needs to know what was
   // found last time, and the diff needs the same map afterwards.
   const previous = await loadSnapshotMap(name, {
-    onInvalid: (_line, index, error) => { logger.warn({ shard: name, line: index, error }, 'skipping invalid snapshot line'); },
+    onInvalid: (_line, index, error) => {
+      logger.warn({ shard: name, line: index, error }, 'skipping invalid snapshot line');
+    },
   });
 
   // Resume a crawl the runner killed. GitHub runners have a hard six-hour

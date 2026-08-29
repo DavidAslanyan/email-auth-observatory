@@ -44,7 +44,8 @@ export interface IndexedDomain {
   domain: string;
   rank: number;
   dnssec: string;
-  crawledAt: string;
+  /** Optional: a deploy staged from an older snapshot may not carry it. */
+  crawledAt?: string;
   spf: { present: boolean; allQualifier: string | null; stale: boolean };
   dmarc: {
     present: boolean;

@@ -8,9 +8,13 @@
  * rather than a view onto a moving target. apps/web/public/data is gitignored
  * because it is derived.
  */
-import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+// Read through the store, never by parsing the JSONL directly. Snapshot records
+// omit values that are held once per shard in a sidecar, and only readSnapshot
+// puts them back — parsing the file by hand silently loses them.
+import { readSnapshot } from '@mailscape/store';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const OUT = join(ROOT, 'apps/web/public/data');
@@ -45,13 +49,9 @@ for (const name of reports) {
 // A pre-built index of tier 1 domains, so the lookup page needs no server. The
 // long tail is deliberately excluded: shipping 100,000 snapshots to the browser
 // would be a multi-megabyte download for a feature few visitors use.
-const snapshotPath = join(ROOT, 'data/snapshots/latest/tier1.jsonl');
 const index = [];
-if (existsSync(snapshotPath)) {
-  const raw = await readFile(snapshotPath, 'utf8');
-  for (const line of raw.split('\n')) {
-    if (line.trim() === '') continue;
-    const s = JSON.parse(line);
+{
+  for await (const s of readSnapshot('tier1')) {
     index.push({
       domain: s.domain,
       rank: s.rank,

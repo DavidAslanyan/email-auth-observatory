@@ -87,7 +87,7 @@ function DomainCard({ domain: d }: { domain: IndexedDomain }): React.JSX.Element
           style={{ marginLeft: 'auto', fontSize: '0.75rem', color: 'var(--ink-muted)' }}
           className="record"
         >
-          observed {d.crawledAt.slice(0, 10)}
+          {d.crawledAt === undefined ? 'not yet observed' : `observed ${d.crawledAt.slice(0, 10)}`}
         </span>
       </header>
 

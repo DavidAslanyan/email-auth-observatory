@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@mailscape/store':
+        specifier: workspace:*
+        version: link:packages/store
     devDependencies:
       '@eslint/js':
         specifier: ^9.17.0

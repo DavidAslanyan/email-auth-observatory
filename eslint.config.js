@@ -29,7 +29,7 @@ export default tseslint.config(
           // Root-level tooling config only. Test directories carry their own
           // tsconfig.json (non-composite, noEmit) so tests are type-aware
           // linted and type-checked without being emitted into dist.
-          allowDefaultProject: ['*.ts', '*.js'],
+          allowDefaultProject: ['*.ts', '*.js', 'scripts/*.d.mts'],
         },
         tsconfigRootDir: import.meta.dirname,
       },

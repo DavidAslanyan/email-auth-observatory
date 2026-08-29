@@ -318,6 +318,9 @@ async function probeDkim(
 ): Promise<DkimState> {
   const { provider, crawledAt, previous, refreshDays, sendsMail } = context;
 
+  const cached = reusableDkim(previous, provider, crawledAt, refreshDays, sendsMail);
+  if (cached) return cached;
+
   if (!sendsMail) {
     return {
       status: 'ok',
@@ -327,9 +330,6 @@ async function probeDkim(
       probedAt: crawledAt,
     };
   }
-
-  const cached = reusableDkim(previous, provider, crawledAt, refreshDays);
-  if (cached) return cached;
 
   const known = provider === undefined ? undefined : DKIM_SELECTORS_BY_PROVIDER[provider];
 
@@ -374,10 +374,16 @@ function reusableDkim(
   provider: string | undefined,
   crawledAt: string,
   refreshDays: number,
+  sendsMail: boolean,
 ): DkimState | undefined {
   if (previous === undefined) return undefined;
   // A provider change is exactly the event that changes a domain's selectors.
   if (previous.mx.provider !== provider) return undefined;
+
+  // A domain that has started (or stopped) sending mail needs a fresh answer,
+  // even though its provider did not change.
+  const previouslySentMail = previous.mx.present || previous.spf.present || previous.dmarc.present;
+  if (previouslySentMail !== sendsMail) return undefined;
 
   const probedAt = previous.dkim.probedAt;
   if (probedAt === undefined) return undefined;
@@ -390,7 +396,9 @@ function reusableDkim(
     status: previous.dkim.status,
     selectorsFound: previous.dkim.selectorsFound,
     selectorsProbed: previous.dkim.selectorsProbed,
-    probeStrategy: 'cached',
+    // A carried-forward skip stays a skip: re-stamping probedAt every crawl
+    // would change the line on every run and defeat the stable-file encoding.
+    probeStrategy: previous.dkim.probeStrategy === 'skipped' ? 'skipped' : 'cached',
     probedAt,
   };
 }

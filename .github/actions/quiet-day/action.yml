@@ -1,0 +1,35 @@
+name: Check the run schedule
+description: >
+  Decides whether the pipeline runs today. Roughly one day a week the data jobs
+  stand down: the long tail is on a fortnightly rotation and the top 1,000 move
+  slowly, so a rest day costs no meaningful coverage and takes another slice off
+  the query volume sent to a free public resolver. The choice is deterministic
+  from the ISO week, so any run can be explained after the fact.
+
+outputs:
+  quiet:
+    description: '"true" when today is a scheduled rest day.'
+    value: ${{ steps.check.outputs.quiet }}
+
+runs:
+  using: composite
+  steps:
+    - id: check
+      shell: bash
+      run: |
+        set -euo pipefail
+        # A manual run always proceeds; the schedule governs cron only.
+        if [ "${{ github.event_name }}" != "schedule" ]; then
+          echo "quiet=false" >> "$GITHUB_OUTPUT"
+          echo "manual run: proceeding regardless of the schedule"
+          exit 0
+        fi
+
+        STATE=$(node scripts/quiet-day.mjs)
+        if [ "$STATE" = "quiet" ]; then
+          echo "quiet=true" >> "$GITHUB_OUTPUT"
+          echo "today is a scheduled rest day; standing down"
+        else
+          echo "quiet=false" >> "$GITHUB_OUTPUT"
+          echo "today is an active day"
+        fi

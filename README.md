@@ -1,4 +1,8 @@
 <div align="center">
+  <img width="720" height="400" alt="image" src="https://github.com/user-attachments/assets/328e29d7-8e19-4a47-8d4b-693efd87a3fa" />
+</div>
+
+<div align="center">
 
 # Email Auth Observatory
 

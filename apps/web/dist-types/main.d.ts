@@ -1,1 +1,1 @@
-export {};
+import './styles/app.css';

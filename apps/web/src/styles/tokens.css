@@ -1,0 +1,162 @@
+/*
+ * mailscape design tokens
+ * =======================
+ *
+ * BRIEF. Internet infrastructure measurement, for people who read `dig` output
+ * for a living. Density and precision, not marketing. The page has one job:
+ * make a trend legible at a glance and an individual record inspectable in one
+ * click.
+ *
+ * CONCEPT: an instrument readout. Panels of measurement on a cool near-white
+ * plane — the register of a spectrum analyser or a seismograph, not a terminal
+ * and not a newspaper. This deliberately avoids all three anti-defaults: there
+ * is no cream ground, no serif display face and no terracotta; there is no
+ * near-black ground with an acid-green accent (the lazy "terminal" answer,
+ * which the subject matter makes the likeliest default and which is rejected
+ * specifically); and there are no hairline-ruled newspaper columns.
+ *
+ * COLOUR. Colour encodes one thing only: enforcement strength. That variable is
+ * ORDINAL (none -> quarantine -> reject; ?all -> ~all -> -all; none -> testing
+ * -> enforce), so it gets a single-hue ramp running light to dark, not a set of
+ * unrelated hues. Absence is NOT the weakest step of that ramp — a domain with
+ * no DMARC record has not made a weak choice, it has made no choice — so it
+ * sits off the ramp in neutral grey. Direction of travel (strengthening vs
+ * weakening) uses the reserved status pair and always ships with a glyph and a
+ * word, never colour alone.
+ *
+ * Every ramp below was checked with the palette validator rather than by eye,
+ * against these exact surfaces. Light-mode aqua sits at 2.74:1, below the 3:1
+ * bar, so the provider chart carries direct labels and a table view — the
+ * documented relief for that warning.
+ *
+ * TYPE. Three roles. System sans for headings and prose. System sans for UI.
+ * Monospace ONLY where the content genuinely is a record — a domain name, a
+ * policy token, a raw TXT string. Using it anywhere else would be costume.
+ *
+ * SIGNATURE ELEMENT: the posture ribbon (see .ribbon). One continuous
+ * full-width band showing the whole population's enforcement distribution,
+ * ordered strongest to weakest. It is the largest thing on the page and the
+ * only element allowed to be loud.
+ *
+ * THE RISK, AND WHY IT PAYS: making a stacked bar the hero is a risk, because a
+ * stacked bar is normally a supporting chart and a dashboard normally leads
+ * with a big number. It earns the place here because this audience's first
+ * question is always "what share is at reject?", which a ribbon answers
+ * pre-attentively while ALSO showing the shape of the remainder — something a
+ * hero number cannot do at any size. The same grammar then shrinks to an 8px
+ * row inside the provider table, so one visual idea does the work twice.
+ */
+
+:root {
+  color-scheme: light;
+
+  --plane: #f4f6f8;
+  --surface: #fbfcfd;
+  --surface-sunken: #eef1f5;
+
+  --ink: #0b0b0b;
+  --ink-secondary: #52514e;
+  --ink-muted: #6f6e69;
+
+  --rule: #dfe4ea;
+  --ring: rgba(11, 11, 11, 0.1);
+
+  /* Enforcement ramp: one hue, light to dark. Strong = more contrast. */
+  --enforce-strong: #1c5cab;
+  --enforce-mid: #3987e5;
+  --enforce-weak: #86b6ef;
+  /* Absence is off-ramp on purpose: no record is not a weak record. */
+  --absent: #dcdfe3;
+
+  /* Ink for text sitting ON each ramp step. These must flip with the ramp:
+     in dark mode "strong" is the LIGHTEST step, so white-on-strong would be
+     unreadable. */
+  --on-strong: #ffffff;
+  --on-mid: #0b0b0b;
+  --on-weak: #0b0b0b;
+  --on-absent: #52514e;
+
+  /* Reserved status. Never reused as a series colour; always with a glyph. */
+  --good: #0ca30c;
+  --good-ink: #006300;
+  --critical: #d03b3b;
+  --warning: #fab219;
+
+  /* Categorical, for providers. Capped at three; the rest fold to Other. */
+  --cat-1: #2a78d6;
+  --cat-2: #eb6834;
+  --cat-3: #1baf7a;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --gap: 1.5rem;
+  --measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --plane: #0d1013;
+    --surface: #14181c;
+    --surface-sunken: #1b2026;
+
+    --ink: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #898781;
+
+    --rule: #262c33;
+    --ring: rgba(255, 255, 255, 0.1);
+
+    /* Re-stepped for the dark surface, not flipped: strength still reads as
+       more contrast against the ground, so the ramp inverts in lightness. */
+    --enforce-strong: #9ec5f4;
+    --enforce-mid: #3987e5;
+    --enforce-weak: #184f95;
+    --absent: #2c333a;
+
+    --on-strong: #0b0b0b;
+    --on-mid: #0b0b0b;
+    --on-weak: #ffffff;
+    --on-absent: #c3c2b7;
+
+    --good: #0ca30c;
+    --good-ink: #0ca30c;
+    --critical: #e66767;
+
+    --cat-1: #3987e5;
+    --cat-2: #d95926;
+    --cat-3: #199e70;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --plane: #0d1013;
+  --surface: #14181c;
+  --surface-sunken: #1b2026;
+
+  --ink: #ffffff;
+  --ink-secondary: #c3c2b7;
+  --ink-muted: #898781;
+
+  --rule: #262c33;
+  --ring: rgba(255, 255, 255, 0.1);
+
+  --enforce-strong: #9ec5f4;
+  --enforce-mid: #3987e5;
+  --enforce-weak: #184f95;
+  --absent: #2c333a;
+
+  --good: #0ca30c;
+  --good-ink: #0ca30c;
+  --critical: #e66767;
+
+  --cat-1: #3987e5;
+  --cat-2: #d95926;
+  --cat-3: #199e70;
+}

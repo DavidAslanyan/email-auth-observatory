@@ -3,10 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>mailscape</title>
+    <meta
+      name="description"
+      content="A public, git-versioned time-series dataset of email authentication posture — SPF, DMARC, DKIM, MTA-STS, BIMI and TLS-RPT — across the internet's most popular domains."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <title>mailscape — email authentication posture over time</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      This dashboard needs JavaScript. The underlying data is plain JSON and JSONL in the repository
+      under <code>data/</code>, and needs nothing to read.
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

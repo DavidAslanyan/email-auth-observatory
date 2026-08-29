@@ -6,8 +6,8 @@ import {
   type ChangeEvent,
   type DomainSnapshot,
   type RunSummary,
-} from '@mailscape/core';
-import { Resolver } from '@mailscape/dns';
+} from '@observatory/core';
+import { Resolver } from '@observatory/dns';
 import {
   appendJsonl,
   confirmDisappearances,
@@ -18,7 +18,7 @@ import {
   shardForDayOfYear,
   shardName,
   writeSnapshot,
-} from '@mailscape/store';
+} from '@observatory/store';
 import { loadConfig } from '../config.js';
 import { logger } from '../logger.js';
 import { probeDomain } from '../probe.js';
@@ -41,7 +41,7 @@ export interface CrawlOptions {
 export class NoListError extends Error {
   readonly code = 'NO_PINNED_LIST';
   constructor() {
-    super('no Tranco list pinned — run `mailscape fetch-list` first');
+    super('no Tranco list pinned — run `observatory fetch-list` first');
     this.name = 'NoListError';
   }
 }

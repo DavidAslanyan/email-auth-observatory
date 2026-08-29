@@ -47,7 +47,7 @@ runs:
           exit 1
         fi
 
-        git config user.name  "${COMMIT_NAME:-mailscape bot}"
+        git config user.name  "${COMMIT_NAME:-observatory bot}"
         git config user.email "${COMMIT_EMAIL}"
 
         # shellcheck disable=SC2086

@@ -4,7 +4,7 @@ import {
   TIER2_SHARDS,
   storedSnapshotSchema,
   type DomainSnapshot,
-} from '@mailscape/core';
+} from '@observatory/core';
 import { readJson, readJsonl, writeJson, writeJsonl, type ReadOptions } from './jsonl.js';
 import { SHARD_NAMES, paths } from './paths.js';
 

@@ -14,7 +14,7 @@ import { join } from 'node:path';
 // Read through the store, never by parsing the JSONL directly. Snapshot records
 // omit values that are held once per shard in a sidecar, and only readSnapshot
 // puts them back — parsing the file by hand silently loses them.
-import { readSnapshot } from '@mailscape/store';
+import { readSnapshot } from '@observatory/store';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const OUT = join(ROOT, 'apps/web/public/data');

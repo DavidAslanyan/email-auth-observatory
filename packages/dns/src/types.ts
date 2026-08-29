@@ -1,4 +1,4 @@
-import type { LookupStatus, ResolverTier } from '@mailscape/core';
+import type { LookupStatus, ResolverTier } from '@observatory/core';
 
 export type RecordType = 'TXT' | 'MX' | 'A' | 'AAAA' | 'NS' | 'SOA' | 'CNAME';
 

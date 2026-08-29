@@ -1,5 +1,5 @@
 {
-  "name": "@mailscape/store",
+  "name": "@observatory/store",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -20,7 +20,7 @@
     "clean": "tsc --build --clean"
   },
   "dependencies": {
-    "@mailscape/core": "workspace:*",
+    "@observatory/core": "workspace:*",
     "zod": "^3.24.1"
   }
 }

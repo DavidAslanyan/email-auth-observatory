@@ -1,5 +1,5 @@
-import { appendJsonl, paths } from '@mailscape/store';
-import type { RolloverEntry } from '@mailscape/core';
+import { appendJsonl, paths } from '@observatory/store';
+import type { RolloverEntry } from '@observatory/core';
 import { loadConfig } from '../config.js';
 import { logger } from '../logger.js';
 import {

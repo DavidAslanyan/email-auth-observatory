@@ -1,5 +1,5 @@
 import { appendFile } from 'node:fs/promises';
-import type { RunSummary } from '@mailscape/core';
+import type { RunSummary } from '@observatory/core';
 
 /**
  * Emits the run summary as structured JSON on stdout, and as a markdown table
@@ -34,7 +34,7 @@ export async function emitRunSummary(summary: RunSummary): Promise<void> {
   ];
 
   const markdown = [
-    `### mailscape ${summary.command}`,
+    `### observatory ${summary.command}`,
     '',
     '| Metric | Value |',
     '| --- | --- |',

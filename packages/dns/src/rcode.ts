@@ -1,4 +1,4 @@
-import type { LookupStatus } from '@mailscape/core';
+import type { LookupStatus } from '@observatory/core';
 
 /** Numeric RCODE to name, per the IANA DNS RCODE registry. */
 export const RCODE_NAMES: Record<number, string> = {

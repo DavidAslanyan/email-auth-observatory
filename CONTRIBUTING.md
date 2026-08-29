@@ -27,7 +27,7 @@ certainly incomplete.
    beneath a broader one.
 
 3. Add a test case to `packages/parsers/test/mx.test.ts` asserting the
-   classification, and run `pnpm --filter @mailscape/parsers test`.
+   classification, and run `pnpm --filter @observatory/parsers test`.
 
 Use a lowercase, hyphenated provider name that a human would recognise
 (`amazon-ses`, not `AWS SES`). The name becomes a key in `byMxProvider`, so

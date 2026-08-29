@@ -48,8 +48,8 @@ export function Trends({ history }: { history: HistoryEntry[] }): React.JSX.Elem
             here fill in as the scheduled crawls accumulate daily aggregates.
           </p>
           <p style={{ margin: 0 }}>
-            Add a day locally with <code>mailscape crawl --tier 1</code> followed by{' '}
-            <code>mailscape aggregate</code>.
+            Add a day locally with <code>observatory crawl --tier 1</code> followed by{' '}
+            <code>observatory aggregate</code>.
           </p>
         </EmptyState>
         <HistoryTable rows={rows} />

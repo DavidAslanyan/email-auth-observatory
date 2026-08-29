@@ -1,197 +1,181 @@
-# mailscape
+<div align="center">
 
-A public, git-versioned time-series dataset of email authentication posture —
-SPF, DMARC, DKIM, MTA-STS, BIMI and TLS-RPT — across the internet's most popular
-domains. Anyone can scan DNS today; **nobody keeps a public longitudinal record
-of how it changes**, and the changes are the interesting part.
+# Email Auth Observatory
 
-[Dashboard](https://davidaslanyan.github.io/mailscape/) ·
+**How the internet's email security actually changes — recorded every day.**
+
+Anyone can scan DNS today. Nobody keeps the history.
+This does, and publishes every change it sees.
+
+[**Live dashboard**](https://davidaslanyan.github.io/email-auth-observatory/) ·
 [Latest report](reports/) ·
 [Schema](docs/SCHEMA.md) ·
 [Methodology](docs/METHODOLOGY.md)
 
+[![CI](https://github.com/DavidAslanyan/email-auth-observatory/actions/workflows/ci.yml/badge.svg)](https://github.com/DavidAslanyan/email-auth-observatory/actions/workflows/ci.yml)
+[![Crawl](https://github.com/DavidAslanyan/email-auth-observatory/actions/workflows/crawl-tier1.yml/badge.svg)](https://github.com/DavidAslanyan/email-auth-observatory/actions/workflows/crawl-tier1.yml)
+[![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-green.svg)](data/LICENSE)
+
+</div>
+
 ---
 
-## A finding, from the actual data
+## Why this exists
 
-From the crawl of 2026-08-29 (Tranco list `N2Q8W`, top 1,000 domains):
+Every domain that sends email publishes public DNS records — SPF, DMARC, DKIM,
+MTA-STS, BIMI, TLS-RPT — declaring how receivers should treat mail claiming to
+be from it.
 
-> **`oraclecloud.com` publishes `v=DMARC1; p=quarantine; pct=0`.**
->
-> A quarantine policy applied to zero percent of mail. The record exists, every
-> "does this domain have DMARC?" checker says yes, and it instructs receivers to
-> do nothing at all.
+Checking one domain is easy. **Knowing what changed, and when, is not.** That
+history is where the real signal lives: a provider flipping a default moves
+thousands of domains overnight, and nobody sees it because nobody is watching
+every day.
 
-It is not alone in the shape of the problem. Among the top 1,000 domains on that
-day:
+So this crawls the top 100,000 domains, commits what changed, and writes it up
+in plain English.
 
-| What a naive scan counts as adoption | What is actually happening |
+## What the history catches
+
+A yes/no checker says these domains have email authentication. Read the record
+and they don't.
+
+| Looks like | Actually |
 | --- | --- |
-| 32 domains publish MTA-STS | **12 of them are in `testing` mode** — the policy is published but not enforced (`facebook.com`, `office.com`, `office365.com`, `mail.ru`, `ikea.com`, …) |
-| 724 domains publish DMARC | **10 apply it at less than 100%**, including `branch.io` at `p=reject; pct=5` and `oraclecloud.com` at `pct=0` |
-| 163 domains publish BIMI | **2 are explicit opt-outs** — `icloud.com` and `me.com` publish `l=` with an empty value, which means "do not show an indicator for me" |
-| 439 domains sit at DMARC `reject` | **14 of them publish no SPF record at all** |
+| `oraclecloud.com` publishes DMARC | `p=quarantine; pct=0` — a policy applied to **zero percent** of mail |
+| `facebook.com` publishes MTA-STS | `mode: testing` — published, **not enforced**. So are `mail.ru`, `office.com`, `yahoo.com` |
+| `icloud.com` publishes BIMI | `l=` is **empty** — an explicit opt-out, the opposite of adoption |
+| 4,032 domains sit at DMARC `reject` | **347 apply it to less than 100%** of their mail |
 
-Every one of those is a state that a boolean `hasDmarc` / `hasMtaSts` field
-erases. This dataset is built so they survive.
+Five domains in the ranking publish `v=spf1 +all` — *anyone may send as us*.
 
-The other half of the point is time. A single day tells you `pct=0` exists; a
-year of days tells you whether `oraclecloud.com` ever turns it up, and whether
-the twelve testing-mode MTA-STS policies ever reach `enforce`.
+The point isn't the snapshot. It's being able to say **"12 domains weakened to
+`p=none` today, 9 of them on the same provider"** — which is a fact about the
+industry, not about any one company.
 
-## What makes this worth keeping
+## Today's numbers
 
-The **deltas**, not the snapshot. The daily report exists to say things like:
+From the crawl of `2026-08-29`, across **18,672 domains** observed so far:
 
-> **8 mimecast-hosted domains** moved DMARC policy `none` to `quarantine` on the
-> same day, which points to a provider-side default change rather than 8
-> independent decisions.
+| Mechanism | Adoption | Detail |
+| --- | ---: | --- |
+| SPF | 71% | 6,013 hard-fail · 6,549 soft-fail · 5 pass-all |
+| DMARC | 59% | 4,032 reject · 3,112 quarantine · 3,926 monitor-only |
+| MTA-STS | 2% | 176 enforcing · **145 still testing** |
+| BIMI | 5% | 593 with a verified mark · 9 explicit opt-outs |
+| TLS-RPT | 2% | 461 domains accept TLS reports |
+| DNSSEC | 9% | 1,615 signed zones |
 
-A provider changing a default moves thousands of domains at once and is
-invisible unless somebody is watching every day and recording what moved.
+Coverage grows toward 100,000 as the shard rotation completes.
 
-## How to use the data
+## Use the data
 
-Everything is plain JSON and JSONL in this repository. There is no API, no
-server and no auth, on purpose.
+Plain JSON and JSONL in this repo. No API, no server, no auth — on purpose.
 
-**Current totals:**
+**Current totals**
 
 ```bash
-curl -s https://raw.githubusercontent.com/DavidAslanyan/mailscape/main/data/aggregates/latest.json \
-  | jq '{date, domains: .domainsObserved, dmarc: .totals.dmarc.p, mtaSts: .totals.mtaSts.mode}'
+curl -s https://raw.githubusercontent.com/DavidAslanyan/email-auth-observatory/main/data/aggregates/latest.json \
+  | jq '{date, domains: .domainsObserved, dmarc: .totals.dmarc.p}'
 ```
 
-**Every domain that weakened its DMARC policy on a given day:**
+**Everyone who weakened their DMARC policy on a given day**
 
 ```bash
-curl -s https://raw.githubusercontent.com/DavidAslanyan/mailscape/main/data/changes/2026-08-29.jsonl \
+curl -s https://raw.githubusercontent.com/DavidAslanyan/email-auth-observatory/main/data/changes/2026-08-29.jsonl \
   | jq -c 'select(.field == "dmarc.p" and .from == "reject")'
 ```
 
-**Domains publishing a policy they apply to almost nothing:**
+**Policies published but barely applied**
 
 ```bash
-jq -c 'select(.dmarc.pct != null and .dmarc.pct < 100) | {domain, p: .dmarc.p, pct: .dmarc.pct}' \
+jq -c 'select(.dmarc.pct != null and .dmarc.pct < 100)
+       | {domain, p: .dmarc.p, pct: .dmarc.pct}' \
   data/snapshots/latest/tier1.jsonl
 ```
 
-**The whole adoption time series, as one file:**
+**The whole adoption time series, one file**
 
 ```bash
-curl -s https://raw.githubusercontent.com/DavidAslanyan/mailscape/main/data/aggregates/history.jsonl \
+curl -s https://raw.githubusercontent.com/DavidAslanyan/email-auth-observatory/main/data/aggregates/history.jsonl \
   | jq -c '{date, reject: .totals.dmarc.p.reject}'
 ```
 
-Only human commits, with the automated data commits filtered out:
-
-```bash
-git log --invert-grep --grep='^data:'
-```
-
-## Limitations
-
-Read these before drawing a conclusion. A dataset that is honest about its
-limits is worth trusting; one that hides them gets discredited the first time
-somebody finds one. [The methodology](docs/METHODOLOGY.md) goes further.
-
-- **DKIM findings are a lower bound, always.** DKIM selectors cannot be
-  enumerated from DNS — they can only be guessed. `selectorsFound: []` means
-  "none of the selectors we tried", never "this domain has no DKIM". There is
-  deliberately no `hasDkim` field anywhere in this dataset, and **any statistic
-  of the form "X% of domains use DKIM" derived from this data is wrong.**
-- **SPF lookup counts are static, not recursive.** We count the
-  lookup-requiring terms in the record itself. We do not expand nested
-  `include:` chains, which is where records actually breach the RFC 7208 limit
-  of ten. `exceedsLookupLimit` therefore under-reports.
-- **The long tail is observed fortnightly, not daily.** The top 1,000 are
-  crawled twice a day; ranks 1,001–100,000 are split across 28 shards, two per
-  day. A change to a rank-50,000 domain is detected within about two weeks, and
-  its event is dated when it was *observed*, not when it happened. The cadence
-  is deliberately modest because crawls resolve over a free public endpoint and
-  this project is a guest there.
-- **DKIM selectors are probed every 60 days, not every crawl.** They were 57% of
-  all queries, they are a lower bound by definition, and they rotate on the
-  order of months. In between, the previous result is carried forward and marked
-  `cached`. A provider change forces a fresh probe.
-- **Some values are remembered, not observed.** When a lookup fails we record
-  `unknown`, carry the previous value forward and mark it `stale: true` with the
-  timestamp of the last successful observation. A failure never produces a change
-  event. Filter on `stale !== true` for directly-observed data only.
-- **Tranco rollovers are a boundary.** The list ID is pinned per quarter so
-  membership churn cannot contaminate the deltas. Each rollover is recorded in
-  `data/tranco/rollovers.jsonl` with the exact domains that entered and left.
-  **Exclude those dates when analysing a trend across the boundary.**
-- **`byTld` uses the last DNS label**, so `bbc.co.uk` is filed under `uk`.
-  Distinguishing registrable suffixes needs a public suffix list.
-- **Crawls on GitHub Actions resolve over DoH, not our own recursion.**
-  GitHub-hosted runners throttle sustained outbound UDP/53 — measured: mid-crawl,
-  a root server and `1.1.1.1` both time out — so a local `unbound` there answers
-  a few hundred queries and then cannot reach anything. RCODEs, the DNSSEC AD
-  flag and TXT chunking all survive, but answers may come from a shared cache
-  rather than the authoritative server. [The methodology](docs/METHODOLOGY.md#where-the-crawl-runs)
-  has the numbers and the self-hosted setup that avoids it.
-- **Reporting addresses are redacted.** DMARC and TLS-RPT `rua=` tags name real
-  mailboxes. Only the domain is kept, so "which DMARC vendors are gaining
-  share?" is answerable and "who is the DMARC contact here?" deliberately is not.
+> Snapshot records omit values held once per shard in `<shard>.meta.json`.
+> Read that alongside, or use the store — [SCHEMA.md](docs/SCHEMA.md) explains.
 
 ## How it works
 
 ```
-Tranco list (pinned per quarter)
-      |
-      v
-crawler  --  DoH on GitHub Actions (Cloudflare, then Google)
-      |      raw UDP/53 through local unbound on a self-hosted runner
-      v
-snapshots/latest/*.jsonl   sorted by domain, overwritten in place
-      |                    (run timestamp in a sidecar, so an unchanged
-      |                     crawl produces a byte-identical file)
-      |
-      v
-diff  --  emits change events; NEVER when a lookup failed
-      |
-      +--> changes/YYYY-MM-DD.jsonl   (append-only)
-      +--> aggregates/               (rolled up over every shard)
-      +--> reports/YYYY-MM-DD.md     (human-readable)
+Tranco top 100k  (list ID pinned per quarter, so ranking churn is not "change")
+        │
+        ▼
+   crawler ──────► raw DNS queries, four-state results, never a boolean
+        │
+        ▼
+   snapshots/  ──► diff ──► changes/YYYY-MM-DD.jsonl
+                     │
+                     ├──► aggregates/  ──► the dashboard
+                     └──► reports/     ──► what changed, in English
 ```
 
-Queries are built by hand over `node:dgram` rather than through Node's `dns`
-module, because `dns.resolveTxt()` exposes neither the RCODE nor the DNSSEC AD
-flag — and without the RCODE you cannot tell `NODATA` from `SERVFAIL`. That
-distinction is the whole ballgame: if a resolver hiccup is recorded as absence,
-one bad morning shows up in the time series as *"8,000 domains dropped DMARC
-overnight"*, which is a fabricated finding in a dataset whose entire premise is
-that the deltas are trustworthy.
+Three rules carry the whole thing:
 
-Run it yourself:
+- **A failed lookup is not an absence.** `SERVFAIL` is recorded as `unknown`,
+  never as "no record". It produces no change event, and the last known value is
+  carried forward and marked stale. Without this, one bad morning at the
+  resolver publishes as *"8,000 domains dropped DMARC overnight"*.
+- **A claimed disappearance is confirmed before it's recorded.** A resolver can
+  answer `NOERROR` with an incomplete answer set, which looks exactly like a
+  domain withdrawing a record. It happened; now every one gets a second look.
+- **A quiet day stays quiet.** Nothing is committed when nothing changed.
+
+## What this can't tell you
+
+A dataset that hides its limits gets discredited the first time someone finds
+one. So:
+
+- **DKIM findings are a lower bound, always.** Selectors can't be enumerated
+  from DNS — only guessed. There is deliberately no `hasDkim` field, and **any
+  "X% of domains use DKIM" figure derived from this data is wrong.**
+- **SPF lookup counts are static.** We count terms in the record, not nested
+  `include:` chains — so `exceedsLookupLimit` under-reports.
+- **The long tail is observed fortnightly.** The top 1,000 twice a day; the rest
+  on a 28-shard rotation. Changes are dated when *observed*, not when they
+  happened.
+- **Some values are remembered, not seen.** Anything marked `stale: true` was
+  carried forward. Filter `stale !== true` for directly-observed data only.
+- **Tranco rollovers are a boundary.** The list ID is pinned per quarter;
+  `data/tranco/rollovers.jsonl` names exactly which domains entered and left.
+  Exclude those dates from trends.
+- **Reporting addresses are redacted.** `rua=` tags name real mailboxes, so only
+  the domain is kept. "Which DMARC vendor is gaining share?" is answerable.
+  "Who is the contact here?" deliberately is not.
+
+## Run it yourself
 
 ```bash
 pnpm install && pnpm -r build
-pnpm mailscape fetch-list                     # pins a Tranco list
-pnpm mailscape crawl --tier 1 --limit 100     # 100 domains, about 7 seconds
-pnpm mailscape aggregate
-pnpm mailscape report
+pnpm observatory fetch-list                     # pins a Tranco list
+pnpm observatory crawl --tier 1 --limit 100     # ~100 domains in seconds
+pnpm observatory aggregate && pnpm observatory report
 ```
 
-Point the resolver anywhere with `MAILSCAPE_RESOLVER_HOST=1.1.1.1` if you are
-not running a local recursive resolver. Every tunable is an environment
-variable; see `apps/crawler/src/config.ts`.
+Every tunable is an environment variable — see `apps/crawler/src/config.ts`.
 
-## Citation
+## Cite it
 
 ```bibtex
-@misc{mailscape,
-  title        = {mailscape: a longitudinal dataset of email authentication posture},
-  author       = {{mailscape contributors}},
+@misc{email_auth_observatory,
+  title        = {Email Auth Observatory: a longitudinal dataset of email authentication posture},
+  author       = {Aslanyan, David},
   year         = {2026},
-  howpublished = {\url{https://github.com/DavidAslanyan/mailscape}},
+  howpublished = {\url{https://github.com/DavidAslanyan/email-auth-observatory}},
   note         = {Dataset licensed CC BY 4.0}
 }
 ```
 
-Domain rankings derive from the **Tranco** list, which must be cited
-independently:
+Rankings derive from **Tranco**, which must be cited independently:
 
 > V. Le Pochat, T. Van Goethem, S. Tajalizadehkhoob, M. Korczyński and
 > W. Joosen, "Tranco: A Research-Oriented Top Sites Ranking Hardened Against
@@ -199,13 +183,12 @@ independently:
 
 ## Contributing
 
-The most useful contributions are new MX provider mappings and DKIM selector
-lists — both are one-line additions to `packages/core/src/constants.ts`. See
-[CONTRIBUTING.md](CONTRIBUTING.md).
+The most useful contributions are the smallest: a new MX provider mapping or a
+DKIM selector list, both one-line additions to
+`packages/core/src/constants.ts`. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Licence
 
-Code is **MIT** ([LICENSE](LICENSE)). The dataset — everything under `data/` and
-`reports/` — is **CC BY 4.0** ([data/LICENSE](data/LICENSE)). Licensing them
-separately is deliberate: the data is meant to be reused and cited on its own
-terms.
+Code is **MIT**. The dataset — everything under `data/` and `reports/` — is
+**CC BY 4.0**. Licensed separately on purpose: the data is meant to be reused
+and cited on its own terms.

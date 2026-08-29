@@ -6,7 +6,7 @@ import {
   type AggregateTotals,
   type DomainSnapshot,
   type Tally,
-} from '@mailscape/core';
+} from '@observatory/core';
 
 function emptyTotals(): AggregateTotals {
   return {

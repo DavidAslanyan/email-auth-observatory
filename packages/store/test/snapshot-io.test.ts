@@ -9,7 +9,7 @@ import { snapshot } from './helpers.js';
 let dir: string;
 
 beforeEach(async () => {
-  dir = await mkdtemp(join(tmpdir(), 'mailscape-snap-'));
+  dir = await mkdtemp(join(tmpdir(), 'observatory-snap-'));
   process.env.MAILSCAPE_ROOT = dir;
   resetRootCache();
 });

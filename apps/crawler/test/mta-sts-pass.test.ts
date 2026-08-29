@@ -1,7 +1,7 @@
 import { createServer, type Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { afterEach, describe, expect, it } from 'vitest';
-import type { DomainSnapshot } from '@mailscape/core';
+import type { DomainSnapshot } from '@observatory/core';
 import { fetchPolicies } from '../src/mta-sts-pass.js';
 
 /**
@@ -68,7 +68,7 @@ async function against(handler: Parameters<typeof createServer>[1]): Promise<Dom
   await fetchPolicies([snap], {
     timeoutMs: 4000,
     concurrency: 1,
-    userAgent: 'mailscape-test',
+    userAgent: 'observatory-test',
     policyUrl: () => `http://127.0.0.1:${port}/.well-known/mta-sts.txt`,
   });
   return snap;
@@ -171,7 +171,7 @@ describe('MTA-STS policy fetch', () => {
     const targets = await fetchPolicies([withRecord, without], {
       timeoutMs: 2000,
       concurrency: 2,
-      userAgent: 'mailscape-test',
+      userAgent: 'observatory-test',
       policyUrl: () => 'http://127.0.0.1:1/.well-known/mta-sts.txt',
     });
 
@@ -185,7 +185,7 @@ describe('MTA-STS policy fetch', () => {
     await fetchPolicies([snap], {
       timeoutMs: 2000,
       concurrency: 1,
-      userAgent: 'mailscape-test',
+      userAgent: 'observatory-test',
       policyUrl: () => 'http://127.0.0.1:1/.well-known/mta-sts.txt',
     });
     expect(snap.mtaSts.policyFetched).toBe(false);

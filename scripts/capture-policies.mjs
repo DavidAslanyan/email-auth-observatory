@@ -60,7 +60,7 @@ async function fetchPolicy(domain) {
     const res = await fetch(url, {
       signal: AbortSignal.timeout(10_000),
       redirect: 'follow',
-      headers: { 'user-agent': 'mailscape-fixture-capture/1.0' },
+      headers: { 'user-agent': 'email-auth-observatory-fixture-capture/1.0' },
     });
     if (!res.ok) return { domain, error: `HTTP ${res.status}` };
     const body = await res.text();

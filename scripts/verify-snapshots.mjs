@@ -10,8 +10,8 @@
  *
  * Exits non-zero if any record fails, so CI can gate on it.
  */
-import { domainSnapshotSchema } from '@mailscape/core';
-import { readSnapshot, allShardNames } from '@mailscape/store';
+import { domainSnapshotSchema } from '@observatory/core';
+import { readSnapshot, allShardNames } from '@observatory/store';
 
 let total = 0;
 let bad = 0;

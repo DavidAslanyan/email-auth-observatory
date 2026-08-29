@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { Aggregate, ChangeEvent } from '@mailscape/core';
+import type { Aggregate, ChangeEvent } from '@observatory/core';
 import {
   annotateWithProvider,
   findClusters,

@@ -10,7 +10,7 @@ const schema = z.object({ domain: z.string(), rank: z.number().int() });
 let dir: string;
 
 beforeEach(async () => {
-  dir = await mkdtemp(join(tmpdir(), 'mailscape-jsonl-'));
+  dir = await mkdtemp(join(tmpdir(), 'observatory-jsonl-'));
 });
 
 afterEach(async () => {

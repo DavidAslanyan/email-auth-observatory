@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: mailscape-data-write
+  group: observatory-data-write
   cancel-in-progress: false
 
 jobs:
@@ -39,9 +39,9 @@ jobs:
       - name: Generate report
         run: |
           if [ -n "${{ inputs.date }}" ]; then
-            pnpm mailscape report --date "${{ inputs.date }}"
+            pnpm observatory report --date "${{ inputs.date }}"
           else
-            pnpm mailscape report
+            pnpm observatory report
           fi
       - uses: ./.github/actions/commit-data
         with:

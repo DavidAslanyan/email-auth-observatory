@@ -43,7 +43,7 @@ describe('four-state rule, verified against the live internet', () => {
   });
 
   it('records a name that does not exist as nxdomain, not nodata', async () => {
-    const answer = await resolver().query('_dmarc.thisdoesnotexist-mailscape.invalid', 'TXT');
+    const answer = await resolver().query('_dmarc.thisdoesnotexist-observatory.invalid', 'TXT');
     expect(answer.status).toBe('nxdomain');
     expect(answer.rcode).toBe('NXDOMAIN');
   });

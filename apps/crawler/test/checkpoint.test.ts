@@ -3,8 +3,8 @@ import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
-import type { DomainSnapshot } from '@mailscape/core';
-import { paths, resetRootCache } from '@mailscape/store';
+import type { DomainSnapshot } from '@observatory/core';
+import { paths, resetRootCache } from '@observatory/store';
 import {
   checkpointFrom,
   clearCheckpoint,
@@ -16,7 +16,7 @@ import {
 let dir: string;
 
 beforeEach(async () => {
-  dir = await mkdtemp(join(tmpdir(), 'mailscape-ckpt-'));
+  dir = await mkdtemp(join(tmpdir(), 'observatory-ckpt-'));
   process.env.MAILSCAPE_ROOT = dir;
   resetRootCache();
 });

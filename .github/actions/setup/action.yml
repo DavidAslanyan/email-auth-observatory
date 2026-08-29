@@ -1,4 +1,4 @@
-name: Set up mailscape
+name: Set up the workspace
 description: Node, pnpm, dependencies and a built workspace.
 
 runs:

@@ -13,7 +13,7 @@ permissions:
 
 # Pages deployments are idempotent, so a superseded one can safely be dropped.
 concurrency:
-  group: mailscape-pages
+  group: observatory-pages
   cancel-in-progress: true
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - name: Build
-        run: pnpm --filter @mailscape/web build
+        run: pnpm --filter @observatory/web build
         env:
           PAGES_BASE: ${{ steps.pages.outputs.base_path || '/' }}
       - uses: actions/upload-pages-artifact@v3

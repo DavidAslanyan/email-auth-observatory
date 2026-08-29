@@ -1,4 +1,4 @@
-import { DKIM_REFRESH_DAYS, TIMEOUTS, UNKNOWN_RATE_DEGRADED_THRESHOLD } from '@mailscape/core';
+import { DKIM_REFRESH_DAYS, TIMEOUTS, UNKNOWN_RATE_DEGRADED_THRESHOLD } from '@observatory/core';
 
 /**
  * Every tunable in the project, in one place, each overridable by environment
@@ -77,7 +77,7 @@ export function loadConfig(): Config {
     trancoApiBase: str('MAILSCAPE_TRANCO_BASE', 'https://tranco-list.eu'),
     userAgent: str(
       'MAILSCAPE_USER_AGENT',
-      'mailscape/1.0 (+https://github.com/DavidAslanyan/mailscape)',
+      'email-auth-observatory/1.0 (+https://github.com/DavidAslanyan/email-auth-observatory)',
     ),
     logLevel: str('MAILSCAPE_LOG_LEVEL', 'info'),
   };

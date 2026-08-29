@@ -14,7 +14,7 @@ permissions:
 concurrency:
   # Every data-writing workflow shares one group. Never cancel: a cancelled
   # crawl loses the work it has done rather than merely delaying it.
-  group: mailscape-data-write
+  group: observatory-data-write
   cancel-in-progress: false
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
       - uses: ./.github/actions/resolver
-      - run: pnpm mailscape crawl --tier 1
+      - run: pnpm observatory crawl --tier 1
       - uses: ./.github/actions/commit-data
         with:
           summary: tier1 crawl

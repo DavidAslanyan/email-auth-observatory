@@ -1,4 +1,10 @@
-import { type DmarcAlignment, type DmarcPolicy, type ParseResult, err, ok } from '@mailscape/core';
+import {
+  type DmarcAlignment,
+  type DmarcPolicy,
+  type ParseResult,
+  err,
+  ok,
+} from '@observatory/core';
 import { parseTagValue, reportingUriHost, splitUriList, uniqueSorted } from './tag-value.js';
 
 /**

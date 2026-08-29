@@ -1,6 +1,6 @@
 import Bottleneck from 'bottleneck';
-import type { DomainSnapshot } from '@mailscape/core';
-import { parseMtaStsPolicy } from '@mailscape/parsers';
+import type { DomainSnapshot } from '@observatory/core';
+import { parseMtaStsPolicy } from '@observatory/parsers';
 
 export interface PolicyPassOptions {
   timeoutMs: number;

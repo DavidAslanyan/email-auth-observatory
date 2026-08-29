@@ -7,7 +7,7 @@ import { SHARD_NAMES, paths, resetRootCache, root } from '../src/paths.js';
 let dir: string;
 
 beforeEach(async () => {
-  dir = await mkdtemp(join(tmpdir(), 'mailscape-paths-'));
+  dir = await mkdtemp(join(tmpdir(), 'observatory-paths-'));
   process.env.MAILSCAPE_ROOT = dir;
   resetRootCache();
 });

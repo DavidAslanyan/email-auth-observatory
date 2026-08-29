@@ -193,7 +193,7 @@ export function App(): React.JSX.Element {
           <p>
             DKIM findings are a lower bound, SPF lookup counts are not recursive, and the long tail
             is observed weekly rather than daily. The{' '}
-            <a href="https://github.com/DavidAslanyan/mailscape/blob/main/docs/METHODOLOGY.md">
+            <a href="https://github.com/DavidAslanyan/email-auth-observatory/blob/main/docs/METHODOLOGY.md">
               methodology
             </a>{' '}
             explains why.
@@ -207,7 +207,7 @@ export function App(): React.JSX.Element {
 function Masthead({ aggregate }: { aggregate?: Aggregate }): React.JSX.Element {
   return (
     <header className="masthead">
-      <h1>mailscape</h1>
+      <h1>Email Auth Observatory</h1>
       <p className="tagline">
         Email authentication posture across the internet&rsquo;s top domains
       </p>

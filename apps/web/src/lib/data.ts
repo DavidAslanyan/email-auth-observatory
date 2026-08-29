@@ -7,9 +7,9 @@ import type { Aggregate, ChangeEvent, HistoryEntry, IndexedDomain, Manifest } fr
  * than a view onto a moving target.
  */
 /**
- * BASE_URL is '/' in dev but '/mailscape' on Pages, and GitHub's
+ * BASE_URL is '/' in dev but '/<repo>' on Pages, and GitHub's
  * configure-pages emits base_path WITHOUT a trailing slash — so naive
- * concatenation produced '/mailscapedata/latest.json'. Normalise once here
+ * concatenation produced '/<repo>data/latest.json'. Normalise once here
  * rather than depending on how the deploy formats it.
  */
 const BASE = `${import.meta.env.BASE_URL.replace(/\/+$/, '')}/data`;

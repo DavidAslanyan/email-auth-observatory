@@ -3,7 +3,7 @@ import {
   type Aggregate,
   type DomainSnapshot,
   type RunSummary,
-} from '@mailscape/core';
+} from '@observatory/core';
 import {
   aggregate,
   allShardNames,
@@ -12,7 +12,7 @@ import {
   readSnapshot,
   toHistoryEntry,
   writeJson,
-} from '@mailscape/store';
+} from '@observatory/store';
 import { logger } from '../logger.js';
 import { readPinnedListId } from '../tranco.js';
 import { utcDate } from '../run-summary.js';

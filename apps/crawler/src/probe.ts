@@ -13,9 +13,9 @@ import {
   type MxState,
   type SpfState,
   type TlsRptState,
-} from '@mailscape/core';
-import type { DnsAnswer, Resolver } from '@mailscape/dns';
-import { selectByPrefix } from '@mailscape/dns';
+} from '@observatory/core';
+import type { DnsAnswer, Resolver } from '@observatory/dns';
+import { selectByPrefix } from '@observatory/dns';
 import {
   parseBimi,
   parseDmarc,
@@ -24,7 +24,7 @@ import {
   parseSpf,
   parseTlsRpt,
   redactReportingAddresses,
-} from '@mailscape/parsers';
+} from '@observatory/parsers';
 
 export interface ProbeInput {
   domain: string;

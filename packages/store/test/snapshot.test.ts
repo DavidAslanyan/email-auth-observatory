@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { TIER2_SHARDS } from '@mailscape/core';
+import { TIER2_SHARDS } from '@observatory/core';
 import { allShardNames, isTier1, shardFor, shardForDayOfYear, shardName } from '../src/snapshot.js';
 
 describe('shardFor', () => {

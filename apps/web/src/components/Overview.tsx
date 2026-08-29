@@ -125,7 +125,7 @@ export function Overview({ aggregate }: { aggregate: Aggregate }): React.JSX.Ele
         <p className="footnote" style={{ marginTop: '1rem' }}>
           DKIM is deliberately absent from this list. Selectors cannot be enumerated from DNS, so
           any DKIM adoption figure would be a guess dressed as a measurement. See{' '}
-          <a href="https://github.com/DavidAslanyan/mailscape/blob/main/docs/METHODOLOGY.md">
+          <a href="https://github.com/DavidAslanyan/email-auth-observatory/blob/main/docs/METHODOLOGY.md">
             the methodology
           </a>
           .
@@ -140,7 +140,7 @@ export function Overview({ aggregate }: { aggregate: Aggregate }): React.JSX.Ele
           <EmptyState headline="No provider has enough domains yet.">
             <p style={{ margin: 0 }}>
               Provider breakdowns appear once at least ten domains share a mail provider. Crawl more
-              of the ranking with <code>mailscape crawl --tier 2 --auto</code>.
+              of the ranking with <code>observatory crawl --tier 2 --auto</code>.
             </p>
           </EmptyState>
         ) : (

@@ -1,5 +1,5 @@
 {
-  "name": "@mailscape/parsers",
+  "name": "@observatory/parsers",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -20,6 +20,6 @@
     "clean": "tsc --build --clean"
   },
   "dependencies": {
-    "@mailscape/core": "workspace:*"
+    "@observatory/core": "workspace:*"
   }
 }

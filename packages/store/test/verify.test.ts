@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { ChangeEvent } from '@mailscape/core';
+import type { ChangeEvent } from '@observatory/core';
 import { diffSnapshots } from '../src/diff.js';
 import {
   confirmDisappearances,

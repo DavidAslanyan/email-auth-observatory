@@ -1,4 +1,4 @@
-import { TIER1_MAX_RANK, type Aggregate, type ChangeEvent } from '@mailscape/core';
+import { TIER1_MAX_RANK, type Aggregate, type ChangeEvent } from '@observatory/core';
 import { classifyDirection } from './diff.js';
 
 export interface ReportInput {

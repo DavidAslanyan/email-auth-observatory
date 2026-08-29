@@ -1,5 +1,5 @@
 import Bottleneck from 'bottleneck';
-import { RETRY, TIMEOUTS, type LookupStatus, type ResolverTier } from '@mailscape/core';
+import { RETRY, TIMEOUTS, type LookupStatus, type ResolverTier } from '@observatory/core';
 import { CLOUDFLARE_DOH, GOOGLE_DOH, queryDoh, type DohEndpoint } from './doh-client.js';
 import { isFailure } from './rcode.js';
 import { queryUdp, type UdpTarget } from './udp-client.js';

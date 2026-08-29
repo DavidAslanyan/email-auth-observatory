@@ -126,7 +126,7 @@ export function Reports({ dates }: { dates: string[] }): React.JSX.Element {
       <Panel title="Daily reports" lede="What changed, in prose.">
         <EmptyState headline="No reports have been generated yet.">
           <p style={{ margin: 0 }}>
-            Generate one with <code>mailscape report</code> after a crawl and an aggregate.
+            Generate one with <code>observatory report</code> after a crawl and an aggregate.
           </p>
         </EmptyState>
       </Panel>

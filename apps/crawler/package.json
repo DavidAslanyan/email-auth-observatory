@@ -1,11 +1,11 @@
 {
-  "name": "@mailscape/crawler",
+  "name": "@observatory/crawler",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "description": "The mailscape CLI. Thin orchestration over the packages.",
   "bin": {
-    "mailscape": "./dist/cli.js"
+    "observatory": "./dist/cli.js"
   },
   "main": "./dist/cli.js",
   "files": [
@@ -16,10 +16,10 @@
     "clean": "tsc --build --clean"
   },
   "dependencies": {
-    "@mailscape/core": "workspace:*",
-    "@mailscape/dns": "workspace:*",
-    "@mailscape/parsers": "workspace:*",
-    "@mailscape/store": "workspace:*",
+    "@observatory/core": "workspace:*",
+    "@observatory/dns": "workspace:*",
+    "@observatory/parsers": "workspace:*",
+    "@observatory/store": "workspace:*",
     "bottleneck": "^2.19.5",
     "pino": "^9.6.0",
     "zod": "^3.24.1"

@@ -1,4 +1,4 @@
-import type { ResolverTier } from '@mailscape/core';
+import type { ResolverTier } from '@observatory/core';
 import { SYNTHETIC_RCODES, rcodeName, toLookupStatus } from './rcode.js';
 import { joinTxtChunks } from './txt.js';
 import type { DnsAnswer, MxAnswer, QueryOptions, RecordType } from './types.js';

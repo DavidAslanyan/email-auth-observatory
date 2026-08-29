@@ -5,25 +5,25 @@ import { fetchList } from './commands/fetch-list.js';
 import { logger } from './logger.js';
 import { emitRunSummary } from './run-summary.js';
 
-const USAGE = `mailscape — email authentication posture crawler
+const USAGE = `Email Auth Observatory — the crawler behind the dataset
 
 Usage:
-  mailscape fetch-list [--list-id <id>] [--force]
+  observatory fetch-list [--list-id <id>] [--force]
       Pin a Tranco list and download it. Without --list-id, resolves the latest
       list once and pins it; an already-pinned list is left alone.
 
-  mailscape crawl --tier 1 [--limit <n>] [--dry-run]
+  observatory crawl --tier 1 [--limit <n>] [--dry-run]
       Crawl the top 1000 domains.
 
-  mailscape crawl --tier 2 --shard <0-6> [--limit <n>] [--dry-run]
-  mailscape crawl --tier 2 --auto [--slot <n> --slots-per-day <n>]
+  observatory crawl --tier 2 --shard <0-6> [--limit <n>] [--dry-run]
+  observatory crawl --tier 2 --auto [--slot <n> --slots-per-day <n>]
       Crawl one long-tail shard. --auto selects it from the day of year;
       --slot distinguishes the day's several runs so they advance together.
 
-  mailscape aggregate
+  observatory aggregate
       Roll every shard up into data/aggregates/.
 
-  mailscape report [--date YYYY-MM-DD]
+  observatory report [--date YYYY-MM-DD]
       Write the daily human-readable report.
 
 Exit codes:

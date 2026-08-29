@@ -3,7 +3,7 @@ import { createReadStream, existsSync } from 'node:fs';
 import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { createInterface } from 'node:readline';
 import { promisify } from 'node:util';
-import { paths } from '@mailscape/store';
+import { paths } from '@observatory/store';
 
 const gzipAsync = promisify(gzip);
 

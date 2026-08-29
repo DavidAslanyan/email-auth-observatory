@@ -4,7 +4,7 @@
  *
  * Note on the plan's "core has zero runtime dependencies": zod is the single
  * exception, and it is one the plan itself creates by placing schemas.ts in
- * core. The intent of the rule — core depends on no other mailscape package and
+ * core. The intent of the rule — core depends on no other workspace package and
  * pulls in nothing that does I/O — still holds.
  */
 import { z } from 'zod';

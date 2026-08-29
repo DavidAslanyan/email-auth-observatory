@@ -273,10 +273,10 @@ Everything here runs from the CLI in this repository:
 
 ```bash
 pnpm install && pnpm -r build
-pnpm mailscape fetch-list                  # pins a Tranco list
-pnpm mailscape crawl --tier 1              # top 1,000
-pnpm mailscape aggregate
-pnpm mailscape report
+pnpm observatory fetch-list                  # pins a Tranco list
+pnpm observatory crawl --tier 1              # top 1,000
+pnpm observatory aggregate
+pnpm observatory report
 ```
 
 Point the resolver somewhere other than a local unbound with

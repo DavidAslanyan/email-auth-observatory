@@ -1,5 +1,5 @@
 {
-  "name": "@mailscape/dns",
+  "name": "@observatory/dns",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -20,7 +20,7 @@
     "clean": "tsc --build --clean"
   },
   "dependencies": {
-    "@mailscape/core": "workspace:*",
+    "@observatory/core": "workspace:*",
     "bottleneck": "^2.19.5",
     "dns-packet": "^5.6.1"
   },

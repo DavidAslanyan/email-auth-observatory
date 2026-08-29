@@ -4,7 +4,7 @@
  * crash, it publishes a plausible lie.
  */
 import { describe, expect, it } from 'vitest';
-import type { ChangeEvent } from '@mailscape/core';
+import type { ChangeEvent } from '@observatory/core';
 import { classifyDirection, diffDomain, diffSnapshots } from '../src/diff.js';
 import { ALL_STATUSES, snapshot } from './helpers.js';
 

@@ -1,4 +1,4 @@
-import { type ParseResult, err, ok } from '@mailscape/core';
+import { type ParseResult, err, ok } from '@observatory/core';
 import { parseTagValue } from './tag-value.js';
 
 export interface ParsedBimi {

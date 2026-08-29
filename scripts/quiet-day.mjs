@@ -38,7 +38,7 @@ export function isoWeek(date) {
 
 export function isQuietDay(date) {
   const { isoYear, week } = isoWeek(date);
-  const h = hash(`mailscape:${isoYear}:${week}`);
+  const h = hash(`observatory:${isoYear}:${week}`);
 
   // One week in four runs straight through with no rest day.
   if (h % 4 === 0) return false;

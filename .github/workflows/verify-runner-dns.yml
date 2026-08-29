@@ -39,7 +39,7 @@ jobs:
       - name: Crawl without writing anything, and judge the result
         run: |
           set -euo pipefail
-          pnpm --silent mailscape crawl --tier 1 --limit "${{ inputs.domains }}" --dry-run \
+          pnpm --silent observatory crawl --tier 1 --limit "${{ inputs.domains }}" --dry-run \
             | tee /tmp/summary.json
 
           SUMMARY=$(grep -o '{"command".*}' /tmp/summary.json | tail -1)

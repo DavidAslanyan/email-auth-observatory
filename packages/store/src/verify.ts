@@ -1,4 +1,4 @@
-import type { ChangeEvent, DomainSnapshot } from '@mailscape/core';
+import type { ChangeEvent, DomainSnapshot } from '@observatory/core';
 import { diffDomain } from './diff.js';
 
 /**

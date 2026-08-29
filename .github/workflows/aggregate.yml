@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: mailscape-data-write
+  group: observatory-data-write
   cancel-in-progress: false
 
 jobs:
@@ -30,7 +30,7 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_branch || github.ref_name }}
       - uses: ./.github/actions/setup
-      - run: pnpm mailscape aggregate
+      - run: pnpm observatory aggregate
       - uses: ./.github/actions/commit-data
         with:
           summary: aggregate

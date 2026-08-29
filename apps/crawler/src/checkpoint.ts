@@ -2,9 +2,9 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { z } from 'zod';
-import type { DomainSnapshot } from '@mailscape/core';
-import { domainSnapshotSchema } from '@mailscape/core';
-import { paths } from '@mailscape/store';
+import type { DomainSnapshot } from '@observatory/core';
+import { domainSnapshotSchema } from '@observatory/core';
+import { paths } from '@observatory/store';
 
 const checkpointSchema = z.object({
   shard: z.string(),

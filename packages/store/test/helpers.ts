@@ -1,4 +1,4 @@
-import type { DomainSnapshot, LookupStatus } from '@mailscape/core';
+import type { DomainSnapshot, LookupStatus } from '@observatory/core';
 
 interface Overrides {
   domain?: string;

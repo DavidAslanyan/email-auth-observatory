@@ -1,4 +1,4 @@
-import type { ChangeEvent, ChangeValue, DomainSnapshot, LookupStatus } from '@mailscape/core';
+import type { ChangeEvent, ChangeValue, DomainSnapshot, LookupStatus } from '@observatory/core';
 
 /**
  * One tracked field: the dotted path that appears in a ChangeEvent, the value

@@ -3,7 +3,7 @@ import {
   changeEventSchema,
   type ChangeEvent,
   type RunSummary,
-} from '@mailscape/core';
+} from '@observatory/core';
 import {
   allShardNames,
   annotateWithProvider,
@@ -12,7 +12,7 @@ import {
   readJsonlArray,
   readSnapshot,
   renderReport,
-} from '@mailscape/store';
+} from '@observatory/store';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { logger } from '../logger.js';
 import { readPinnedListId } from '../tranco.js';

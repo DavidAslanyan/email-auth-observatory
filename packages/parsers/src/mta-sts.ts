@@ -1,4 +1,4 @@
-import { type MtaStsMode, type ParseResult, err, ok } from '@mailscape/core';
+import { type MtaStsMode, type ParseResult, err, ok } from '@observatory/core';
 import { parseTagValue } from './tag-value.js';
 
 export interface ParsedMtaStsTxt {

@@ -81,17 +81,17 @@ export default tseslint.config(
             {
               name: 'dns',
               message:
-                'node:dns hides RCODE and the AD flag. Use @mailscape/dns — see plan section 4.2.1.',
+                'node:dns hides RCODE and the AD flag. Use @observatory/dns — see plan section 4.2.1.',
             },
             {
               name: 'node:dns',
               message:
-                'node:dns hides RCODE and the AD flag. Use @mailscape/dns — see plan section 4.2.1.',
+                'node:dns hides RCODE and the AD flag. Use @observatory/dns — see plan section 4.2.1.',
             },
             {
               name: 'node:dns/promises',
               message:
-                'node:dns hides RCODE and the AD flag. Use @mailscape/dns — see plan section 4.2.1.',
+                'node:dns hides RCODE and the AD flag. Use @observatory/dns — see plan section 4.2.1.',
             },
           ],
         },
@@ -108,7 +108,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              group: ['node:*', 'dns', '@mailscape/dns', '@mailscape/store'],
+              group: ['node:*', 'dns', '@observatory/dns', '@observatory/store'],
               message:
                 'packages/parsers must stay pure — string in, structured object out. See plan section 4.3.',
             },
@@ -131,7 +131,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              group: ['@mailscape/*'],
+              group: ['@observatory/*'],
               message: 'core sits at the bottom of the dependency graph. See plan section 3.',
             },
           ],

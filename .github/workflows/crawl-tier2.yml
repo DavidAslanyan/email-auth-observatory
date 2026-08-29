@@ -18,7 +18,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: mailscape-data-write
+  group: observatory-data-write
   cancel-in-progress: false
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -n "${{ inputs.shard }}" ]; then
-            pnpm mailscape crawl --tier 2 --shard "${{ inputs.shard }}"
+            pnpm observatory crawl --tier 2 --shard "${{ inputs.shard }}"
             exit 0
           fi
           # The two daily runs share a rotation; the hour tells them apart so
@@ -56,7 +56,7 @@ jobs:
           SLOT=0
           [ "$HOUR" -ge 12 ] && SLOT=1
           echo "slot ${SLOT} (hour ${HOUR} UTC)"
-          pnpm mailscape crawl --tier 2 --auto --slot "$SLOT" --slots-per-day 2
+          pnpm observatory crawl --tier 2 --auto --slot "$SLOT" --slots-per-day 2
       - uses: ./.github/actions/commit-data
         with:
           summary: tier2 shard crawl

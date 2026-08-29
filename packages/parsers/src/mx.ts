@@ -1,4 +1,4 @@
-import { MX_PROVIDERS, PROVIDER_SELF_HOSTED } from '@mailscape/core';
+import { MX_PROVIDERS, PROVIDER_SELF_HOSTED } from '@observatory/core';
 
 export interface MxRecord {
   preference: number;

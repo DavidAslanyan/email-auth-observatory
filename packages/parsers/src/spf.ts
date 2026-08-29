@@ -1,4 +1,10 @@
-import { SPF_MAX_DNS_LOOKUPS, type ParseResult, type SpfQualifier, err, ok } from '@mailscape/core';
+import {
+  SPF_MAX_DNS_LOOKUPS,
+  type ParseResult,
+  type SpfQualifier,
+  err,
+  ok,
+} from '@observatory/core';
 
 export interface ParsedSpf {
   /** Qualifier on the final `all` mechanism, absent when there is no `all`. */

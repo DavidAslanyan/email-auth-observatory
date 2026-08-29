@@ -1,5 +1,5 @@
 {
-  "name": "mailscape",
+  "name": "email-auth-observatory",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -11,7 +11,7 @@
   "packageManager": "pnpm@9.15.9",
   "scripts": {
     "build": "tsc --build tsconfig.build.json",
-    "build:web": "pnpm --filter @mailscape/web build",
+    "build:web": "pnpm --filter @observatory/web build",
     "clean": "tsc --build tsconfig.build.json --clean && rm -rf packages/*/dist apps/*/dist",
     "typecheck": "tsc --build tsconfig.build.json --force && pnpm typecheck:tests",
     "test": "vitest run",
@@ -21,13 +21,13 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "mailscape": "node apps/crawler/dist/cli.js",
     "prepare": "husky || true",
     "typecheck:tests": "pnpm exec tsc -p packages/parsers/test/tsconfig.json && pnpm exec tsc -p packages/dns/test/tsconfig.json && pnpm exec tsc -p packages/store/test/tsconfig.json && pnpm exec tsc -p apps/crawler/test/tsconfig.json",
     "test:network": "MAILSCAPE_NETWORK_TESTS=1 vitest run --project dns-network",
     "stage-web-data": "node scripts/stage-web-data.mjs",
-    "dev:web": "pnpm stage-web-data && pnpm --filter @mailscape/web dev",
-    "verify:snapshots": "node scripts/verify-snapshots.mjs"
+    "dev:web": "pnpm stage-web-data && pnpm --filter @observatory/web dev",
+    "verify:snapshots": "node scripts/verify-snapshots.mjs",
+    "observatory": "node apps/crawler/dist/cli.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "@mailscape/store": "workspace:*",
-    "@mailscape/core": "workspace:*"
+    "@observatory/store": "workspace:*",
+    "@observatory/core": "workspace:*"
   }
 }

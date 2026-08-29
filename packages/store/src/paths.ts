@@ -30,7 +30,7 @@ export function root(): string {
     const parent = dirname(dir);
     if (parent === dir) {
       // No marker anywhere above: fall back to the working directory rather
-      // than throwing, so `mailscape` still runs in a bare checkout.
+      // than throwing, so the CLI still runs in a bare checkout.
       cachedRoot = process.cwd();
       return cachedRoot;
     }

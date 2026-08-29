@@ -806,7 +806,6 @@
 {"domain":"zpath.net","rank":810,"field":"domain","kind":"first_seen","from":null,"to":"zpath.net","ts":"2026-08-29T12:03:52.827Z"}
 {"domain":"daum.net","rank":812,"field":"domain","kind":"first_seen","from":null,"to":"daum.net","ts":"2026-08-29T12:03:52.870Z"}
 {"domain":"sc-cdn.net","rank":820,"field":"domain","kind":"first_seen","from":null,"to":"sc-cdn.net","ts":"2026-08-29T12:03:53.103Z"}
-{"domain":"disneyplus.com","rank":805,"field":"domain","kind":"first_seen","from":null,"to":"disneyplus.com","ts":"2026-08-29T12:03:52.624Z"}
 {"domain":"a-msedge.net","rank":814,"field":"domain","kind":"first_seen","from":null,"to":"a-msedge.net","ts":"2026-08-29T12:03:52.952Z"}
 {"domain":"mixpanel.com","rank":807,"field":"domain","kind":"first_seen","from":null,"to":"mixpanel.com","ts":"2026-08-29T12:03:52.676Z"}
 {"domain":"zoho.com","rank":811,"field":"domain","kind":"first_seen","from":null,"to":"zoho.com","ts":"2026-08-29T12:03:52.839Z"}
@@ -998,6 +997,4 @@
 {"domain":"umich.edu","rank":983,"field":"domain","kind":"first_seen","from":null,"to":"umich.edu","ts":"2026-08-29T12:03:57.972Z"}
 {"domain":"volcgslb.com","rank":965,"field":"domain","kind":"first_seen","from":null,"to":"volcgslb.com","ts":"2026-08-29T12:03:57.659Z"}
 {"domain":"bytefcdn.com","rank":993,"field":"domain","kind":"first_seen","from":null,"to":"bytefcdn.com","ts":"2026-08-29T12:03:58.468Z"}
-{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-08-29T13:19:38.834Z"}
-{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-08-29T13:19:38.834Z"}
-{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-08-29T13:19:38.834Z"}
+{"domain":"disneyplus.com","rank":805,"field":"domain","kind":"first_seen","from":null,"to":"disneyplus.com","ts":"2026-08-29T13:28:21.195Z"}

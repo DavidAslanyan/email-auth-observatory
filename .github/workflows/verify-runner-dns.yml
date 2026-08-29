@@ -22,19 +22,34 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
       - uses: ./.github/actions/resolver
 
-      - name: Crawl without writing anything
-        run: pnpm mailscape crawl --tier 1 --limit "${{ inputs.domains }}" --dry-run
-
-      - name: Judge the unknown rate
+      - name: Crawl without writing anything, and judge the unknown rate
         run: |
           set -euo pipefail
-          RATE=$(pnpm --silent mailscape crawl --tier 1 --limit 200 --dry-run \
-                 | grep -o '"unknownRate":[0-9.e-]*' | cut -d: -f2)
-          echo "unknown rate: ${RATE}"
+          # --dry-run writes nothing; the run summary still goes to stdout.
+          pnpm --silent mailscape crawl --tier 1 --limit "${{ inputs.domains }}" --dry-run \
+            | tee /tmp/summary.json
+
+          SUMMARY=$(grep -o '{"command".*}' /tmp/summary.json | tail -1)
+          RATE=$(printf '%s' "$SUMMARY" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>console.log(JSON.parse(d).unknownRate))')
+          LOCAL=$(printf '%s' "$SUMMARY" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>{const s=JSON.parse(d);console.log(s.byResolver.local)})')
+          TOTAL=$(printf '%s' "$SUMMARY" | node -e 'let d="";process.stdin.on("data",c=>d+=c).on("end",()=>console.log(JSON.parse(d).lookupsTotal))')
+
+          {
+            echo "### Runner DNS check"
+            echo ""
+            echo "| Metric | Value |"
+            echo "| --- | --- |"
+            echo "| Lookups | ${TOTAL} |"
+            echo "| Answered locally | ${LOCAL} |"
+            echo "| Unknown rate | ${RATE} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "unknown rate: ${RATE} over ${TOTAL} lookups (${LOCAL} answered by local unbound)"
+
           # 2% is the threshold above which a real run is marked degraded.
           if awk "BEGIN { exit !(${RATE} > 0.02) }"; then
             echo "::error::unknown rate ${RATE} exceeds 2% — outbound UDP/53 is likely throttled on this runner"

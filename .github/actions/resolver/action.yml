@@ -8,27 +8,57 @@ description: >
 runs:
   using: composite
   steps:
-    - name: Install and start unbound
+    - name: Install unbound
       shell: bash
       run: |
         set -euo pipefail
         sudo apt-get update -qq
-        sudo apt-get install -y -qq unbound dnsutils
-        # The trust anchor is what makes the AD flag meaningful. Failing to
-        # fetch it costs DNSSEC data, not the crawl, so it must not abort here.
-        sudo unbound-anchor -a /var/lib/unbound/root.key || true
-        sudo unbound -c "$GITHUB_WORKSPACE/infra/unbound.conf"
+        # unbound-anchor is packaged separately from unbound on Ubuntu 24.04.
+        sudo apt-get install -y -qq unbound unbound-anchor dnsutils
+        # The package starts a default instance; stop it before installing ours.
+        sudo systemctl stop unbound || true
 
-    - name: Smoke-test the resolver
+    - name: Install the mailscape resolver config
       shell: bash
       run: |
         set -euo pipefail
-        for attempt in 1 2 3 4 5; do
+        # AppArmor confines unbound to /etc/unbound and /var/lib/unbound, so it
+        # cannot read a config out of the workspace — hence the copy rather than
+        # pointing -c at infra/unbound.conf directly.
+        sudo install -m 644 "$GITHUB_WORKSPACE/infra/unbound.conf" /etc/unbound/unbound.conf
+
+        # Bootstrap the DNSSEC trust anchor. unbound-anchor exits 1 when it
+        # writes a fresh anchor, which is success, so fall back to the copy
+        # shipped by dns-root-data rather than trusting its exit code.
+        sudo unbound-anchor -a /var/lib/unbound/root.key || true
+        if [ ! -s /var/lib/unbound/root.key ]; then
+          sudo cp /usr/share/dns/root.key /var/lib/unbound/root.key
+        fi
+        sudo chown unbound:unbound /var/lib/unbound/root.key
+
+        sudo unbound-checkconf /etc/unbound/unbound.conf
+
+    - name: Start and smoke-test the resolver
+      shell: bash
+      run: |
+        set -euo pipefail
+        sudo systemctl restart unbound
+
+        for attempt in 1 2 3 4 5 6 7 8 9 10; do
           if dig @127.0.0.1 google.com +short +time=3 | grep -q .; then
             echo "unbound answering after ${attempt} attempt(s)"
+            # Prove DNSSEC validation is live: a signed zone must set AD.
+            if dig @127.0.0.1 cloudflare.com +dnssec +noall +comments | grep -q ' ad'; then
+              echo "DNSSEC validation active (AD flag set on a signed zone)"
+            else
+              echo "::warning::resolver answers but is not setting AD; DNSSEC data will be unreliable"
+            fi
             exit 0
           fi
-          sleep 2
+          sleep 3
         done
+
         echo "::error::local unbound is not answering; refusing to crawl"
+        sudo systemctl status unbound --no-pager || true
+        sudo journalctl -u unbound --no-pager -n 40 || true
         exit 1

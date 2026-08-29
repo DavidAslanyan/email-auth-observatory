@@ -1,0 +1,10 @@
+node_modules
+dist
+.turbo
+data/tmp
+*.log
+.DS_Store
+apps/web/public/data
+*.tsbuildinfo
+coverage
+.idea

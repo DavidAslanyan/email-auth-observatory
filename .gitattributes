@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf
+data/tranco/domains.csv.gz binary

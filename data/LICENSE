@@ -1,0 +1,24 @@
+The mailscape dataset — everything under `data/` and `reports/` — is licensed
+under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to share and adapt this data for any purpose, including
+commercially, provided you give appropriate credit.
+
+  https://creativecommons.org/licenses/by/4.0/
+
+Suggested attribution:
+
+  mailscape — a time-series dataset of email authentication posture.
+  https://github.com/mailscape/mailscape (CC BY 4.0)
+
+The source code in this repository is licensed separately, under the MIT
+License. See the LICENSE file at the repository root.
+
+DERIVED DATA NOTICE
+-------------------
+Domain rankings are derived from the Tranco list, which is itself distributed
+under CC BY 4.0 and must be cited independently:
+
+  V. Le Pochat, T. Van Goethem, S. Tajalizadehkhoob, M. Korczynski, and
+  W. Joosen, "Tranco: A Research-Oriented Top Sites Ranking Hardened Against
+  Manipulation," NDSS 2019. https://tranco-list.eu/

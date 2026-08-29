@@ -1,0 +1,25 @@
+{
+  "name": "@mailscape/parsers",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure parsers for SPF, DMARC, BIMI, MTA-STS, TLS-RPT and MX. No I/O.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "dependencies": {
+    "@mailscape/core": "workspace:*"
+  }
+}

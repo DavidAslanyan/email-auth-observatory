@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.base.json",
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/dns"
+    },
+    {
+      "path": "./packages/parsers"
+    },
+    {
+      "path": "./packages/store"
+    },
+    {
+      "path": "./apps/crawler"
+    },
+    {
+      "path": "./apps/web"
+    },
+    {
+      "path": "./apps/web/tsconfig.node.json"
+    }
+  ]
+}

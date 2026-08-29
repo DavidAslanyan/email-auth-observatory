@@ -1,0 +1,26 @@
+{
+  "name": "@mailscape/store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Persistence, sharding, diffing, aggregation and report generation.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "dependencies": {
+    "@mailscape/core": "workspace:*",
+    "zod": "^3.24.1"
+  }
+}

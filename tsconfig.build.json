@@ -1,0 +1,10 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/dns" },
+    { "path": "./packages/parsers" },
+    { "path": "./packages/store" },
+    { "path": "./apps/crawler" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@mailscape/crawler",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The mailscape CLI. Thin orchestration over the packages.",
+  "bin": {
+    "mailscape": "./dist/cli.js"
+  },
+  "main": "./dist/cli.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean"
+  },
+  "dependencies": {
+    "@mailscape/core": "workspace:*",
+    "@mailscape/dns": "workspace:*",
+    "@mailscape/parsers": "workspace:*",
+    "@mailscape/store": "workspace:*",
+    "pino": "^9.6.0"
+  },
+  "devDependencies": {
+    "pino-pretty": "^13.0.0"
+  }
+}

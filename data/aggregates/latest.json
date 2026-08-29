@@ -46,7 +46,7 @@
       "unknown": 39
     },
     "mx": {
-      "present": 13600,
+      "present": 13601,
       "isNullMx": 82
     }
   },
@@ -94,7 +94,7 @@
           "unknown": 18
         },
         "mx": {
-          "present": 6225,
+          "present": 6226,
           "isNullMx": 34
         }
       }
@@ -16240,7 +16240,7 @@
   },
   "byMxProvider": {
     "self-hosted": {
-      "domainsObserved": 5449,
+      "domainsObserved": 5450,
       "totals": {
         "spf": {
           "present": 4871,
@@ -16278,11 +16278,11 @@
           "present": 141
         },
         "dnssec": {
-          "unsigned": 4953,
+          "unsigned": 4954,
           "signed": 496
         },
         "mx": {
-          "present": 5449,
+          "present": 5450,
           "isNullMx": 0
         }
       }
@@ -16335,7 +16335,7 @@
       }
     },
     "none": {
-      "domainsObserved": 5072,
+      "domainsObserved": 5071,
       "totals": {
         "spf": {
           "present": 855,
@@ -16371,7 +16371,7 @@
           "present": 4
         },
         "dnssec": {
-          "unsigned": 4723,
+          "unsigned": 4722,
           "unknown": 39,
           "signed": 310
         },
@@ -17162,7 +17162,7 @@
           "unknown": 1
         },
         "mx": {
-          "present": 700,
+          "present": 701,
           "isNullMx": 9
         }
       }

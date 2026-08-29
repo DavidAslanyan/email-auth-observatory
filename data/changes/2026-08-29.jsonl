@@ -18676,3 +18676,12 @@
 {"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-08-29T14:51:44.500Z"}
 {"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-08-29T14:51:44.500Z"}
 {"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-08-29T14:51:44.500Z"}
+{"domain":"mailshell.net","rank":14412,"field":"mx.provider","kind":"added","from":null,"to":"self-hosted","ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"bitkingzslots.com","rank":60487,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"bitkingzslots.com","rank":60487,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"bitkingzslots.com","rank":60487,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"bitkingzslots.com","rank":60487,"field":"mx.provider","kind":"added","from":null,"to":"self-hosted","ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"netproserver.com","rank":64448,"field":"spf.allQualifier","kind":"modified","from":"-","to":"~","ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"freenas.org","rank":78164,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"burnabyschools.ca","rank":86301,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-08-29T19:48:52.853Z"}
+{"domain":"moengage.com","rank":1933,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-08-29T19:48:52.853Z"}

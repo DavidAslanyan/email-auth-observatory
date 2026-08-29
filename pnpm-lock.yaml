@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@mailscape/core':
+        specifier: workspace:*
+        version: link:packages/core
       '@mailscape/store':
         specifier: workspace:*
         version: link:packages/store

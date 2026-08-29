@@ -29,3 +29,6 @@ jobs:
       # Network-dependent specs are excluded by default so CI never fails
       # because somebody else's nameserver had a bad minute.
       - run: pnpm test:coverage
+      # The committed dataset is the product, so check it parses back cleanly
+      # through the reader rather than trusting the writer.
+      - run: pnpm verify:snapshots

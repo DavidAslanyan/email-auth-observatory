@@ -26,7 +26,8 @@
     "typecheck:tests": "pnpm exec tsc -p packages/parsers/test/tsconfig.json && pnpm exec tsc -p packages/dns/test/tsconfig.json && pnpm exec tsc -p packages/store/test/tsconfig.json && pnpm exec tsc -p apps/crawler/test/tsconfig.json",
     "test:network": "MAILSCAPE_NETWORK_TESTS=1 vitest run --project dns-network",
     "stage-web-data": "node scripts/stage-web-data.mjs",
-    "dev:web": "pnpm stage-web-data && pnpm --filter @mailscape/web dev"
+    "dev:web": "pnpm stage-web-data && pnpm --filter @mailscape/web dev",
+    "verify:snapshots": "node scripts/verify-snapshots.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -53,6 +54,7 @@
     ]
   },
   "dependencies": {
-    "@mailscape/store": "workspace:*"
+    "@mailscape/store": "workspace:*",
+    "@mailscape/core": "workspace:*"
   }
 }

@@ -112,3 +112,26 @@ function stripUriTail(value: string): string {
 export function uniqueSorted(values: readonly string[]): string[] {
   return [...new Set(values)].sort();
 }
+
+/** Placeholder substituted for a mailbox name in a stored raw record. */
+export const REDACTED_LOCAL_PART = '<redacted>';
+
+/**
+ * Removes mailbox names from a raw record before it is stored.
+ *
+ * The parsed `ruaHosts` fields already carry domains only, but the raw record
+ * string is kept alongside them for debugging and reanalysis — and a raw DMARC
+ * record contains the full `rua=mailto:someone@example.com`. Committing that to
+ * a public dataset would publish a harvestable address list, which plan section
+ * 4.1.1 forbids. The domain, the tag structure and the destination count all
+ * survive; only the mailbox name is replaced.
+ */
+export function redactReportingAddresses(raw: string): string {
+  // The scheme is echoed back as written: everything except the mailbox name
+  // is meant to survive verbatim.
+  return raw.replace(/(mailto:)([^\s,;!]+)/gi, (_match, scheme: string, address: string) => {
+    const at = address.lastIndexOf('@');
+    if (at === -1) return `${scheme}${REDACTED_LOCAL_PART}`;
+    return `${scheme}${REDACTED_LOCAL_PART}@${address.slice(at + 1)}`;
+  });
+}

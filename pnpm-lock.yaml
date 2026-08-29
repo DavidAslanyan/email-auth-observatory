@@ -62,9 +62,15 @@ importers:
       '@mailscape/store':
         specifier: workspace:*
         version: link:../../packages/store
+      bottleneck:
+        specifier: ^2.19.5
+        version: 2.19.5
       pino:
         specifier: ^9.6.0
         version: 9.14.0
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
     devDependencies:
       pino-pretty:
         specifier: ^13.0.0

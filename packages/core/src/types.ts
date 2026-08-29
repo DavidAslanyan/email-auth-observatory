@@ -1,3 +1,13 @@
+/*
+ * Optional properties here are written `x?: T | undefined` rather than `x?: T`.
+ * The project compiles with `exactOptionalPropertyTypes`, under which those two
+ * differ: the second forbids an explicitly-undefined value. These records are
+ * produced by zod parsing at the read boundary, and zod's `.optional()` yields
+ * `T | undefined`, so the wider form is the one that is actually true of the
+ * data. JSON.stringify drops undefined values either way, so nothing reaches
+ * disk differently.
+ */
+
 /**
  * The four-state rule (plan section 1.1) lives in this union and nowhere else.
  *
@@ -26,16 +36,16 @@ export interface LookupMeta {
    * True when this value was carried forward from a previous crawl because
    * the current lookup returned `unknown`.
    */
-  stale?: boolean;
+  stale?: boolean | undefined;
   /** ISO 8601, only when stale. */
-  lastSeenAt?: string;
+  lastSeenAt?: string | undefined;
 }
 
 export type SpfQualifier = '+' | '-' | '~' | '?';
 
 export interface SpfState extends LookupMeta {
   present: boolean;
-  raw?: string;
+  raw?: string | undefined;
   /**
    * RFC 7208 section 4.5: more than one v=spf1 record is a permerror at the
    * receiver. Recording it is more interesting than hiding it.
@@ -43,13 +53,13 @@ export interface SpfState extends LookupMeta {
   multipleRecords: boolean;
   recordCount: number;
   /** The qualifier on the final `all` mechanism. */
-  allQualifier?: SpfQualifier;
+  allQualifier?: SpfQualifier | undefined;
   /** Terms in this record that require a DNS lookup. More than 10 is invalid. */
-  lookupCount?: number;
-  exceedsLookupLimit?: boolean;
+  lookupCount?: number | undefined;
+  exceedsLookupLimit?: boolean | undefined;
   hasRedirect: boolean;
   includes: string[];
-  parseError?: string;
+  parseError?: string | undefined;
 }
 
 export type DmarcPolicy = 'none' | 'quarantine' | 'reject';
@@ -58,39 +68,39 @@ export type DmarcAlignment = 'r' | 's';
 
 export interface DmarcState extends LookupMeta {
   present: boolean;
-  raw?: string;
+  raw?: string | undefined;
   multipleRecords: boolean;
-  p?: DmarcPolicy;
+  p?: DmarcPolicy | undefined;
   /**
    * RFC 7489 section 6.3: sp defaults to p when absent. Stored as absent rather
    * than eagerly copied from p — copying destroys the ability to detect the day
    * someone explicitly adds an sp tag.
    */
-  sp?: DmarcPolicy;
+  sp?: DmarcPolicy | undefined;
   /** 0-100, defaults to 100 when absent. */
-  pct?: number;
-  adkim?: DmarcAlignment;
-  aspf?: DmarcAlignment;
-  fo?: string;
-  ri?: number;
+  pct?: number | undefined;
+  adkim?: DmarcAlignment | undefined;
+  aspf?: DmarcAlignment | undefined;
+  fo?: string | undefined;
+  ri?: number | undefined;
   /** Number of aggregate report destinations. */
   ruaCount: number;
   rufCount: number;
   /** Domain parts only, never full mailto addresses — see plan section 4.1.1. */
   ruaHosts: string[];
-  parseError?: string;
+  parseError?: string | undefined;
 }
 
 export interface BimiState extends LookupMeta {
   present: boolean;
-  raw?: string;
+  raw?: string | undefined;
   /** l= present and non-empty. */
   hasLogo: boolean;
   /** a= present (Verified Mark Certificate). */
   hasVmc: boolean;
   /** l= present but empty — an explicit opt-out, distinct from absent. */
   declined: boolean;
-  parseError?: string;
+  parseError?: string | undefined;
 }
 
 export type MtaStsMode = 'enforce' | 'testing' | 'none';
@@ -98,20 +108,20 @@ export type MtaStsMode = 'enforce' | 'testing' | 'none';
 export interface MtaStsState extends LookupMeta {
   /** TXT record at _mta-sts. The policy file is fetched in a separate pass. */
   present: boolean;
-  policyId?: string;
+  policyId?: string | undefined;
   policyFetched: boolean;
-  mode?: MtaStsMode;
-  maxAge?: number;
-  mxPatternCount?: number;
-  policyError?: string;
+  mode?: MtaStsMode | undefined;
+  maxAge?: number | undefined;
+  mxPatternCount?: number | undefined;
+  policyError?: string | undefined;
 }
 
 export interface TlsRptState extends LookupMeta {
   present: boolean;
-  raw?: string;
+  raw?: string | undefined;
   ruaCount: number;
   ruaHosts: string[];
-  parseError?: string;
+  parseError?: string | undefined;
 }
 
 export interface MxState extends LookupMeta {
@@ -119,7 +129,7 @@ export interface MxState extends LookupMeta {
   /** Lowercased, trailing dot stripped, sorted by preference then name. */
   hosts: string[];
   /** 'google' | 'microsoft' | ... | 'self-hosted' | 'unknown' */
-  provider?: string;
+  provider?: string | undefined;
   /**
    * RFC 7505: a single MX with exchange "." and preference 0 means the domain
    * explicitly receives no mail. This is a *good* configuration and must never
@@ -173,7 +183,7 @@ export interface ChangeEvent {
   /** ISO 8601. */
   ts: string;
   /** Populated by the report generator for clustering, not by the differ. */
-  mxProvider?: string;
+  mxProvider?: string | undefined;
 }
 
 /** Counts keyed by an enum-ish string, e.g. { '-all': 3201, '~all': 8102 }. */

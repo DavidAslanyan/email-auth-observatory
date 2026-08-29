@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { parseTagValue, reportingUriHost, splitUriList, uniqueSorted } from '../src/tag-value.js';
+import {
+  parseTagValue,
+  redactReportingAddresses,
+  reportingUriHost,
+  splitUriList,
+  uniqueSorted,
+} from '../src/tag-value.js';
 
 describe('parseTagValue', () => {
   it('splits a simple record into keys and values', () => {
@@ -179,5 +185,63 @@ describe('uniqueSorted', () => {
 
   it('returns an empty array unchanged', () => {
     expect(uniqueSorted([])).toEqual([]);
+  });
+});
+
+describe('redactReportingAddresses', () => {
+  it('replaces the mailbox name but keeps the domain', () => {
+    expect(redactReportingAddresses('v=DMARC1; p=none; rua=mailto:john.doe@rep.example')).toBe(
+      'v=DMARC1; p=none; rua=mailto:<redacted>@rep.example',
+    );
+  });
+
+  it('redacts every address in a multi-destination record', () => {
+    const out = redactReportingAddresses(
+      'v=DMARC1; p=reject; rua=mailto:d@rua.agari.com,mailto:dmarc_agg@vali.email',
+    );
+    expect(out).toBe(
+      'v=DMARC1; p=reject; rua=mailto:<redacted>@rua.agari.com,mailto:<redacted>@vali.email',
+    );
+    expect(out).not.toContain('dmarc_agg');
+  });
+
+  it('redacts ruf destinations as well as rua', () => {
+    const out = redactReportingAddresses('v=DMARC1; p=reject; ruf=mailto:MTc4Mzcw@ruf.vali.email');
+    expect(out).not.toContain('MTc4Mzcw');
+    expect(out).toContain('@ruf.vali.email');
+  });
+
+  it('keeps a size limit suffix intact', () => {
+    expect(redactReportingAddresses('rua=mailto:a@rep.example!10m')).toBe(
+      'rua=mailto:<redacted>@rep.example!10m',
+    );
+  });
+
+  it('uses the last at-sign so a quoted local part cannot survive', () => {
+    expect(redactReportingAddresses('rua=mailto:a@b@rep.example')).toBe(
+      'rua=mailto:<redacted>@rep.example',
+    );
+  });
+
+  it('leaves https destinations untouched, since they name no mailbox', () => {
+    expect(redactReportingAddresses('v=TLSRPTv1; rua=https://tls.example/report')).toBe(
+      'v=TLSRPTv1; rua=https://tls.example/report',
+    );
+  });
+
+  it('handles a malformed mailto with no at-sign', () => {
+    expect(redactReportingAddresses('rua=mailto:broken')).toBe('rua=mailto:<redacted>');
+  });
+
+  it('leaves a record with no mailto unchanged', () => {
+    expect(redactReportingAddresses('v=spf1 include:a.example -all')).toBe(
+      'v=spf1 include:a.example -all',
+    );
+  });
+
+  it('is case-insensitive about the scheme', () => {
+    expect(redactReportingAddresses('rua=MAILTO:a@rep.example')).toBe(
+      'rua=MAILTO:<redacted>@rep.example',
+    );
   });
 });

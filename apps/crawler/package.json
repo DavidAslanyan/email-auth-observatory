@@ -20,7 +20,9 @@
     "@mailscape/dns": "workspace:*",
     "@mailscape/parsers": "workspace:*",
     "@mailscape/store": "workspace:*",
-    "pino": "^9.6.0"
+    "bottleneck": "^2.19.5",
+    "pino": "^9.6.0",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "pino-pretty": "^13.0.0"

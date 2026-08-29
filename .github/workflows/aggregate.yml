@@ -1,0 +1,37 @@
+name: Aggregate
+
+on:
+  # Commits pushed with the default GITHUB_TOKEN do not trigger other
+  # workflows, so this cannot be a `push` trigger. workflow_run is the
+  # simplest chain that needs no extra secret.
+  workflow_run:
+    workflows: ['Crawl tier 1', 'Crawl tier 2']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mailscape-data-write
+  cancel-in-progress: false
+
+jobs:
+  aggregate:
+    # A failed crawl still leaves the previous snapshot in place, but
+    # aggregating after one would publish a total nobody asked for.
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+      - uses: ./.github/actions/setup
+      - run: pnpm mailscape aggregate
+      - uses: ./.github/actions/commit-data
+        with:
+          summary: aggregate
+          paths: data/aggregates

@@ -1,0 +1,43 @@
+name: Verify runner DNS
+
+# Run this BEFORE trusting the scheduled crawls. GitHub-hosted runners may
+# throttle high-volume outbound UDP/53, which would show up as an elevated
+# unknown rate rather than as an error. If this reports a bad rate, the fallback
+# is a small VPS running the same CLI on cron — which is arguably the better
+# architecture anyway (warm resolver cache, no six-hour job limit).
+on:
+  workflow_dispatch:
+    inputs:
+      domains:
+        description: How many domains to resolve.
+        required: false
+        default: '1000'
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/resolver
+
+      - name: Crawl without writing anything
+        run: pnpm mailscape crawl --tier 1 --limit "${{ inputs.domains }}" --dry-run
+
+      - name: Judge the unknown rate
+        run: |
+          set -euo pipefail
+          RATE=$(pnpm --silent mailscape crawl --tier 1 --limit 200 --dry-run \
+                 | grep -o '"unknownRate":[0-9.e-]*' | cut -d: -f2)
+          echo "unknown rate: ${RATE}"
+          # 2% is the threshold above which a real run is marked degraded.
+          if awk "BEGIN { exit !(${RATE} > 0.02) }"; then
+            echo "::error::unknown rate ${RATE} exceeds 2% — outbound UDP/53 is likely throttled on this runner"
+            exit 1
+          fi
+          echo "outbound UDP/53 looks healthy on GitHub-hosted runners"

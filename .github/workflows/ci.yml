@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    # Data commits change nothing that CI checks, and running the full suite on
+    # every one of the five daily data pushes is pure noise.
+    paths-ignore: ['data/**', 'reports/**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm typecheck
+      # Network-dependent specs are excluded by default so CI never fails
+      # because somebody else's nameserver had a bad minute.
+      - run: pnpm test:coverage

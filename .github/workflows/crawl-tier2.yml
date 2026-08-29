@@ -1,0 +1,40 @@
+name: Crawl tier 2
+
+on:
+  schedule:
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+    inputs:
+      shard:
+        description: Shard to crawl (0-6). Leave empty to pick from the day of year.
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mailscape-data-write
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    # Under the 360-minute hard limit, leaving room to commit. A crawl killed at
+    # the limit resumes from its checkpoint on the next run.
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/resolver
+      - name: Crawl shard
+        run: |
+          if [ -n "${{ inputs.shard }}" ]; then
+            pnpm mailscape crawl --tier 2 --shard "${{ inputs.shard }}"
+          else
+            pnpm mailscape crawl --tier 2 --auto
+          fi
+      - uses: ./.github/actions/commit-data
+        with:
+          summary: tier2 shard crawl
+          paths: data

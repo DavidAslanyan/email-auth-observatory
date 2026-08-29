@@ -1,0 +1,29 @@
+name: Crawl tier 1
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Every data-writing workflow shares one group. Never cancel: a cancelled
+  # crawl loses the work it has done rather than merely delaying it.
+  group: mailscape-data-write
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/resolver
+      - run: pnpm mailscape crawl --tier 1
+      - uses: ./.github/actions/commit-data
+        with:
+          summary: tier1 crawl
+          paths: data

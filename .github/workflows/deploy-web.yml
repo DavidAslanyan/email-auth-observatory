@@ -1,0 +1,55 @@
+name: Deploy dashboard
+
+on:
+  workflow_run:
+    workflows: ['Aggregate']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Pages deployments are idempotent, so a superseded one can safely be dropped.
+concurrency:
+  group: mailscape-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+      - uses: ./.github/actions/setup
+
+      # Data is copied in at build time rather than fetched at runtime: no
+      # CORS, no rate limits, and the deployed site is a versioned artifact
+      # rather than a view onto a moving target.
+      - run: node scripts/stage-web-data.mjs
+
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build
+        run: pnpm --filter @mailscape/web build
+        env:
+          PAGES_BASE: ${{ steps.pages.outputs.base_path || '/' }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

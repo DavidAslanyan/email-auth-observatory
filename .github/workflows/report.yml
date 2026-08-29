@@ -1,0 +1,37 @@
+name: Daily report
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: Date to report on (YYYY-MM-DD). Defaults to today, UTC.
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mailscape-data-write
+  cancel-in-progress: false
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Generate report
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            pnpm mailscape report --date "${{ inputs.date }}"
+          else
+            pnpm mailscape report
+          fi
+      - uses: ./.github/actions/commit-data
+        with:
+          summary: daily report
+          paths: reports

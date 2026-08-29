@@ -1,0 +1,67 @@
+name: Commit data
+description: >
+  Commits and pushes data changes, with the retry loop that six workflows
+  writing to one branch require.
+
+inputs:
+  summary:
+    description: >
+      What this commit did, e.g. "tier1 crawl". Prefixed with `data:` and
+      suffixed with a UTC timestamp by this action, so automated commits are
+      trivially filterable with `git log --invert-grep --grep='^data:'`.
+    required: true
+  paths:
+    description: Space-separated paths to stage
+    required: false
+    default: data reports
+
+runs:
+  using: composite
+  steps:
+    - name: Commit and push
+      shell: bash
+      env:
+        COMMIT_NAME: ${{ vars.COMMIT_NAME }}
+        COMMIT_EMAIL: ${{ vars.COMMIT_EMAIL }}
+        SUMMARY: ${{ inputs.summary }}
+        PATHS: ${{ inputs.paths }}
+      run: |
+        set -euo pipefail
+
+        # GitHub counts a commit toward the contribution graph when the AUTHOR
+        # email is verified on the account, the commit is on the default branch,
+        # and the repo is not a fork. The pusher is irrelevant, so GITHUB_TOKEN
+        # is fine as long as the author is set correctly.
+        if [ -z "${COMMIT_EMAIL:-}" ]; then
+          echo "::error::COMMIT_EMAIL repository variable is not set; commits would not be attributed"
+          exit 1
+        fi
+
+        git config user.name  "${COMMIT_NAME:-mailscape bot}"
+        git config user.email "${COMMIT_EMAIL}"
+
+        # shellcheck disable=SC2086
+        git add $PATHS
+
+        # A quiet day must be quiet. This guard is what keeps the commit history
+        # honest and readable.
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+
+        git commit -m "data: ${SUMMARY} $(date -u +%FT%H:%MZ)"
+
+        # Six workflows writing to one branch will collide. Concurrency groups
+        # queue them; this loop handles the races the group cannot.
+        for attempt in 1 2 3 4 5; do
+          if git pull --rebase --autostash origin "${GITHUB_REF_NAME}" \
+             && git push origin "HEAD:${GITHUB_REF_NAME}"; then
+            echo "pushed on attempt ${attempt}"
+            exit 0
+          fi
+          sleep $((RANDOM % 10 + 5))
+        done
+
+        echo "::error::Failed to push after 5 attempts"
+        exit 1

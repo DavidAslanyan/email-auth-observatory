@@ -1,6 +1,6 @@
 {
   "shard": "tier1",
-  "crawledAt": "2026-08-29T13:18:51.996Z",
+  "crawledAt": "2026-08-29T14:45:53.670Z",
   "domains": 1000,
   "listId": "N2Q8W",
   "resolver": "doh-cloudflare"

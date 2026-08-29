@@ -160,16 +160,87 @@ working SPF policy, and it does not hide the misconfiguration.
 
 ## Where the crawl runs
 
-Crawls run on GitHub-hosted runners with a local `unbound` recursive resolver
-started in the job (see `infra/unbound.conf` and `.github/workflows/`). Running
-our own recursion, rather than hammering a public resolver, is what keeps the
-DoH tier inside its budget and what makes authentic `NXDOMAIN`/`NODATA`
-distinctions visible rather than a public resolver's cached approximation.
+Crawls run on GitHub-hosted runners, and **they resolve over DoH, not over a
+local recursive resolver.** That is a deliberate choice forced by a measured
+constraint, and it is the one place where this project does not do what its own
+design would prefer.
 
-If GitHub-hosted runners ever throttle high-volume outbound UDP/53, the fallback
-is a small VPS running the same CLI on cron. That is arguably the better
-architecture anyway — a warm resolver cache across runs and no six-hour job
-limit — and this document will be updated to say which is in use.
+### What was measured
+
+The plan for this project called for running our own `unbound` and keeping the
+DoH tier at 1-3% of traffic. On a GitHub-hosted runner that is not possible.
+A 1,000-domain crawl with a correctly configured local unbound produced:
+
+```
+lookups 11069   local 557 (5.0%)   doh-cloudflare 10482   doh-google 30
+unknown rate 0.22%
+```
+
+unbound was healthy — `unbound-checkconf` clean, service active, 65,536 file
+descriptors available, DNSSEC validating with the AD flag set on a signed zone.
+It answered the first few hundred queries and then stopped being able to reach
+anything. Mid-crawl, from the same runner:
+
+```
+dig @198.41.0.4 . NS      ;; communications error to 198.41.0.4#53: timed out
+dig @1.1.1.1 google.com   ;; communications error to 1.1.1.1#53: timed out
+```
+
+A root server and a public resolver, both unreachable on UDP/53. **GitHub-hosted
+runners throttle sustained outbound UDP/53.** Nothing about the resolver
+configuration can fix that.
+
+### What that changes, and what it does not
+
+Note the trap in the numbers above: the unknown rate was a healthy 0.22%. The
+crawl looked fine. It was only wrong about *who answered* — the DoH tier was
+silently carrying 95% of a crawl that claimed to be locally resolved. The
+resolver check therefore gates on the tier mix as well as the unknown rate,
+because the unknown rate alone cannot detect this.
+
+Resolving over Cloudflare's DoH endpoint (falling back to Google) preserves what
+this dataset depends on:
+
+- **RCODEs are exact.** The JSON API returns `Status`, so `NODATA`, `NXDOMAIN`
+  and `SERVFAIL` remain distinguishable — the four-state rule is intact.
+- **DNSSEC is preserved.** The `AD` flag is returned per response.
+- **TXT chunking is preserved.** Chunked records arrive as adjacent quoted
+  strings and are joined with no separator, exactly as on the wire path.
+
+What is lost is real: answers may be served from a shared cache rather than
+fetched from the authoritative server, so a record changed minutes ago can be
+observed late, and TTL-boundary effects are the resolver's rather than ours. The
+dataset also depends on one operator's availability. Change events are dated
+when **observed**, which already accounts for this.
+
+Because DoH is the only tier on these runners rather than a fallback, its
+limiter is raised from the conservative default to a sustained ~100 queries per
+second. That is a declared architecture decision, not a workaround for a
+misconfigured resolver — the distinction matters, because raising the DoH
+limiter to hide a broken local resolver is precisely the anti-pattern this
+project warns against.
+
+### The better architecture, if you want it
+
+A self-hosted runner or a small VPS has no such restriction, and it is the
+preferred setup:
+
+- real recursion, so answers come from authoritative servers
+- a warm cache across runs, which makes repeat crawls much faster
+- no six-hour job limit
+
+Everything needed is already in the repository. `infra/unbound.conf` is the
+resolver config, and the workflows take a switch:
+
+```yaml
+- uses: ./.github/actions/resolver
+  with:
+    local: true
+```
+
+Point a self-hosted runner at the repository, flip that input, and run
+**Verify resolver** with `local: true`. It asserts that the local tier really is
+carrying the crawl rather than quietly handing off to DoH.
 
 ## Reproducing this
 

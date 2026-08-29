@@ -118,6 +118,13 @@ somebody finds one. [The methodology](docs/METHODOLOGY.md) goes further.
   **Exclude those dates when analysing a trend across the boundary.**
 - **`byTld` uses the last DNS label**, so `bbc.co.uk` is filed under `uk`.
   Distinguishing registrable suffixes needs a public suffix list.
+- **Crawls on GitHub Actions resolve over DoH, not our own recursion.**
+  GitHub-hosted runners throttle sustained outbound UDP/53 — measured: mid-crawl,
+  a root server and `1.1.1.1` both time out — so a local `unbound` there answers
+  a few hundred queries and then cannot reach anything. RCODEs, the DNSSEC AD
+  flag and TXT chunking all survive, but answers may come from a shared cache
+  rather than the authoritative server. [The methodology](docs/METHODOLOGY.md#where-the-crawl-runs)
+  has the numbers and the self-hosted setup that avoids it.
 - **Reporting addresses are redacted.** DMARC and TLS-RPT `rua=` tags name real
   mailboxes. Only the domain is kept, so "which DMARC vendors are gaining
   share?" is answerable and "who is the DMARC contact here?" deliberately is not.

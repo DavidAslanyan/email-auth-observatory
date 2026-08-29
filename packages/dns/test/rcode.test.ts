@@ -112,3 +112,30 @@ describe('isFailure', () => {
     expect(isFailure('nodata')).toBe(false);
   });
 });
+
+describe('resolver tiering under a DoH-only configuration', () => {
+  it('skips the local tier entirely when configured to', async () => {
+    // GitHub-hosted runners throttle outbound UDP/53. Leaving the local tier in
+    // the chain there would make every lookup wait out a timeout it can never
+    // satisfy, so the crawl selects DoH deliberately rather than falling through.
+    const { Resolver } = await import('../src/resolver.js');
+    const resolver = new Resolver({
+      // Unroutable (RFC 5737): if the local tier were tried, this would hang.
+      local: { host: '192.0.2.1', port: 53 },
+      localTimeoutMs: 30_000,
+      skipLocal: true,
+      useDoh: false,
+    });
+    const started = Date.now();
+    const answer = await resolver.query('example.com', 'TXT');
+    // No tier was available, so the result is unknown — but it returned at once
+    // rather than waiting out a 30s local timeout.
+    expect(answer.status).toBe('unknown');
+    expect(Date.now() - started).toBeLessThan(2_000);
+  });
+
+  it('still uses the local tier by default', async () => {
+    const { DEFAULT_RESOLVER_CONFIG } = await import('../src/resolver.js');
+    expect(DEFAULT_RESOLVER_CONFIG.skipLocal).toBe(false);
+  });
+});

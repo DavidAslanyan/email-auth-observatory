@@ -1,35 +1,56 @@
-name: Start local unbound
+name: Configure the resolver
 description: >
-  Starts a local recursive resolver and smoke-tests it. Running our own
-  recursion is what keeps the DoH fallback tier inside its 1-3% budget and what
-  makes authentic NXDOMAIN/NODATA distinctions visible rather than a public
-  resolver's cached approximation.
+  Selects how DNS is resolved for this run.
+
+  GitHub-hosted runners throttle outbound UDP/53: a local unbound there answers
+  a few hundred queries and then cannot reach any authoritative server at all
+  (verified — a root server and 1.1.1.1 both time out on UDP/53 from a runner
+  mid-crawl). So on GitHub runners the crawl resolves over DoH and says so.
+
+  A self-hosted runner has no such restriction, and `local: true` gives it real
+  recursion with a warm cache — the better architecture, and the reason
+  infra/unbound.conf is still here.
+
+inputs:
+  local:
+    description: Start a local unbound and resolve through it. Only works where outbound UDP/53 is unrestricted.
+    required: false
+    default: 'false'
 
 runs:
   using: composite
   steps:
-    - name: Install unbound
+    - name: Resolve over DoH
+      if: inputs.local != 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        echo "MAILSCAPE_SKIP_LOCAL_RESOLVER=1" >> "$GITHUB_ENV"
+        # The DoH tier is normally budgeted for 1-3% of traffic and kept
+        # deliberately slow. Here it is the only tier, so it is raised to a
+        # sustained ~100 queries/second — enough to finish a shard well inside
+        # the job limit, and modest for a public resolver. This is a declared
+        # architecture choice, not a workaround for a misconfigured unbound.
+        echo "MAILSCAPE_DOH_CONCURRENCY=20" >> "$GITHUB_ENV"
+        echo "MAILSCAPE_DOH_MIN_TIME_MS=10" >> "$GITHUB_ENV"
+        echo "resolver: DoH (Cloudflare, falling back to Google)"
+
+    - name: Install and start local unbound
+      if: inputs.local == 'true'
       shell: bash
       run: |
         set -euo pipefail
         sudo apt-get update -qq
         # unbound-anchor is packaged separately from unbound on Ubuntu 24.04.
         sudo apt-get install -y -qq unbound unbound-anchor dnsutils
-        # The package starts a default instance; stop it before installing ours.
         sudo systemctl stop unbound || true
 
-    - name: Install the mailscape resolver config
-      shell: bash
-      run: |
-        set -euo pipefail
         # AppArmor confines unbound to /etc/unbound and /var/lib/unbound, so it
-        # cannot read a config out of the workspace — hence the copy rather than
-        # pointing -c at infra/unbound.conf directly.
+        # cannot read a config out of the workspace.
         sudo install -m 644 "$GITHUB_WORKSPACE/infra/unbound.conf" /etc/unbound/unbound.conf
 
-        # Bootstrap the DNSSEC trust anchor. unbound-anchor exits 1 when it
-        # writes a fresh anchor, which is success, so fall back to the copy
-        # shipped by dns-root-data rather than trusting its exit code.
+        # unbound-anchor exits non-zero when it writes a fresh anchor, which is
+        # success, so test for the file rather than trusting the exit code.
         sudo unbound-anchor -a /var/lib/unbound/root.key || true
         if [ ! -s /var/lib/unbound/root.key ]; then
           sudo cp /usr/share/dns/root.key /var/lib/unbound/root.key
@@ -37,17 +58,11 @@ runs:
         sudo chown unbound:unbound /var/lib/unbound/root.key
 
         sudo unbound-checkconf /etc/unbound/unbound.conf
-
-    - name: Start and smoke-test the resolver
-      shell: bash
-      run: |
-        set -euo pipefail
         sudo systemctl restart unbound
 
         for attempt in 1 2 3 4 5 6 7 8 9 10; do
           if dig @127.0.0.1 google.com +short +time=3 | grep -q .; then
             echo "unbound answering after ${attempt} attempt(s)"
-            # Prove DNSSEC validation is live: a signed zone must set AD.
             if dig @127.0.0.1 cloudflare.com +dnssec +noall +comments | grep -q ' ad'; then
               echo "DNSSEC validation active (AD flag set on a signed zone)"
             else

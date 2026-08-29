@@ -12,6 +12,7 @@ export interface Config {
   localTimeoutMs: number;
   dohTimeoutMs: number;
   useDoh: boolean;
+  skipLocalResolver: boolean;
   localConcurrency: number;
   dohConcurrency: number;
   dohMinTimeMs: number;
@@ -55,6 +56,9 @@ export function loadConfig(): Config {
     localTimeoutMs: num('MAILSCAPE_LOCAL_TIMEOUT_MS', TIMEOUTS.localMs),
     dohTimeoutMs: num('MAILSCAPE_DOH_TIMEOUT_MS', TIMEOUTS.dohMs),
     useDoh: bool('MAILSCAPE_USE_DOH', true),
+    // Set on GitHub-hosted runners, where outbound UDP/53 is throttled and a
+    // local recursive resolver cannot work. See docs/METHODOLOGY.md.
+    skipLocalResolver: bool('MAILSCAPE_SKIP_LOCAL_RESOLVER', false),
     localConcurrency: num('MAILSCAPE_LOCAL_CONCURRENCY', 100),
     // DoH is one endpoint and should see 1-3% of traffic. Raising this to paper
     // over local resolver problems hides the cause instead of fixing it.

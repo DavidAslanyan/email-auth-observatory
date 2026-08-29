@@ -62,6 +62,7 @@ export async function crawl(options: CrawlOptions): Promise<RunSummary> {
     localTimeoutMs: config.localTimeoutMs,
     dohTimeoutMs: config.dohTimeoutMs,
     useDoh: config.useDoh,
+    skipLocal: config.skipLocalResolver,
     localConcurrency: config.localConcurrency,
     dohConcurrency: config.dohConcurrency,
     dohMinTimeMs: config.dohMinTimeMs,

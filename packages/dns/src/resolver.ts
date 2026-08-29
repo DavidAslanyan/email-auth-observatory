@@ -12,6 +12,17 @@ export interface ResolverConfig {
   dohTimeoutMs: number;
   /** Set false to skip the DoH tiers entirely, for offline testing. */
   useDoh: boolean;
+  /**
+   * Skip local recursion and resolve entirely over DoH.
+   *
+   * This exists because GitHub-hosted runners throttle outbound UDP/53: a local
+   * unbound there answers a few hundred queries and then cannot reach any
+   * authoritative server. Leaving it in the chain would mean every lookup
+   * waiting out a local timeout before falling through, and would disguise a
+   * DoH-only crawl as a locally-resolved one. Choosing it explicitly is honest;
+   * discovering it in the resolver mix afterwards is not.
+   */
+  skipLocal: boolean;
   localConcurrency: number;
   dohConcurrency: number;
   dohMinTimeMs: number;
@@ -23,6 +34,7 @@ export const DEFAULT_RESOLVER_CONFIG: ResolverConfig = {
   localTimeoutMs: TIMEOUTS.localMs,
   dohTimeoutMs: TIMEOUTS.dohMs,
   useDoh: true,
+  skipLocal: false,
   localConcurrency: 100,
   dohConcurrency: 10,
   dohMinTimeMs: 20,
@@ -87,7 +99,8 @@ export class Resolver {
   async #resolveThroughTiers(name: string, type: RecordType): Promise<DnsAnswer> {
     let last: DnsAnswer | undefined;
 
-    for (let attempt = 0; attempt < this.#config.localAttempts; attempt++) {
+    const localAttempts = this.#config.skipLocal ? 0 : this.#config.localAttempts;
+    for (let attempt = 0; attempt < localAttempts; attempt++) {
       const answer = await this.#localLimiter.schedule(() =>
         queryUdp(this.#config.local, name, type, {
           timeoutMs: this.#config.localTimeoutMs,

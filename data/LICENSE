@@ -9,7 +9,7 @@ commercially, provided you give appropriate credit.
 Suggested attribution:
 
   mailscape — a time-series dataset of email authentication posture.
-  https://github.com/mailscape/mailscape (CC BY 4.0)
+  https://github.com/DavidAslanyan/mailscape (CC BY 4.0)
 
 The source code in this repository is licensed separately, under the MIT
 License. See the LICENSE file at the repository root.

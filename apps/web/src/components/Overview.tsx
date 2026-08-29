@@ -125,7 +125,7 @@ export function Overview({ aggregate }: { aggregate: Aggregate }): React.JSX.Ele
         <p className="footnote" style={{ marginTop: '1rem' }}>
           DKIM is deliberately absent from this list. Selectors cannot be enumerated from DNS, so
           any DKIM adoption figure would be a guess dressed as a measurement. See{' '}
-          <a href="https://github.com/mailscape/mailscape/blob/main/docs/METHODOLOGY.md">
+          <a href="https://github.com/DavidAslanyan/mailscape/blob/main/docs/METHODOLOGY.md">
             the methodology
           </a>
           .

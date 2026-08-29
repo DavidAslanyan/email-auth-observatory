@@ -5,7 +5,7 @@ SPF, DMARC, DKIM, MTA-STS, BIMI and TLS-RPT — across the internet's most popul
 domains. Anyone can scan DNS today; **nobody keeps a public longitudinal record
 of how it changes**, and the changes are the interesting part.
 
-[Dashboard](https://mailscape.github.io/mailscape/) ·
+[Dashboard](https://davidaslanyan.github.io/mailscape/) ·
 [Latest report](reports/) ·
 [Schema](docs/SCHEMA.md) ·
 [Methodology](docs/METHODOLOGY.md)
@@ -58,14 +58,14 @@ server and no auth, on purpose.
 **Current totals:**
 
 ```bash
-curl -s https://raw.githubusercontent.com/mailscape/mailscape/main/data/aggregates/latest.json \
+curl -s https://raw.githubusercontent.com/DavidAslanyan/mailscape/main/data/aggregates/latest.json \
   | jq '{date, domains: .domainsObserved, dmarc: .totals.dmarc.p, mtaSts: .totals.mtaSts.mode}'
 ```
 
 **Every domain that weakened its DMARC policy on a given day:**
 
 ```bash
-curl -s https://raw.githubusercontent.com/mailscape/mailscape/main/data/changes/2026-08-29.jsonl \
+curl -s https://raw.githubusercontent.com/DavidAslanyan/mailscape/main/data/changes/2026-08-29.jsonl \
   | jq -c 'select(.field == "dmarc.p" and .from == "reject")'
 ```
 
@@ -79,7 +79,7 @@ jq -c 'select(.dmarc.pct != null and .dmarc.pct < 100) | {domain, p: .dmarc.p, p
 **The whole adoption time series, as one file:**
 
 ```bash
-curl -s https://raw.githubusercontent.com/mailscape/mailscape/main/data/aggregates/history.jsonl \
+curl -s https://raw.githubusercontent.com/DavidAslanyan/mailscape/main/data/aggregates/history.jsonl \
   | jq -c '{date, reject: .totals.dmarc.p.reject}'
 ```
 
@@ -170,7 +170,7 @@ variable; see `apps/crawler/src/config.ts`.
   title        = {mailscape: a longitudinal dataset of email authentication posture},
   author       = {{mailscape contributors}},
   year         = {2026},
-  howpublished = {\url{https://github.com/mailscape/mailscape}},
+  howpublished = {\url{https://github.com/DavidAslanyan/mailscape}},
   note         = {Dataset licensed CC BY 4.0}
 }
 ```

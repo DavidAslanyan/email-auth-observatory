@@ -71,7 +71,7 @@ export function loadConfig(): Config {
     trancoApiBase: str('MAILSCAPE_TRANCO_BASE', 'https://tranco-list.eu'),
     userAgent: str(
       'MAILSCAPE_USER_AGENT',
-      'mailscape/1.0 (+https://github.com/mailscape/mailscape)',
+      'mailscape/1.0 (+https://github.com/DavidAslanyan/mailscape)',
     ),
     logLevel: str('MAILSCAPE_LOG_LEVEL', 'info'),
   };

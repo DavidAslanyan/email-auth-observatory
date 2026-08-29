@@ -193,7 +193,7 @@ export function App(): React.JSX.Element {
           <p>
             DKIM findings are a lower bound, SPF lookup counts are not recursive, and the long tail
             is observed weekly rather than daily. The{' '}
-            <a href="https://github.com/mailscape/mailscape/blob/main/docs/METHODOLOGY.md">
+            <a href="https://github.com/DavidAslanyan/mailscape/blob/main/docs/METHODOLOGY.md">
               methodology
             </a>{' '}
             explains why.

@@ -38,3 +38,5 @@ jobs:
         with:
           summary: tier2 shard crawl
           paths: data
+          name: ${{ vars.COMMIT_NAME }}
+          email: ${{ vars.COMMIT_EMAIL }}

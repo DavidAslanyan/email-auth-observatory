@@ -14,6 +14,16 @@ inputs:
     description: Space-separated paths to stage
     required: false
     default: data reports
+  name:
+    description: >
+      Commit author name. Passed in rather than read from vars, because the
+      `vars` context is not available inside a composite action.
+    required: true
+  email:
+    description: >
+      Commit author email. Must be verified on the account, or the commits will
+      not appear on the contribution graph.
+    required: true
 
 runs:
   using: composite
@@ -21,8 +31,8 @@ runs:
     - name: Commit and push
       shell: bash
       env:
-        COMMIT_NAME: ${{ vars.COMMIT_NAME }}
-        COMMIT_EMAIL: ${{ vars.COMMIT_EMAIL }}
+        COMMIT_NAME: ${{ inputs.name }}
+        COMMIT_EMAIL: ${{ inputs.email }}
         SUMMARY: ${{ inputs.summary }}
         PATHS: ${{ inputs.paths }}
       run: |

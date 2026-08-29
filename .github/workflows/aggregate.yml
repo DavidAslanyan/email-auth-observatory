@@ -35,3 +35,5 @@ jobs:
         with:
           summary: aggregate
           paths: data/aggregates
+          name: ${{ vars.COMMIT_NAME }}
+          email: ${{ vars.COMMIT_EMAIL }}

@@ -35,3 +35,5 @@ jobs:
         with:
           summary: daily report
           paths: reports
+          name: ${{ vars.COMMIT_NAME }}
+          email: ${{ vars.COMMIT_EMAIL }}

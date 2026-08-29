@@ -27,3 +27,5 @@ jobs:
         with:
           summary: tier1 crawl
           paths: data
+          name: ${{ vars.COMMIT_NAME }}
+          email: ${{ vars.COMMIT_EMAIL }}

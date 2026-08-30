@@ -1,14 +1,14 @@
 {
-  "date": "2026-08-29",
+  "date": "2026-08-30",
   "listId": "N2Q8W",
   "domainsObserved": 18672,
   "unknownRate": 0.001017566409597258,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 13303,
+      "present": 13301,
       "allQualifier": {
-        "-all": 6015,
+        "-all": 6013,
         "~all": 6549,
         "?all": 327,
         "+all": 5
@@ -33,7 +33,7 @@
       "present": 388,
       "mode": {
         "enforce": 176,
-        "testing": 144,
+        "testing": 143,
         "none": 5
       }
     },
@@ -55,9 +55,9 @@
       "domainsObserved": 8593,
       "totals": {
         "spf": {
-          "present": 6069,
+          "present": 6067,
           "allQualifier": {
-            "-all": 2641,
+            "-all": 2639,
             "~all": 3132,
             "?all": 141
           },
@@ -447,8 +447,8 @@
         "mtaSts": {
           "present": 19,
           "mode": {
-            "testing": 4,
             "enforce": 12,
+            "testing": 3,
             "none": 2
           }
         },
@@ -16270,7 +16270,7 @@
           "present": 123,
           "mode": {
             "enforce": 65,
-            "testing": 37,
+            "testing": 36,
             "none": 1
           }
         },
@@ -16291,9 +16291,9 @@
       "domainsObserved": 2444,
       "totals": {
         "spf": {
-          "present": 2425,
+          "present": 2424,
           "allQualifier": {
-            "-all": 1575,
+            "-all": 1574,
             "~all": 804,
             "?all": 17
           },
@@ -16698,10 +16698,10 @@
       "domainsObserved": 134,
       "totals": {
         "spf": {
-          "present": 123,
+          "present": 122,
           "allQualifier": {
             "~all": 104,
-            "-all": 17,
+            "-all": 16,
             "?all": 1
           },
           "exceedsLookupLimit": 0
@@ -17124,9 +17124,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 764,
+          "present": 762,
           "allQualifier": {
-            "-all": 436,
+            "-all": 434,
             "~all": 274,
             "?all": 19
           },
@@ -17150,7 +17150,7 @@
           "present": 32,
           "mode": {
             "enforce": 19,
-            "testing": 12
+            "testing": 11
           }
         },
         "tlsRpt": {

@@ -3521,3 +3521,6 @@
 {"domain":"parkme.com.au","rank":99888,"field":"domain","kind":"first_seen","from":null,"to":"parkme.com.au","ts":"2026-08-30T10:32:21.020Z"}
 {"domain":"chibbis.ru","rank":99646,"field":"domain","kind":"first_seen","from":null,"to":"chibbis.ru","ts":"2026-08-30T10:32:21.020Z"}
 {"domain":"thnic.net","rank":98874,"field":"domain","kind":"first_seen","from":null,"to":"thnic.net","ts":"2026-08-30T10:32:21.020Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-08-30T17:20:49.082Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-08-30T17:20:49.082Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-08-30T17:20:49.082Z"}

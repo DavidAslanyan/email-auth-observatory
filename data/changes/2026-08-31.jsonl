@@ -33,3 +33,11 @@
 {"domain":"ut.edu.co","rank":98936,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-08-31T11:40:22.700Z"}
 {"domain":"ut.edu.co","rank":98936,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-08-31T11:40:22.700Z"}
 {"domain":"xskin.eu","rank":59090,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-08-31T11:40:22.700Z"}
+{"domain":"eset.com","rank":569,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.present","kind":"modified","from":false,"to":true,"ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.p","kind":"added","from":null,"to":"quarantine","ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.sp","kind":"added","from":null,"to":"quarantine","ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.adkim","kind":"added","from":null,"to":"s","ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.aspf","kind":"added","from":null,"to":"s","ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"parklogic.com","rank":720,"field":"mx.provider","kind":"modified","from":"self-hosted","to":"microsoft","ts":"2026-08-31T19:29:20.242Z"}
+{"domain":"perplexity.ai","rank":680,"field":"dmarc.pct","kind":"removed","from":50,"to":null,"ts":"2026-08-31T19:29:20.242Z"}

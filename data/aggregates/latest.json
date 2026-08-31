@@ -1,14 +1,14 @@
 {
-  "date": "2026-08-30",
+  "date": "2026-08-31",
   "listId": "N2Q8W",
   "domainsObserved": 25761,
-  "unknownRate": 0.0007375490081906758,
+  "unknownRate": 0.0007763673770428167,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 18296,
+      "present": 18297,
       "allQualifier": {
-        "-all": 8138,
+        "-all": 8139,
         "~all": 9185,
         "?all": 436,
         "+all": 8
@@ -16,10 +16,10 @@
       "exceedsLookupLimit": 18
     },
     "dmarc": {
-      "present": 15212,
+      "present": 15211,
       "p": {
         "none": 5434,
-        "quarantine": 4342,
+        "quarantine": 4341,
         "reject": 5417
       },
       "pctBelow100": 510
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 534,
       "mode": {
-        "enforce": 238,
+        "enforce": 237,
         "testing": 199,
         "none": 6
       }
@@ -55,9 +55,9 @@
       "domainsObserved": 11829,
       "totals": {
         "spf": {
-          "present": 8289,
+          "present": 8290,
           "allQualifier": {
-            "-all": 3538,
+            "-all": 3539,
             "~all": 4378,
             "?all": 179,
             "+all": 2
@@ -65,10 +65,10 @@
           "exceedsLookupLimit": 7
         },
         "dmarc": {
-          "present": 7014,
+          "present": 7013,
           "p": {
             "none": 2377,
-            "quarantine": 2002,
+            "quarantine": 2001,
             "reject": 2629
           },
           "pctBelow100": 226
@@ -81,7 +81,7 @@
         "mtaSts": {
           "present": 240,
           "mode": {
-            "enforce": 101,
+            "enforce": 100,
             "testing": 95,
             "none": 3
           }
@@ -17827,12 +17827,12 @@
   },
   "byMxProvider": {
     "self-hosted": {
-      "domainsObserved": 7525,
+      "domainsObserved": 7526,
       "totals": {
         "spf": {
-          "present": 6718,
+          "present": 6719,
           "allQualifier": {
-            "-all": 2915,
+            "-all": 2916,
             "~all": 3353,
             "?all": 206,
             "+all": 2
@@ -17856,7 +17856,7 @@
         "mtaSts": {
           "present": 169,
           "mode": {
-            "enforce": 83,
+            "enforce": 82,
             "testing": 54,
             "none": 1
           }
@@ -17865,17 +17865,17 @@
           "present": 201
         },
         "dnssec": {
-          "unsigned": 6842,
+          "unsigned": 6843,
           "signed": 683
         },
         "mx": {
-          "present": 7525,
+          "present": 7526,
           "isNullMx": 0
         }
       }
     },
     "microsoft": {
-      "domainsObserved": 3325,
+      "domainsObserved": 3324,
       "totals": {
         "spf": {
           "present": 3297,
@@ -17887,11 +17887,11 @@
           "exceedsLookupLimit": 4
         },
         "dmarc": {
-          "present": 2984,
+          "present": 2983,
           "p": {
             "reject": 1050,
             "none": 942,
-            "quarantine": 990
+            "quarantine": 989
           },
           "pctBelow100": 74
         },
@@ -17912,11 +17912,11 @@
           "present": 190
         },
         "dnssec": {
-          "unsigned": 2940,
+          "unsigned": 2939,
           "signed": 385
         },
         "mx": {
-          "present": 3325,
+          "present": 3324,
           "isNullMx": 0
         }
       }
@@ -18714,19 +18714,19 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 763,
+          "present": 764,
           "allQualifier": {
-            "-all": 435,
+            "-all": 436,
             "~all": 274,
             "?all": 19
           },
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 724,
+          "present": 723,
           "p": {
             "none": 120,
-            "quarantine": 164,
+            "quarantine": 163,
             "reject": 439
           },
           "pctBelow100": 10
@@ -18739,7 +18739,7 @@
         "mtaSts": {
           "present": 32,
           "mode": {
-            "enforce": 19,
+            "enforce": 18,
             "testing": 11
           }
         },

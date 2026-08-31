@@ -2,7 +2,7 @@
   "date": "2026-08-31",
   "listId": "N2Q8W",
   "domainsObserved": 25761,
-  "unknownRate": 0.0014750980163813516,
+  "unknownRate": 0.0014362796475292107,
   "degraded": false,
   "totals": {
     "spf": {
@@ -16,13 +16,13 @@
       "exceedsLookupLimit": 18
     },
     "dmarc": {
-      "present": 15215,
+      "present": 15216,
       "p": {
         "none": 5435,
-        "quarantine": 4342,
+        "quarantine": 4343,
         "reject": 5419
       },
-      "pctBelow100": 510
+      "pctBelow100": 509
     },
     "bimi": {
       "present": 1336,
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 534,
       "mode": {
-        "enforce": 238,
+        "enforce": 239,
         "testing": 199,
         "none": 6
       }
@@ -65,10 +65,10 @@
           "exceedsLookupLimit": 7
         },
         "dmarc": {
-          "present": 7015,
+          "present": 7016,
           "p": {
             "none": 2377,
-            "quarantine": 2002,
+            "quarantine": 2003,
             "reject": 2630
           },
           "pctBelow100": 226
@@ -81,7 +81,7 @@
         "mtaSts": {
           "present": 240,
           "mode": {
-            "enforce": 101,
+            "enforce": 102,
             "testing": 95,
             "none": 3
           }
@@ -1374,7 +1374,7 @@
             "none": 29,
             "quarantine": 32
           },
-          "pctBelow100": 5
+          "pctBelow100": 4
         },
         "bimi": {
           "present": 10,
@@ -17828,12 +17828,12 @@
   },
   "byMxProvider": {
     "self-hosted": {
-      "domainsObserved": 7526,
+      "domainsObserved": 7525,
       "totals": {
         "spf": {
-          "present": 6720,
+          "present": 6719,
           "allQualifier": {
-            "-all": 2917,
+            "-all": 2916,
             "~all": 3354,
             "?all": 206,
             "+all": 2
@@ -17857,7 +17857,7 @@
         "mtaSts": {
           "present": 169,
           "mode": {
-            "enforce": 83,
+            "enforce": 84,
             "testing": 54,
             "none": 1
           }
@@ -17866,33 +17866,33 @@
           "present": 201
         },
         "dnssec": {
-          "unsigned": 6843,
+          "unsigned": 6842,
           "signed": 683
         },
         "mx": {
-          "present": 7526,
+          "present": 7525,
           "isNullMx": 0
         }
       }
     },
     "microsoft": {
-      "domainsObserved": 3324,
+      "domainsObserved": 3325,
       "totals": {
         "spf": {
-          "present": 3297,
+          "present": 3298,
           "allQualifier": {
-            "-all": 2133,
+            "-all": 2134,
             "~all": 1099,
             "?all": 25
           },
           "exceedsLookupLimit": 4
         },
         "dmarc": {
-          "present": 2983,
+          "present": 2984,
           "p": {
             "reject": 1050,
             "none": 942,
-            "quarantine": 989
+            "quarantine": 990
           },
           "pctBelow100": 74
         },
@@ -17913,11 +17913,11 @@
           "present": 190
         },
         "dnssec": {
-          "unsigned": 2939,
+          "unsigned": 2940,
           "signed": 385
         },
         "mx": {
-          "present": 3324,
+          "present": 3325,
           "isNullMx": 0
         }
       }
@@ -17989,7 +17989,7 @@
             "quarantine": 1405,
             "reject": 1406
           },
-          "pctBelow100": 232
+          "pctBelow100": 231
         },
         "bimi": {
           "present": 561,
@@ -18724,13 +18724,13 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 723,
+          "present": 724,
           "p": {
             "none": 120,
-            "quarantine": 163,
+            "quarantine": 164,
             "reject": 439
           },
-          "pctBelow100": 10
+          "pctBelow100": 9
         },
         "bimi": {
           "present": 163,
@@ -18740,7 +18740,7 @@
         "mtaSts": {
           "present": 32,
           "mode": {
-            "enforce": 18,
+            "enforce": 19,
             "testing": 11
           }
         },

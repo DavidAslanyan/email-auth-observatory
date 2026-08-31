@@ -1,0 +1,10 @@
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"eset.com","rank":569,"field":"mtaSts.mode","kind":"removed","from":"enforce","to":null,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.p","kind":"removed","from":"quarantine","to":null,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.sp","kind":"removed","from":"quarantine","to":null,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.adkim","kind":"removed","from":"s","to":null,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"parklogic.com","rank":720,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-08-31T06:43:32.922Z"}
+{"domain":"parklogic.com","rank":720,"field":"mx.provider","kind":"modified","from":"microsoft","to":"self-hosted","ts":"2026-08-31T06:43:32.922Z"}

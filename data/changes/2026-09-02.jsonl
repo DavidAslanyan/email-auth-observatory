@@ -3512,3 +3512,4 @@
 {"domain":"rudj8888ks30.pro","rank":99565,"field":"domain","kind":"first_seen","from":null,"to":"rudj8888ks30.pro","ts":"2026-09-02T09:43:39.670Z"}
 {"domain":"ctc.ad.jp","rank":99631,"field":"domain","kind":"first_seen","from":null,"to":"ctc.ad.jp","ts":"2026-09-02T09:43:39.670Z"}
 {"domain":"c-water.com.cn","rank":99970,"field":"domain","kind":"first_seen","from":null,"to":"c-water.com.cn","ts":"2026-09-02T09:43:39.670Z"}
+{"domain":"dailymotion.com","rank":412,"field":"dmarc.p","kind":"modified","from":"none","to":"reject","ts":"2026-09-02T17:07:14.663Z"}

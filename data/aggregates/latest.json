@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-02",
+  "date": "2026-09-03",
   "listId": "N2Q8W",
   "domainsObserved": 43284,
   "unknownRate": 0.0008317161075686166,
@@ -25,8 +25,8 @@
       "pctBelow100": 814
     },
     "bimi": {
-      "present": 2155,
-      "hasVmc": 1234,
+      "present": 2154,
+      "hasVmc": 1233,
       "declined": 16
     },
     "mtaSts": {
@@ -263,8 +263,8 @@
           "pctBelow100": 42
         },
         "bimi": {
-          "present": 100,
-          "hasVmc": 48,
+          "present": 99,
+          "hasVmc": 47,
           "declined": 0
         },
         "mtaSts": {
@@ -21202,8 +21202,8 @@
           "pctBelow100": 246
         },
         "bimi": {
-          "present": 490,
-          "hasVmc": 229,
+          "present": 489,
+          "hasVmc": 228,
           "declined": 6
         },
         "mtaSts": {
@@ -22100,8 +22100,8 @@
           "pctBelow100": 9
         },
         "bimi": {
-          "present": 164,
-          "hasVmc": 124,
+          "present": 163,
+          "hasVmc": 123,
           "declined": 2
         },
         "mtaSts": {

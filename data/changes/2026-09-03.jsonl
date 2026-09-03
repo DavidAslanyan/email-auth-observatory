@@ -3512,3 +3512,10 @@
 {"domain":"lubimchik.ru","rank":99737,"field":"domain","kind":"first_seen","from":null,"to":"lubimchik.ru","ts":"2026-09-03T09:56:50.214Z"}
 {"domain":"basw.co.uk","rank":99780,"field":"domain","kind":"first_seen","from":null,"to":"basw.co.uk","ts":"2026-09-03T09:56:50.214Z"}
 {"domain":"shnanbao.com","rank":97944,"field":"domain","kind":"first_seen","from":null,"to":"shnanbao.com","ts":"2026-09-03T09:56:50.214Z"}
+{"domain":"autodesk.com","rank":306,"field":"mtaSts.present","kind":"modified","from":false,"to":true,"ts":"2026-09-03T17:01:01.051Z"}
+{"domain":"autodesk.com","rank":306,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-09-03T17:01:01.051Z"}
+{"domain":"autodesk.com","rank":306,"field":"tlsRpt.present","kind":"modified","from":false,"to":true,"ts":"2026-09-03T17:01:01.051Z"}
+{"domain":"blackberry.com","rank":830,"field":"mx.provider","kind":"modified","from":"self-hosted","to":"proofpoint","ts":"2026-09-03T17:01:01.051Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-03T17:01:01.051Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-03T17:01:01.051Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-03T17:01:01.051Z"}

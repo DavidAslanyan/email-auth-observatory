@@ -3499,3 +3499,9 @@
 {"domain":"xinpianchang.com","rank":99873,"field":"domain","kind":"first_seen","from":null,"to":"xinpianchang.com","ts":"2026-09-04T09:45:03.951Z"}
 {"domain":"animalis.com","rank":99993,"field":"domain","kind":"first_seen","from":null,"to":"animalis.com","ts":"2026-09-04T09:45:03.951Z"}
 {"domain":"xyt-tech.com","rank":99930,"field":"domain","kind":"first_seen","from":null,"to":"xyt-tech.com","ts":"2026-09-04T09:45:03.951Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-09-04T16:50:00.291Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-09-04T16:50:00.291Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-09-04T16:50:00.291Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-09-04T16:50:00.291Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-09-04T16:50:00.291Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-09-04T16:50:00.291Z"}

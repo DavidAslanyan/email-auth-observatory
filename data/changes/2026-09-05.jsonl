@@ -3621,3 +3621,6 @@
 {"domain":"kristeligt-dagblad.dk","rank":99615,"field":"domain","kind":"first_seen","from":null,"to":"kristeligt-dagblad.dk","ts":"2026-09-05T09:10:06.136Z"}
 {"domain":"stromectolinfo.com","rank":99743,"field":"domain","kind":"first_seen","from":null,"to":"stromectolinfo.com","ts":"2026-09-05T09:10:06.136Z"}
 {"domain":"sevoo.com","rank":98915,"field":"domain","kind":"first_seen","from":null,"to":"sevoo.com","ts":"2026-09-05T09:10:06.136Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-05T15:57:50.925Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-05T15:57:50.925Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-05T15:57:50.925Z"}

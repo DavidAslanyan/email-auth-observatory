@@ -1,0 +1,2 @@
+{"domain":"scdn.co","rank":894,"field":"dmarc.present","kind":"modified","from":false,"to":true,"ts":"2026-09-05T05:18:38.493Z"}
+{"domain":"scdn.co","rank":894,"field":"dmarc.p","kind":"added","from":null,"to":"none","ts":"2026-09-05T05:18:38.493Z"}

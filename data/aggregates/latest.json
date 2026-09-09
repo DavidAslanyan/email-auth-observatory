@@ -6,9 +6,9 @@
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 53120,
+      "present": 53121,
       "allQualifier": {
-        "-all": 23750,
+        "-all": 23751,
         "~all": 26596,
         "?all": 1195,
         "+all": 22
@@ -55,9 +55,9 @@
       "domainsObserved": 34247,
       "totals": {
         "spf": {
-          "present": 23870,
+          "present": 23871,
           "allQualifier": {
-            "-all": 10237,
+            "-all": 10238,
             "~all": 12626,
             "?all": 449,
             "+all": 5
@@ -25006,10 +25006,10 @@
       "domainsObserved": 574,
       "totals": {
         "spf": {
-          "present": 539,
+          "present": 540,
           "allQualifier": {
             "~all": 464,
-            "-all": 68,
+            "-all": 69,
             "?all": 2
           },
           "exceedsLookupLimit": 0
@@ -25450,9 +25450,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 763,
+          "present": 764,
           "allQualifier": {
-            "-all": 435,
+            "-all": 436,
             "~all": 274,
             "?all": 19
           },

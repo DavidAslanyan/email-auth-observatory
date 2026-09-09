@@ -1,14 +1,14 @@
 {
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "listId": "N2Q8W",
   "domainsObserved": 71623,
   "unknownRate": 0.0009354536950420954,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 50679,
+      "present": 50678,
       "allQualifier": {
-        "-all": 22679,
+        "-all": 22678,
         "~all": 25368,
         "?all": 1141,
         "+all": 22
@@ -18,9 +18,9 @@
     "dmarc": {
       "present": 42002,
       "p": {
-        "none": 15150,
+        "none": 15149,
         "quarantine": 11951,
-        "reject": 14831
+        "reject": 14832
       },
       "pctBelow100": 1348
     },
@@ -55,9 +55,9 @@
       "domainsObserved": 32587,
       "totals": {
         "spf": {
-          "present": 22757,
+          "present": 22756,
           "allQualifier": {
-            "-all": 9770,
+            "-all": 9769,
             "~all": 12029,
             "?all": 434,
             "+all": 5
@@ -258,8 +258,8 @@
         "dmarc": {
           "present": 2149,
           "p": {
-            "reject": 675,
-            "none": 848,
+            "reject": 676,
+            "none": 847,
             "quarantine": 626
           },
           "pctBelow100": 71
@@ -24397,9 +24397,9 @@
         "dmarc": {
           "present": 12095,
           "p": {
-            "none": 4506,
+            "none": 4505,
             "quarantine": 3797,
-            "reject": 3778
+            "reject": 3779
           },
           "pctBelow100": 576
         },
@@ -24706,10 +24706,10 @@
       "domainsObserved": 550,
       "totals": {
         "spf": {
-          "present": 517,
+          "present": 516,
           "allQualifier": {
             "~all": 445,
-            "-all": 65,
+            "-all": 64,
             "?all": 2
           },
           "exceedsLookupLimit": 0
@@ -25150,9 +25150,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 764,
+          "present": 763,
           "allQualifier": {
-            "-all": 436,
+            "-all": 435,
             "~all": 274,
             "?all": 19
           },
@@ -25161,9 +25161,9 @@
         "dmarc": {
           "present": 725,
           "p": {
-            "none": 120,
+            "none": 119,
             "quarantine": 164,
-            "reject": 440
+            "reject": 441
           },
           "pctBelow100": 9
         },

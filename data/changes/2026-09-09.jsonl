@@ -3544,3 +3544,6 @@
 {"domain":"ideco.ru","rank":99874,"field":"domain","kind":"first_seen","from":null,"to":"ideco.ru","ts":"2026-09-09T09:53:53.808Z"}
 {"domain":"neobo-tooth.ru","rank":99696,"field":"domain","kind":"first_seen","from":null,"to":"neobo-tooth.ru","ts":"2026-09-09T09:53:53.808Z"}
 {"domain":"sains.com.my","rank":99477,"field":"domain","kind":"first_seen","from":null,"to":"sains.com.my","ts":"2026-09-09T09:53:53.808Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-09-09T17:08:15.947Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-09-09T17:08:15.947Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-09-09T17:08:15.947Z"}

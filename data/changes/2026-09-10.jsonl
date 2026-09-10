@@ -3585,3 +3585,7 @@
 {"domain":"tvkultura.ru","rank":99582,"field":"domain","kind":"first_seen","from":null,"to":"tvkultura.ru","ts":"2026-09-10T09:51:27.263Z"}
 {"domain":"shthealthcare.com","rank":99939,"field":"domain","kind":"first_seen","from":null,"to":"shthealthcare.com","ts":"2026-09-10T09:51:27.263Z"}
 {"domain":"nobilis-tm.ru","rank":99618,"field":"domain","kind":"first_seen","from":null,"to":"nobilis-tm.ru","ts":"2026-09-10T09:51:27.263Z"}
+{"domain":"magnit.ru","rank":708,"field":"spf.allQualifier","kind":"modified","from":"-","to":"~","ts":"2026-09-10T16:58:29.882Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-10T16:58:29.882Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-10T16:58:29.882Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-10T16:58:29.882Z"}

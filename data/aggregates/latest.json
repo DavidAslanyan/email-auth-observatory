@@ -2,14 +2,14 @@
   "date": "2026-09-11",
   "listId": "N2Q8W",
   "domainsObserved": 85812,
-  "unknownRate": 0.0008856570176665269,
+  "unknownRate": 0.0008740036358551251,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 60642,
+      "present": 60640,
       "allQualifier": {
-        "-all": 27022,
-        "~all": 30473,
+        "-all": 27021,
+        "~all": 30472,
         "?all": 1344,
         "+all": 27
       },
@@ -55,9 +55,9 @@
       "domainsObserved": 39145,
       "totals": {
         "spf": {
-          "present": 27267,
+          "present": 27265,
           "allQualifier": {
-            "-all": 11609,
+            "-all": 11607,
             "~all": 14503,
             "?all": 511,
             "+all": 8
@@ -484,8 +484,8 @@
         "spf": {
           "present": 2470,
           "allQualifier": {
-            "~all": 1222,
-            "-all": 923,
+            "~all": 1221,
+            "-all": 924,
             "?all": 47,
             "+all": 1
           },
@@ -25171,8 +25171,8 @@
         "spf": {
           "present": 22402,
           "allQualifier": {
-            "-all": 9751,
-            "~all": 11159,
+            "-all": 9752,
+            "~all": 11158,
             "?all": 678,
             "+all": 15
           },
@@ -25217,9 +25217,9 @@
       "domainsObserved": 11153,
       "totals": {
         "spf": {
-          "present": 11052,
+          "present": 11051,
           "allQualifier": {
-            "-all": 7157,
+            "-all": 7156,
             "~all": 3649,
             "?all": 66,
             "+all": 1
@@ -25636,10 +25636,10 @@
       "domainsObserved": 647,
       "totals": {
         "spf": {
-          "present": 607,
+          "present": 606,
           "allQualifier": {
             "~all": 519,
-            "-all": 81,
+            "-all": 80,
             "?all": 2
           },
           "exceedsLookupLimit": 0
@@ -26080,10 +26080,10 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 764,
+          "present": 762,
           "allQualifier": {
-            "-all": 436,
-            "~all": 274,
+            "-all": 435,
+            "~all": 273,
             "?all": 19
           },
           "exceedsLookupLimit": 0

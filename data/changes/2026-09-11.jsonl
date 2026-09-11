@@ -3555,3 +3555,10 @@
 {"domain":"stats.gov.sa","rank":99715,"field":"domain","kind":"first_seen","from":null,"to":"stats.gov.sa","ts":"2026-09-11T09:51:01.104Z"}
 {"domain":"bjseedu.com","rank":99721,"field":"domain","kind":"first_seen","from":null,"to":"bjseedu.com","ts":"2026-09-11T09:51:01.104Z"}
 {"domain":"sikkim.gov.in","rank":98459,"field":"domain","kind":"first_seen","from":null,"to":"sikkim.gov.in","ts":"2026-09-11T09:51:01.104Z"}
+{"domain":"magnit.ru","rank":708,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-09-11T17:00:39.612Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-11T17:00:39.612Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-11T17:00:39.612Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-11T17:00:39.612Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-11T17:00:39.612Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-11T17:00:39.612Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-11T17:00:39.612Z"}

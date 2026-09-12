@@ -1,0 +1,3 @@
+{"domain":"zoho.com","rank":811,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-09-12T05:27:00.073Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-09-12T05:27:00.073Z"}
+{"domain":"zoho.com","rank":811,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-09-12T05:27:00.073Z"}

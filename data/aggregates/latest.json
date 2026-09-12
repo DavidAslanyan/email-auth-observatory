@@ -6,9 +6,9 @@
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 65701,
+      "present": 65702,
       "allQualifier": {
-        "-all": 29276,
+        "-all": 29277,
         "~all": 33018,
         "?all": 1450,
         "+all": 29
@@ -32,8 +32,8 @@
     "mtaSts": {
       "present": 1826,
       "mode": {
-        "testing": 707,
         "enforce": 841,
+        "testing": 706,
         "none": 20
       }
     },
@@ -55,9 +55,9 @@
       "domainsObserved": 42453,
       "totals": {
         "spf": {
-          "present": 29594,
+          "present": 29595,
           "allQualifier": {
-            "-all": 12567,
+            "-all": 12568,
             "~all": 15784,
             "?all": 550,
             "+all": 9
@@ -81,8 +81,8 @@
         "mtaSts": {
           "present": 864,
           "mode": {
-            "testing": 358,
             "enforce": 371,
+            "testing": 357,
             "none": 12
           }
         },
@@ -25983,9 +25983,9 @@
       "domainsObserved": 12110,
       "totals": {
         "spf": {
-          "present": 12003,
+          "present": 12004,
           "allQualifier": {
-            "-all": 7747,
+            "-all": 7748,
             "~all": 3984,
             "?all": 74,
             "+all": 1
@@ -26009,8 +26009,8 @@
         "mtaSts": {
           "present": 505,
           "mode": {
-            "testing": 196,
             "enforce": 253,
+            "testing": 195,
             "none": 6
           }
         },
@@ -26847,9 +26847,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 763,
+          "present": 764,
           "allQualifier": {
-            "-all": 436,
+            "-all": 437,
             "~all": 273,
             "?all": 19
           },
@@ -26872,8 +26872,8 @@
         "mtaSts": {
           "present": 33,
           "mode": {
-            "testing": 12,
-            "enforce": 19
+            "enforce": 19,
+            "testing": 11
           }
         },
         "tlsRpt": {

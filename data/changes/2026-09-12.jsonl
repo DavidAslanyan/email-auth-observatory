@@ -3548,3 +3548,7 @@
 {"domain":"stpaul.gov","rank":99823,"field":"domain","kind":"first_seen","from":null,"to":"stpaul.gov","ts":"2026-09-12T09:27:37.638Z"}
 {"domain":"europeanconservative.com","rank":99940,"field":"domain","kind":"first_seen","from":null,"to":"europeanconservative.com","ts":"2026-09-12T09:27:37.638Z"}
 {"domain":"fxh42.net","rank":99948,"field":"domain","kind":"first_seen","from":null,"to":"fxh42.net","ts":"2026-09-12T09:27:37.638Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-09-12T16:12:49.748Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-09-12T16:12:49.748Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-09-12T16:12:49.748Z"}
+{"domain":"autodesk.com","rank":306,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-09-12T16:12:49.748Z"}

@@ -1,16 +1,22 @@
 name: Crawl tier 2
 
+# Eight slots a day, of which the day's plan may use anywhere from none to all
+# eight. The long-tail shard each slot crawls is derived by replaying the plan,
+# so the 28-shard rotation stays round-robin however the intensity varies.
 on:
   schedule:
-    # Two shards a day at well-separated times. With 28 shards that is full
-    # long-tail coverage every fortnight, arriving as two modest bursts rather
-    # than one sustained hour at full rate.
-    - cron: '20 5 * * *'
-    - cron: '20 17 * * *'
+    - cron: '20 0 * * *'
+    - cron: '20 3 * * *'
+    - cron: '20 6 * * *'
+    - cron: '20 9 * * *'
+    - cron: '20 12 * * *'
+    - cron: '20 15 * * *'
+    - cron: '20 18 * * *'
+    - cron: '20 21 * * *'
   workflow_dispatch:
     inputs:
       shard:
-        description: Shard to crawl (0-27). Leave empty to pick from the day of year.
+        description: Shard to crawl (0-27). Leave empty to use the plan.
         required: false
         type: string
 
@@ -22,23 +28,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  schedule:
+  plan:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      quiet: ${{ steps.check.outputs.quiet }}
+      run: ${{ steps.plan.outputs.run }}
+      shard: ${{ steps.plan.outputs.shard }}
     steps:
       - uses: actions/checkout@v5
-      - id: check
-        uses: ./.github/actions/quiet-day
+      - name: Work out which slot this is
+        id: slot
+        run: echo "n=$(( $(date -u +%-H) / 3 ))" >> "$GITHUB_OUTPUT"
+      - id: plan
+        uses: ./.github/actions/plan
+        with:
+          kind: tier2
+          slot: ${{ steps.slot.outputs.n }}
 
   crawl:
-    needs: schedule
-    if: needs.schedule.outputs.quiet != 'true'
+    needs: plan
+    if: needs.plan.outputs.run == 'true'
     runs-on: ubuntu-latest
-    # Under the 360-minute hard limit, leaving room to commit. A crawl killed at
-    # the limit resumes from its checkpoint on the next run.
-    timeout-minutes: 330
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
@@ -46,20 +57,28 @@ jobs:
       - name: Crawl shard
         run: |
           set -euo pipefail
-          if [ -n "${{ inputs.shard }}" ]; then
-            pnpm observatory crawl --tier 2 --shard "${{ inputs.shard }}"
-            exit 0
-          fi
-          # The two daily runs share a rotation; the hour tells them apart so
-          # they advance through the shards together rather than repeating one.
-          HOUR=$(date -u +%-H)
-          SLOT=0
-          [ "$HOUR" -ge 12 ] && SLOT=1
-          echo "slot ${SLOT} (hour ${HOUR} UTC)"
-          pnpm observatory crawl --tier 2 --auto --slot "$SLOT" --slots-per-day 2
+          SHARD="${{ inputs.shard }}"
+          [ -n "$SHARD" ] || SHARD="${{ needs.plan.outputs.shard }}"
+          echo "crawling shard ${SHARD}"
+          pnpm observatory crawl --tier 2 --shard "$SHARD"
       - uses: ./.github/actions/commit-data
         with:
           summary: tier2 shard crawl
           paths: data
+          name: ${{ vars.COMMIT_NAME }}
+          email: ${{ vars.COMMIT_EMAIL }}
+
+  aggregate:
+    needs: crawl
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ./.github/actions/setup
+      - run: pnpm observatory aggregate
+      - uses: ./.github/actions/commit-data
+        with:
+          summary: aggregate
+          paths: data/aggregates
           name: ${{ vars.COMMIT_NAME }}
           email: ${{ vars.COMMIT_EMAIL }}

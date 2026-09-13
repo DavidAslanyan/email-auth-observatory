@@ -1,0 +1,63 @@
+name: Consult the day's plan
+description: >
+  Decides whether this slot runs today. The pipeline's workload varies by day —
+  see scripts/schedule.mjs — so a slot that exists in cron does not necessarily
+  do work, and roughly one to three days a week do nothing at all. Every
+  decision is derived from the date, so any run can be replayed and explained.
+
+  Deliberately depends on nothing: this runs on a bare checkout, before any
+  install or build, so that deciding not to work costs almost nothing.
+
+inputs:
+  kind:
+    description: tier1, tier2 or report
+    required: true
+  slot:
+    description: Which slot of the day this run is. Ignored for report.
+    required: false
+    default: '0'
+
+outputs:
+  run:
+    description: '"true" when this slot should do work today.'
+    value: ${{ steps.plan.outputs.run }}
+  shard:
+    description: For tier2, the long-tail shard this slot crawls.
+    value: ${{ steps.plan.outputs.shard }}
+
+runs:
+  using: composite
+  steps:
+    - id: plan
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        if [ "${{ github.event_name }}" = "schedule" ]; then
+          RUN=$(node scripts/schedule.mjs --should-run "${{ inputs.kind }}" "${{ inputs.slot }}")
+        else
+          # A manual run always proceeds; the plan governs the schedule only.
+          RUN=true
+        fi
+        echo "run=${RUN}" >> "$GITHUB_OUTPUT"
+
+        if [ "${{ inputs.kind }}" = "tier2" ]; then
+          SHARD=$(node scripts/schedule.mjs --shard "${{ inputs.slot }}")
+          echo "shard=${SHARD}" >> "$GITHUB_OUTPUT"
+        else
+          SHARD="n/a"
+        fi
+
+        PLAN=$(node scripts/schedule.mjs)
+        echo "${{ inputs.kind }} slot ${{ inputs.slot }} -> run=${RUN} shard=${SHARD}"
+        echo "plan: ${PLAN}"
+
+        {
+          echo "### Plan for today"
+          echo ""
+          echo '```json'
+          echo "${PLAN}"
+          echo '```'
+          echo ""
+          echo "\`${{ inputs.kind }}\` slot \`${{ inputs.slot }}\` → **run=${RUN}**, shard=\`${SHARD}\`"
+        } >> "$GITHUB_STEP_SUMMARY"

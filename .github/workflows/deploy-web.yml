@@ -2,7 +2,7 @@ name: Deploy dashboard
 
 on:
   workflow_run:
-    workflows: ['Aggregate']
+    workflows: ['Crawl tier 1', 'Crawl tier 2', 'Daily report']
     types: [completed]
   workflow_dispatch:
 

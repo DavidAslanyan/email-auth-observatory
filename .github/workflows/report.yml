@@ -18,19 +18,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  schedule:
+  plan:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      quiet: ${{ steps.check.outputs.quiet }}
+      run: ${{ steps.plan.outputs.run }}
     steps:
       - uses: actions/checkout@v5
-      - id: check
-        uses: ./.github/actions/quiet-day
+      - id: plan
+        uses: ./.github/actions/plan
+        with:
+          kind: report
 
   report:
-    needs: schedule
-    if: needs.schedule.outputs.quiet != 'true'
+    needs: plan
+    if: needs.plan.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

@@ -77,6 +77,23 @@ say it has DKIM. Selectors cannot be enumerated from DNS; a domain publishing
 DKIM under a selector we did not guess is expected behaviour, not a bug. See
 [the methodology](docs/METHODOLOGY.md#dkim-findings-are-a-lower-bound-always).
 
+## The crawl schedule
+
+The pipeline does not run at a constant rate. `scripts/schedule.mjs` decides,
+from the date alone, how much work a given day does — including one to three
+days a week where it does nothing at all. Nothing is randomised, so any past or
+future day can be replayed:
+
+```bash
+node scripts/schedule.mjs 2026-09-20              # one day's plan
+node scripts/schedule.mjs --calendar 2026-09-14 56  # the next eight weeks
+node scripts/schedule.mjs --should-run tier2 3     # what a workflow asks
+```
+
+The long tail is a round-robin over 28 shards, so a variable rate changes how
+the work is spread, not what gets covered — shard selection replays the plan
+rather than keying off the calendar, which keeps the rotation strictly even.
+
 ## Working on the code
 
 ```bash

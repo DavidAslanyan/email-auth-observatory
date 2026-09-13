@@ -144,9 +144,10 @@ one. So:
   "X% of domains use DKIM" figure derived from this data is wrong.**
 - **SPF lookup counts are static.** We count terms in the record, not nested
   `include:` chains — so `exceedsLookupLimit` under-reports.
-- **The long tail is observed fortnightly.** The top 1,000 twice a day; the rest
-  on a 28-shard rotation. Changes are dated when *observed*, not when they
-  happened.
+- **The long tail is observed every two to three weeks**, and the crawl rate
+  varies by day — one to three days a week it doesn't run at all. The rotation
+  is round-robin, so coverage evens out regardless. Changes are dated when
+  *observed*, not when they happened.
 - **Some values are remembered, not seen.** Anything marked `stale: true` was
   carried forward. Filter `stale !== true` for directly-observed data only.
 - **Tranco rollovers are a boundary.** The list ID is pinned per quarter;

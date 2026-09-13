@@ -105,20 +105,37 @@ practice and is not flagged here. Recursive counting is a v2 feature.
 
 ### The long tail is observed weekly, not daily
 
-- **Tier 1** (ranks 1–1,000) is crawled twice a day.
+- **Tier 1** (ranks 1–1,000) is crawled up to three times a day.
 - **Tier 2** (ranks 1,001–100,000) is split into 28 shards by an FNV-1a hash of
-  the domain name, and two shards are crawled per day.
+  the domain name, and up to eight shards are crawled per day.
 
-So a change to a rank-50,000 domain is detected within about a fortnight, not
-within 24 hours, and its change event is dated when it was *observed*, not when
-it happened. Shards hash the domain rather than the rank so that a domain stays
-in the same shard across list rollovers.
+"Up to" is the important part. **The workload varies from day to day, and one
+to three days a week the pipeline does nothing at all.**
+
+The long tail is a round-robin, so covering six shards one day and none the next
+reaches every domain just as surely as a constant two a day — it only changes
+how the work is spread. Varying it deliberately keeps the load on a free public
+resolver lumpy rather than constant, and gives the rotation room to catch up
+after a quiet stretch. A full 28-shard rotation still completes inside about
+three weeks, and over any long window no shard lags another by more than one
+turn.
+
+The plan is derived from the date, never randomised, so any past or future day
+can be replayed and explained:
+
+```bash
+node scripts/schedule.mjs 2026-09-20            # one day's plan
+node scripts/schedule.mjs --calendar 2026-09-14 56   # the next eight weeks
+```
+
+So a change to a rank-50,000 domain is typically detected within two to three
+weeks, not within 24 hours, and its change event is dated when it was
+*observed*, not when it happened. Shards hash the domain rather than the rank so
+that a domain stays in the same shard across list rollovers.
 
 These cadences are deliberately modest. Crawling on GitHub Actions means
 resolving over a free public DoH endpoint (see below), and the honest constraint
-is that this project is a guest there. Smaller, more frequent shards also spread
-the load: the same coverage arrives as several short bursts a day rather than
-one sustained hour at full rate.
+is that this project is a guest there.
 
 ### DKIM is probed on a slower cadence than everything else
 

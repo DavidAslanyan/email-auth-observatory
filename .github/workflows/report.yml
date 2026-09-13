@@ -37,6 +37,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with:
+          # The branch tip, not the SHA that triggered this run. A job that
+          # writes data must see what earlier jobs and runs already committed —
+          # otherwise it diffs against a stale tree and silently finds nothing
+          # to do, which is exactly what the aggregate job did.
+          ref: ${{ github.ref_name }}
       - uses: ./.github/actions/setup
       - name: Generate report
         run: |

@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+          ref: ${{ github.ref_name }}
       - uses: ./.github/actions/setup
 
       # Data is copied in at build time rather than fetched at runtime: no

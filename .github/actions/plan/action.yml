@@ -33,11 +33,14 @@ runs:
       run: |
         set -euo pipefail
 
-        if [ "${{ github.event_name }}" = "schedule" ]; then
-          RUN=$(node scripts/schedule.mjs --should-run "${{ inputs.kind }}" "${{ inputs.slot }}")
-        else
-          # A manual run always proceeds; the plan governs the schedule only.
+        # Only a human pressing the button bypasses the plan. Keying this off
+        # "not a schedule" would let workflow_run through as well, which is how
+        # the dashboard deploy would have ignored rest days entirely.
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
           RUN=true
+          echo "manual run: proceeding regardless of the plan"
+        else
+          RUN=$(node scripts/schedule.mjs --should-run "${{ inputs.kind }}" "${{ inputs.slot }}")
         fi
         echo "run=${RUN}" >> "$GITHUB_OUTPUT"
 

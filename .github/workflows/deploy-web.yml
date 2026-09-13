@@ -17,10 +17,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # The crawl workflows complete even when the day's plan skips their work, so
+  # without this a rest day would still fire a dozen pointless rebuilds.
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.plan.outputs.run }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: plan
+        uses: ./.github/actions/plan
+        with:
+          kind: report
+
   build:
+    needs: plan
     if: >
       github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+      (github.event.workflow_run.conclusion == 'success' && needs.plan.outputs.run == 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

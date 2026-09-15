@@ -59,3 +59,7 @@
 {"domain":"gymbeam.sk","rank":51177,"field":"dmarc.sp","kind":"removed","from":"none","to":null,"ts":"2026-09-15T21:29:17.865Z"}
 {"domain":"muenster.de","rank":96846,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-09-15T21:29:17.865Z"}
 {"domain":"muenster.de","rank":96846,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-09-15T21:29:17.865Z"}
+{"domain":"quickbooks.com","rank":26802,"field":"dmarc.p","kind":"modified","from":"none","to":"reject","ts":"2026-09-15T23:33:51.496Z"}
+{"domain":"bignox.com","rank":30662,"field":"spf.allQualifier","kind":"modified","from":"?","to":"-","ts":"2026-09-15T23:33:51.496Z"}
+{"domain":"mitelis.net","rank":37763,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-09-15T23:33:51.496Z"}
+{"domain":"steelers.com","rank":66512,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-09-15T23:33:51.496Z"}

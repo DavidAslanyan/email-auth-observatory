@@ -69,3 +69,4 @@
 {"domain":"eda.yandex","rank":26866,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-09-18T13:37:07.194Z"}
 {"domain":"dycdn.com","rank":37061,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-09-18T13:37:07.194Z"}
 {"domain":"iied.org","rank":60702,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-09-18T13:37:07.194Z"}
+{"domain":"mail.ru","rank":12,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-09-18T19:33:40.099Z"}

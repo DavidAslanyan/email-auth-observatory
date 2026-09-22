@@ -641,3 +641,6 @@
 {"domain":"biobike.es","rank":88704,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-09-22T18:57:48.546Z"}
 {"domain":"biobike.es","rank":88704,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-22T18:57:48.546Z"}
 {"domain":"biobike.es","rank":88704,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-09-22T18:57:48.546Z"}
+{"domain":"epicgames.com","rank":153,"field":"bimi.present","kind":"modified","from":false,"to":true,"ts":"2026-09-22T20:09:00.697Z"}
+{"domain":"epicgames.com","rank":153,"field":"bimi.hasLogo","kind":"modified","from":false,"to":true,"ts":"2026-09-22T20:09:00.697Z"}
+{"domain":"epicgames.com","rank":153,"field":"bimi.hasVmc","kind":"modified","from":false,"to":true,"ts":"2026-09-22T20:09:00.697Z"}

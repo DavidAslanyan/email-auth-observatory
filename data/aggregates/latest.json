@@ -2,14 +2,14 @@
   "date": "2026-09-23",
   "listId": "N2Q8W",
   "domainsObserved": 92951,
-  "unknownRate": 0.003076889974287528,
+  "unknownRate": 0.003066131617734075,
   "degraded": false,
   "totals": {
     "spf": {
       "present": 65812,
       "allQualifier": {
-        "-all": 29395,
-        "~all": 33013,
+        "-all": 29396,
+        "~all": 33012,
         "?all": 1446,
         "+all": 28
       },
@@ -46,7 +46,7 @@
       "unknown": 265
     },
     "mx": {
-      "present": 67629,
+      "present": 67630,
       "isNullMx": 364
     }
   },
@@ -57,8 +57,8 @@
         "spf": {
           "present": 29625,
           "allQualifier": {
-            "-all": 12595,
-            "~all": 15791,
+            "-all": 12596,
+            "~all": 15790,
             "?all": 547,
             "+all": 8
           },
@@ -6655,7 +6655,7 @@
           "signed": 66
         },
         "mx": {
-          "present": 243,
+          "present": 244,
           "isNullMx": 0
         }
       }
@@ -25929,7 +25929,7 @@
   },
   "byMxProvider": {
     "self-hosted": {
-      "domainsObserved": 27241,
+      "domainsObserved": 27242,
       "totals": {
         "spf": {
           "present": 24298,
@@ -25967,11 +25967,11 @@
           "present": 635
         },
         "dnssec": {
-          "unsigned": 24710,
+          "unsigned": 24711,
           "signed": 2531
         },
         "mx": {
-          "present": 27241,
+          "present": 27242,
           "isNullMx": 0
         }
       }
@@ -26025,13 +26025,13 @@
       }
     },
     "none": {
-      "domainsObserved": 25322,
+      "domainsObserved": 25321,
       "totals": {
         "spf": {
           "present": 3990,
           "allQualifier": {
-            "-all": 2942,
-            "~all": 891,
+            "-all": 2943,
+            "~all": 890,
             "?all": 72,
             "+all": 1
           },
@@ -26062,7 +26062,7 @@
           "present": 13
         },
         "dnssec": {
-          "unsigned": 23706,
+          "unsigned": 23705,
           "signed": 1351,
           "unknown": 265
         },
@@ -26892,8 +26892,8 @@
         "spf": {
           "present": 58769,
           "allQualifier": {
-            "-all": 25806,
-            "~all": 29942,
+            "-all": 25807,
+            "~all": 29941,
             "?all": 1299,
             "+all": 25
           },
@@ -26930,7 +26930,7 @@
           "unknown": 256
         },
         "mx": {
-          "present": 60818,
+          "present": 60819,
           "isNullMx": 279
         }
       }

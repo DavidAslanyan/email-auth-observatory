@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "listId": "N2Q8W",
   "domainsObserved": 92951,
-  "unknownRate": 0.002657314068702865,
+  "unknownRate": 0.002646555712149412,
   "degraded": false,
   "totals": {
     "spf": {
@@ -46,7 +46,7 @@
       "unknown": 269
     },
     "mx": {
-      "present": 67609,
+      "present": 67610,
       "isNullMx": 364
     }
   },
@@ -95,7 +95,7 @@
           "unknown": 121
         },
         "mx": {
-          "present": 30559,
+          "present": 30560,
           "isNullMx": 119
         }
       }
@@ -25929,12 +25929,12 @@
   },
   "byMxProvider": {
     "self-hosted": {
-      "domainsObserved": 27223,
+      "domainsObserved": 27224,
       "totals": {
         "spf": {
-          "present": 24278,
+          "present": 24279,
           "allQualifier": {
-            "-all": 10674,
+            "-all": 10675,
             "~all": 11991,
             "?all": 733,
             "+all": 15
@@ -25942,16 +25942,16 @@
           "exceedsLookupLimit": 15
         },
         "dmarc": {
-          "present": 17157,
+          "present": 17158,
           "p": {
             "none": 7431,
             "quarantine": 4845,
-            "reject": 4837
+            "reject": 4838
           },
           "pctBelow100": 543
         },
         "bimi": {
-          "present": 979,
+          "present": 980,
           "hasVmc": 474,
           "declined": 7
         },
@@ -25967,11 +25967,11 @@
           "present": 632
         },
         "dnssec": {
-          "unsigned": 24696,
+          "unsigned": 24697,
           "signed": 2527
         },
         "mx": {
-          "present": 27223,
+          "present": 27224,
           "isNullMx": 0
         }
       }
@@ -26025,12 +26025,12 @@
       }
     },
     "none": {
-      "domainsObserved": 25342,
+      "domainsObserved": 25341,
       "totals": {
         "spf": {
-          "present": 3988,
+          "present": 3987,
           "allQualifier": {
-            "-all": 2942,
+            "-all": 2941,
             "~all": 889,
             "?all": 72,
             "+all": 1
@@ -26038,16 +26038,16 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 3770,
+          "present": 3769,
           "p": {
-            "reject": 2598,
+            "reject": 2597,
             "none": 752,
             "quarantine": 407
           },
           "pctBelow100": 37
         },
         "bimi": {
-          "present": 60,
+          "present": 59,
           "hasVmc": 36,
           "declined": 0
         },
@@ -26062,7 +26062,7 @@
           "present": 13
         },
         "dnssec": {
-          "unsigned": 23721,
+          "unsigned": 23720,
           "signed": 1352,
           "unknown": 269
         },
@@ -26881,7 +26881,7 @@
           "signed": 106
         },
         "mx": {
-          "present": 701,
+          "present": 702,
           "isNullMx": 9
         }
       }

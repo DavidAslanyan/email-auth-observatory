@@ -16,9 +16,9 @@
       "exceedsLookupLimit": 52
     },
     "dmarc": {
-      "present": 54538,
+      "present": 54539,
       "p": {
-        "none": 19614,
+        "none": 19615,
         "quarantine": 15464,
         "reject": 19361
       },
@@ -65,9 +65,9 @@
           "exceedsLookupLimit": 26
         },
         "dmarc": {
-          "present": 25046,
+          "present": 25047,
           "p": {
-            "none": 8576,
+            "none": 8577,
             "quarantine": 7123,
             "reject": 9316
           },
@@ -25943,9 +25943,9 @@
           "exceedsLookupLimit": 15
         },
         "dmarc": {
-          "present": 17176,
+          "present": 17177,
           "p": {
-            "none": 7436,
+            "none": 7437,
             "quarantine": 4850,
             "reject": 4846
           },
@@ -26854,9 +26854,9 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 725,
+          "present": 726,
           "p": {
-            "none": 119,
+            "none": 120,
             "quarantine": 164,
             "reject": 441
           },

@@ -2,7 +2,7 @@
   "date": "2026-09-28",
   "listId": "N2Q8W",
   "domainsObserved": 92951,
-  "unknownRate": 0.003474949166765285,
+  "unknownRate": 0.003464190810211832,
   "degraded": false,
   "totals": {
     "spf": {
@@ -18,8 +18,8 @@
     "dmarc": {
       "present": 54555,
       "p": {
-        "none": 19616,
-        "quarantine": 15468,
+        "none": 19615,
+        "quarantine": 15469,
         "reject": 19372
       },
       "pctBelow100": 1729
@@ -67,8 +67,8 @@
         "dmarc": {
           "present": 25052,
           "p": {
-            "none": 8577,
-            "quarantine": 7123,
+            "none": 8576,
+            "quarantine": 7124,
             "reject": 9321
           },
           "pctBelow100": 782
@@ -25993,8 +25993,8 @@
           "present": 10891,
           "p": {
             "reject": 3788,
-            "none": 3536,
-            "quarantine": 3557
+            "none": 3535,
+            "quarantine": 3558
           },
           "pctBelow100": 290
         },
@@ -26855,8 +26855,8 @@
         "dmarc": {
           "present": 726,
           "p": {
-            "none": 120,
-            "quarantine": 164,
+            "none": 119,
+            "quarantine": 165,
             "reject": 441
           },
           "pctBelow100": 9

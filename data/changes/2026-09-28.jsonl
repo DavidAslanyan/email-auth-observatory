@@ -8,3 +8,5 @@
 {"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-28T17:25:42.279Z"}
 {"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-28T17:25:42.279Z"}
 {"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-28T17:25:42.279Z"}
+{"domain":"azure.com","rank":28,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-09-28T22:31:01.599Z"}
+{"domain":"azure.com","rank":28,"field":"dmarc.sp","kind":"added","from":null,"to":"none","ts":"2026-09-28T22:31:01.599Z"}

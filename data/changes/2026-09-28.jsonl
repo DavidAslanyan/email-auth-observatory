@@ -1,0 +1,6 @@
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-09-28T06:21:52.732Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-09-28T06:21:52.732Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-09-28T06:21:52.732Z"}
+{"domain":"weather.com","rank":302,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-09-28T06:21:52.732Z"}
+{"domain":"weather.com","rank":302,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-09-28T06:21:52.732Z"}
+{"domain":"weather.com","rank":302,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-09-28T06:21:52.732Z"}

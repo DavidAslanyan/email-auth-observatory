@@ -4,3 +4,7 @@
 {"domain":"weather.com","rank":302,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-09-28T06:21:52.732Z"}
 {"domain":"weather.com","rank":302,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-09-28T06:21:52.732Z"}
 {"domain":"weather.com","rank":302,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-09-28T06:21:52.732Z"}
+{"domain":"dailymotion.com","rank":412,"field":"mx.provider","kind":"modified","from":"proofpoint","to":"google","ts":"2026-09-28T17:25:42.279Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-09-28T17:25:42.279Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-09-28T17:25:42.279Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-09-28T17:25:42.279Z"}

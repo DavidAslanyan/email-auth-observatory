@@ -367,3 +367,11 @@
 {"domain":"breadfinancial.com","rank":99923,"field":"bimi.hasLogo","kind":"modified","from":true,"to":false,"ts":"2026-09-30T18:02:35.681Z"}
 {"domain":"breadfinancial.com","rank":99923,"field":"bimi.hasVmc","kind":"modified","from":true,"to":false,"ts":"2026-09-30T18:02:35.681Z"}
 {"domain":"breadfinancial.com","rank":99923,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-09-30T18:02:35.681Z"}
+{"domain":"nzpost.co.nz","rank":40831,"field":"bimi.hasLogo","kind":"modified","from":true,"to":false,"ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"nzpost.co.nz","rank":40831,"field":"bimi.hasVmc","kind":"modified","from":false,"to":true,"ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"policiadesalta.gob.ar","rank":89308,"field":"spf.allQualifier","kind":"modified","from":"~","to":"+","ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"breadfinancial.com","rank":99923,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"wolvden.com","rank":7869,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"wahju.com","rank":88740,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"wahju.com","rank":88740,"field":"dmarc.p","kind":"removed","from":"quarantine","to":null,"ts":"2026-09-30T20:04:56.602Z"}
+{"domain":"wahju.com","rank":88740,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-09-30T20:04:56.602Z"}

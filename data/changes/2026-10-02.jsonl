@@ -1,0 +1,7 @@
+{"domain":"wattpad.com","rank":695,"field":"mx.provider","kind":"modified","from":"google","to":"self-hosted","ts":"2026-10-02T06:45:50.376Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T06:45:50.376Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-02T06:45:50.376Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T06:45:50.376Z"}
+{"domain":"cdc.gov","rank":340,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-02T06:45:50.376Z"}
+{"domain":"cdc.gov","rank":340,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-02T06:45:50.376Z"}
+{"domain":"cdc.gov","rank":340,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-02T06:45:50.376Z"}

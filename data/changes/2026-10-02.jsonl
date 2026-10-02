@@ -151,3 +151,12 @@
 {"domain":"arkive.org","rank":97334,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-02T12:45:25.029Z"}
 {"domain":"arkive.org","rank":97334,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-10-02T12:45:25.029Z"}
 {"domain":"arkive.org","rank":97334,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-10-02T12:45:25.029Z"}
+{"domain":"cdc.gov","rank":340,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"cdc.gov","rank":340,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"cdc.gov","rank":340,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"weather.com","rank":302,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"weather.com","rank":302,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"weather.com","rank":302,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"sophos.com","rank":723,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"sophos.com","rank":723,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-02T15:27:02.051Z"}
+{"domain":"sophos.com","rank":723,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-10-02T15:27:02.051Z"}

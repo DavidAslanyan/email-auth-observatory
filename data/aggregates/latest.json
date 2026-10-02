@@ -2,7 +2,7 @@
   "date": "2026-10-02",
   "listId": "N2Q8W",
   "domainsObserved": 96460,
-  "unknownRate": 0.004623678208583869,
+  "unknownRate": 0.004602944225585735,
   "degraded": false,
   "totals": {
     "spf": {
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 1923,
       "mode": {
-        "testing": 734,
+        "testing": 735,
         "enforce": 887,
         "none": 19
       }
@@ -81,7 +81,7 @@
         "mtaSts": {
           "present": 911,
           "mode": {
-            "testing": 372,
+            "testing": 373,
             "enforce": 393,
             "none": 11
           }
@@ -26190,7 +26190,7 @@
           "present": 569,
           "mode": {
             "enforce": 287,
-            "testing": 186,
+            "testing": 187,
             "none": 6
           }
         },
@@ -26306,9 +26306,9 @@
       "domainsObserved": 19830,
       "totals": {
         "spf": {
-          "present": 17968,
+          "present": 17969,
           "allQualifier": {
-            "~all": 12180,
+            "~all": 12181,
             "-all": 5146,
             "?all": 376,
             "+all": 9
@@ -26400,9 +26400,9 @@
       "domainsObserved": 3103,
       "totals": {
         "spf": {
-          "present": 3045,
+          "present": 3044,
           "allQualifier": {
-            "~all": 1554,
+            "~all": 1553,
             "-all": 1419,
             "?all": 31
           },
@@ -27099,7 +27099,7 @@
         "mtaSts": {
           "present": 33,
           "mode": {
-            "testing": 12,
+            "testing": 13,
             "enforce": 18
           }
         },

@@ -3683,3 +3683,10 @@
 {"domain":"bancochile.cl","rank":40505,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T17:55:17.181Z"}
 {"domain":"bancochile.cl","rank":40505,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-02T17:55:17.181Z"}
 {"domain":"bancochile.cl","rank":40505,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"weather.com","rank":302,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T21:18:30.762Z"}
+{"domain":"weather.com","rank":302,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-10-02T21:18:30.762Z"}
+{"domain":"weather.com","rank":302,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T21:18:30.762Z"}
+{"domain":"sophos.com","rank":723,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-02T21:18:30.762Z"}
+{"domain":"doubleverify.com","rank":341,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-02T21:18:30.762Z"}
+{"domain":"doubleverify.com","rank":341,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-02T21:18:30.762Z"}
+{"domain":"doubleverify.com","rank":341,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-02T21:18:30.762Z"}

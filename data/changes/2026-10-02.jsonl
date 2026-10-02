@@ -3669,3 +3669,17 @@
 {"domain":"dynamixhost.com","rank":99989,"field":"domain","kind":"first_seen","from":null,"to":"dynamixhost.com","ts":"2026-10-02T15:50:14.330Z"}
 {"domain":"neowing.co.jp","rank":99681,"field":"domain","kind":"first_seen","from":null,"to":"neowing.co.jp","ts":"2026-10-02T15:50:14.330Z"}
 {"domain":"radiokp.ru","rank":99756,"field":"domain","kind":"first_seen","from":null,"to":"radiokp.ru","ts":"2026-10-02T15:50:14.330Z"}
+{"domain":"td.com","rank":6001,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"td.com","rank":6001,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"td.com","rank":6001,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"publix.com","rank":12057,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"publix.com","rank":12057,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"publix.com","rank":12057,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"hey.com","rank":29434,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"brusselsairport.be","rank":35677,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"brusselsairport.be","rank":35677,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"brusselsairport.be","rank":35677,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"culturemap.com","rank":40421,"field":"spf.allQualifier","kind":"modified","from":"?","to":"~","ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"bancochile.cl","rank":40505,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"bancochile.cl","rank":40505,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-02T17:55:17.181Z"}
+{"domain":"bancochile.cl","rank":40505,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-02T17:55:17.181Z"}

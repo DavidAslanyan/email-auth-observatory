@@ -6,3 +6,12 @@
 {"domain":"oracle.com","rank":199,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-03T14:10:17.396Z"}
 {"domain":"oracle.com","rank":199,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-03T14:10:17.396Z"}
 {"domain":"oracle.com","rank":199,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-03T14:10:17.396Z"}
+{"domain":"oracle.com","rank":199,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"oracle.com","rank":199,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"oracle.com","rank":199,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"intuit.com","rank":145,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"intuit.com","rank":145,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"intuit.com","rank":145,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"ea.com","rank":323,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"ea.com","rank":323,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-03T19:49:06.164Z"}
+{"domain":"ea.com","rank":323,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-03T19:49:06.164Z"}

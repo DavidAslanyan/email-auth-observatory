@@ -1,12 +1,12 @@
 {
-  "date": "2026-10-02",
+  "date": "2026-10-03",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
   "unknownRate": 0.00444,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70860,
+      "present": 70861,
       "allQualifier": {
         "-all": 31665,
         "~all": 35535,
@@ -55,7 +55,7 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31837,
+          "present": 31838,
           "allQualifier": {
             "-all": 13534,
             "~all": 16978,
@@ -26347,7 +26347,7 @@
       "domainsObserved": 29359,
       "totals": {
         "spf": {
-          "present": 26178,
+          "present": 26179,
           "allQualifier": {
             "-all": 11529,
             "~all": 12909,
@@ -27258,7 +27258,7 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 762,
+          "present": 763,
           "allQualifier": {
             "-all": 436,
             "~all": 273,

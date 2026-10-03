@@ -2,14 +2,14 @@
   "date": "2026-10-03",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00446,
+  "unknownRate": 0.00445,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70864,
+      "present": 70863,
       "allQualifier": {
         "-all": 31662,
-        "~all": 35541,
+        "~all": 35540,
         "?all": 1551,
         "+all": 28
       },
@@ -18,9 +18,9 @@
     "dmarc": {
       "present": 58724,
       "p": {
-        "none": 21075,
+        "none": 21076,
         "quarantine": 16624,
-        "reject": 20918
+        "reject": 20917
       },
       "pctBelow100": 1874
     },
@@ -34,7 +34,7 @@
       "mode": {
         "testing": 749,
         "enforce": 915,
-        "none": 20
+        "none": 21
       }
     },
     "tlsRpt": {
@@ -57,8 +57,8 @@
         "spf": {
           "present": 31838,
           "allQualifier": {
-            "-all": 13533,
-            "~all": 16979,
+            "-all": 13535,
+            "~all": 16977,
             "?all": 583,
             "+all": 8
           },
@@ -67,9 +67,9 @@
         "dmarc": {
           "present": 26928,
           "p": {
-            "none": 9195,
+            "none": 9196,
             "quarantine": 7647,
-            "reject": 10053
+            "reject": 10052
           },
           "pctBelow100": 851
         },
@@ -83,7 +83,7 @@
           "mode": {
             "testing": 380,
             "enforce": 406,
-            "none": 11
+            "none": 12
           }
         },
         "tlsRpt": {
@@ -152,8 +152,8 @@
         "spf": {
           "present": 3648,
           "allQualifier": {
-            "-all": 1674,
-            "~all": 1732,
+            "-all": 1673,
+            "~all": 1733,
             "?all": 127
           },
           "exceedsLookupLimit": 0
@@ -946,9 +946,9 @@
       "domainsObserved": 530,
       "totals": {
         "spf": {
-          "present": 465,
+          "present": 464,
           "allQualifier": {
-            "-all": 296,
+            "-all": 295,
             "~all": 145,
             "?all": 7
           },
@@ -26348,9 +26348,9 @@
       "domainsObserved": 29357,
       "totals": {
         "spf": {
-          "present": 26178,
+          "present": 26177,
           "allQualifier": {
-            "-all": 11526,
+            "-all": 11525,
             "~all": 12912,
             "?all": 791,
             "+all": 16
@@ -26360,9 +26360,9 @@
         "dmarc": {
           "present": 18523,
           "p": {
-            "none": 7992,
+            "none": 7993,
             "quarantine": 5227,
-            "reject": 5253
+            "reject": 5252
           },
           "pctBelow100": 584
         },
@@ -26376,7 +26376,7 @@
           "mode": {
             "enforce": 292,
             "testing": 191,
-            "none": 5
+            "none": 6
           }
         },
         "tlsRpt": {
@@ -26396,10 +26396,10 @@
       "domainsObserved": 13034,
       "totals": {
         "spf": {
-          "present": 12926,
+          "present": 12925,
           "allQualifier": {
             "-all": 8362,
-            "~all": 4277,
+            "~all": 4276,
             "?all": 75
           },
           "exceedsLookupLimit": 15
@@ -26585,10 +26585,10 @@
       "domainsObserved": 3219,
       "totals": {
         "spf": {
-          "present": 3151,
+          "present": 3152,
           "allQualifier": {
             "~all": 1599,
-            "-all": 1474,
+            "-all": 1475,
             "?all": 31
           },
           "exceedsLookupLimit": 4
@@ -27305,10 +27305,10 @@
       "domainsObserved": 90000,
       "totals": {
         "spf": {
-          "present": 63327,
+          "present": 63326,
           "allQualifier": {
-            "-all": 27823,
-            "~all": 32248,
+            "-all": 27824,
+            "~all": 32246,
             "?all": 1396,
             "+all": 25
           },
@@ -27317,8 +27317,8 @@
         "dmarc": {
           "present": 51996,
           "p": {
-            "none": 19392,
-            "reject": 17751,
+            "none": 19393,
+            "reject": 17750,
             "quarantine": 14758
           },
           "pctBelow100": 1704
@@ -27333,7 +27333,7 @@
           "mode": {
             "enforce": 773,
             "testing": 646,
-            "none": 16
+            "none": 17
           }
         },
         "tlsRpt": {
@@ -27356,8 +27356,8 @@
         "spf": {
           "present": 6775,
           "allQualifier": {
-            "~all": 3020,
-            "-all": 3404,
+            "~all": 3021,
+            "-all": 3403,
             "?all": 136,
             "+all": 3
           },

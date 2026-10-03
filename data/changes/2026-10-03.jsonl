@@ -1,0 +1,2 @@
+{"domain":"sophos.com","rank":723,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-03T06:04:53.408Z"}
+{"domain":"sophos.com","rank":723,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-03T06:04:53.408Z"}

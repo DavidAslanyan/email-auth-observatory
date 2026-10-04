@@ -1,0 +1,13 @@
+{"domain":"intuit.com","rank":145,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"intuit.com","rank":145,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"intuit.com","rank":145,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"ea.com","rank":323,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"ea.com","rank":323,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"ea.com","rank":323,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"quora.com","rank":487,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"accuweather.com","rank":609,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"coupang.com","rank":904,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"dynatrace.com","rank":522,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"mailchimp.com","rank":699,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"mailchimp.com","rank":699,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"mailchimp.com","rank":699,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-04T06:39:03.491Z"}

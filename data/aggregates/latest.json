@@ -2,14 +2,14 @@
   "date": "2026-10-04",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00458,
+  "unknownRate": 0.00459,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70865,
+      "present": 70867,
       "allQualifier": {
-        "-all": 31666,
-        "~all": 35540,
+        "-all": 31667,
+        "~all": 35541,
         "?all": 1550,
         "+all": 27
       },
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 1979,
       "mode": {
-        "testing": 747,
+        "testing": 748,
         "enforce": 916,
         "none": 21
       }
@@ -55,10 +55,10 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31839,
+          "present": 31841,
           "allQualifier": {
-            "-all": 13537,
-            "~all": 16976,
+            "-all": 13538,
+            "~all": 16977,
             "?all": 583,
             "+all": 8
           },
@@ -81,7 +81,7 @@
         "mtaSts": {
           "present": 936,
           "mode": {
-            "testing": 378,
+            "testing": 379,
             "enforce": 406,
             "none": 12
           }
@@ -26374,7 +26374,7 @@
           "present": 580,
           "mode": {
             "enforce": 292,
-            "testing": 189,
+            "testing": 190,
             "none": 6
           }
         },
@@ -26395,9 +26395,9 @@
       "domainsObserved": 13038,
       "totals": {
         "spf": {
-          "present": 12929,
+          "present": 12930,
           "allQualifier": {
-            "-all": 8364,
+            "-all": 8365,
             "~all": 4277,
             "?all": 75
           },
@@ -26490,9 +26490,9 @@
       "domainsObserved": 20568,
       "totals": {
         "spf": {
-          "present": 18630,
+          "present": 18631,
           "allQualifier": {
-            "~all": 12631,
+            "~all": 12632,
             "-all": 5331,
             "?all": 393,
             "+all": 8
@@ -27258,10 +27258,10 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 762,
+          "present": 764,
           "allQualifier": {
-            "-all": 435,
-            "~all": 273,
+            "-all": 436,
+            "~all": 274,
             "?all": 19
           },
           "exceedsLookupLimit": 0
@@ -27283,7 +27283,7 @@
         "mtaSts": {
           "present": 33,
           "mode": {
-            "testing": 12,
+            "testing": 13,
             "enforce": 18
           }
         },

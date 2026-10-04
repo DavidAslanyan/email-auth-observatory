@@ -11,3 +11,17 @@
 {"domain":"mailchimp.com","rank":699,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-04T06:39:03.491Z"}
 {"domain":"mailchimp.com","rank":699,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-04T06:39:03.491Z"}
 {"domain":"mailchimp.com","rank":699,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-04T06:39:03.491Z"}
+{"domain":"quora.com","rank":487,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"dynatrace.com","rank":522,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"accuweather.com","rank":609,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"mailchimp.com","rank":699,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"mailchimp.com","rank":699,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"mailchimp.com","rank":699,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"coupang.com","rank":904,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"unity3d.com","rank":133,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"unity3d.com","rank":133,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"unity3d.com","rank":133,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"sophos.com","rank":723,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-04T14:40:57.343Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-04T14:40:57.343Z"}

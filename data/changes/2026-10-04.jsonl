@@ -198,3 +198,10 @@
 {"domain":"easytoys.nl","rank":96084,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-04T16:54:45.452Z"}
 {"domain":"easytoys.nl","rank":96084,"field":"dmarc.adkim","kind":"added","from":null,"to":"r","ts":"2026-10-04T16:54:45.452Z"}
 {"domain":"easytoys.nl","rank":96084,"field":"dmarc.aspf","kind":"added","from":null,"to":"s","ts":"2026-10-04T16:54:45.452Z"}
+{"domain":"unity3d.com","rank":133,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-04T20:07:54.089Z"}
+{"domain":"unity3d.com","rank":133,"field":"spf.allQualifier","kind":"added","from":null,"to":"~","ts":"2026-10-04T20:07:54.089Z"}
+{"domain":"unity3d.com","rank":133,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-04T20:07:54.089Z"}
+{"domain":"sophos.com","rank":723,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-04T20:07:54.089Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-04T20:07:54.089Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-04T20:07:54.089Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-04T20:07:54.089Z"}

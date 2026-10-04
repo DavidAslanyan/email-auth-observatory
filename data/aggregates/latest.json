@@ -2,13 +2,13 @@
   "date": "2026-10-04",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00444,
+  "unknownRate": 0.00445,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70864,
+      "present": 70863,
       "allQualifier": {
-        "-all": 31663,
+        "-all": 31662,
         "~all": 35540,
         "?all": 1551,
         "+all": 28
@@ -41,8 +41,8 @@
       "present": 2375
     },
     "dnssec": {
-      "unsigned": 91293,
-      "signed": 8433,
+      "unsigned": 91296,
+      "signed": 8430,
       "unknown": 274
     },
     "mx": {
@@ -55,9 +55,9 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31839,
+          "present": 31838,
           "allQualifier": {
-            "-all": 13536,
+            "-all": 13535,
             "~all": 16977,
             "?all": 583,
             "+all": 8
@@ -90,8 +90,8 @@
           "present": 1097
         },
         "dnssec": {
-          "unsigned": 42333,
-          "signed": 3139,
+          "unsigned": 42336,
+          "signed": 3136,
           "unknown": 124
         },
         "mx": {
@@ -26348,10 +26348,10 @@
       "domainsObserved": 29357,
       "totals": {
         "spf": {
-          "present": 26177,
+          "present": 26178,
           "allQualifier": {
             "-all": 11526,
-            "~all": 12911,
+            "~all": 12912,
             "?all": 791,
             "+all": 16
           },
@@ -26375,7 +26375,7 @@
           "present": 580,
           "mode": {
             "enforce": 292,
-            "testing": 191,
+            "testing": 190,
             "none": 6
           }
         },
@@ -26396,9 +26396,9 @@
       "domainsObserved": 13034,
       "totals": {
         "spf": {
-          "present": 12926,
+          "present": 12925,
           "allQualifier": {
-            "-all": 8362,
+            "-all": 8361,
             "~all": 4277,
             "?all": 75
           },
@@ -26491,9 +26491,9 @@
       "domainsObserved": 20565,
       "totals": {
         "spf": {
-          "present": 18628,
+          "present": 18627,
           "allQualifier": {
-            "~all": 12627,
+            "~all": 12626,
             "-all": 5332,
             "?all": 393,
             "+all": 9
@@ -26526,8 +26526,8 @@
           "present": 746
         },
         "dnssec": {
-          "unsigned": 18547,
-          "signed": 2018
+          "unsigned": 18548,
+          "signed": 2017
         },
         "mx": {
           "present": 20565,
@@ -26619,8 +26619,8 @@
           "present": 90
         },
         "dnssec": {
-          "unsigned": 2905,
-          "signed": 314
+          "unsigned": 2907,
+          "signed": 312
         },
         "mx": {
           "present": 3219,
@@ -26793,8 +26793,8 @@
         "mtaSts": {
           "present": 61,
           "mode": {
+            "testing": 29,
             "enforce": 23,
-            "testing": 28,
             "none": 1
           }
         },
@@ -27259,9 +27259,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 763,
+          "present": 762,
           "allQualifier": {
-            "-all": 436,
+            "-all": 435,
             "~all": 273,
             "?all": 19
           },
@@ -27292,8 +27292,8 @@
           "present": 43
         },
         "dnssec": {
-          "unsigned": 891,
-          "signed": 109
+          "unsigned": 894,
+          "signed": 106
         },
         "mx": {
           "present": 702,

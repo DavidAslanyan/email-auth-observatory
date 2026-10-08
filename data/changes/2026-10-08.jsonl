@@ -293,3 +293,4 @@
 {"domain":"egyporn.org","rank":83336,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-08T06:13:51.436Z"}
 {"domain":"chennaisattamatka.com","rank":92353,"field":"mx.provider","kind":"removed","from":"google","to":null,"ts":"2026-10-08T06:13:51.436Z"}
 {"domain":"bikesales.com.au","rank":98176,"field":"dmarc.sp","kind":"removed","from":"none","to":null,"ts":"2026-10-08T06:13:51.436Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-08T07:02:23.384Z"}

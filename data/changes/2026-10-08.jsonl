@@ -1022,3 +1022,6 @@
 {"domain":"sd360.com.ve","rank":42801,"field":"dmarc.adkim","kind":"added","from":null,"to":"s","ts":"2026-10-08T20:43:11.056Z"}
 {"domain":"sd360.com.ve","rank":42801,"field":"dmarc.aspf","kind":"added","from":null,"to":"s","ts":"2026-10-08T20:43:11.056Z"}
 {"domain":"annauniv.edu","rank":96415,"field":"dmarc.p","kind":"modified","from":"reject","to":"none","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"openstreetmap.org","rank":715,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-08T22:02:00.090Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-08T22:02:00.090Z"}
+{"domain":"shiabank.com","rank":438,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-08T22:02:00.090Z"}

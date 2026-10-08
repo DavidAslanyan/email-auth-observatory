@@ -575,3 +575,4 @@
 {"domain":"sbormak.ru","rank":97562,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-10-08T13:38:59.544Z"}
 {"domain":"sbormak.ru","rank":97562,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-10-08T13:38:59.544Z"}
 {"domain":"sbormak.ru","rank":97562,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-08T13:38:59.544Z"}
+{"domain":"openstreetmap.org","rank":715,"field":"mtaSts.mode","kind":"removed","from":"enforce","to":null,"ts":"2026-10-08T16:10:48.297Z"}

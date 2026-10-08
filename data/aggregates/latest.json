@@ -33,7 +33,7 @@
       "present": 1984,
       "mode": {
         "testing": 747,
-        "enforce": 913,
+        "enforce": 912,
         "none": 21
       }
     },
@@ -270,8 +270,8 @@
         "mtaSts": {
           "present": 118,
           "mode": {
-            "enforce": 53,
             "testing": 48,
+            "enforce": 52,
             "none": 1
           }
         },
@@ -26373,7 +26373,7 @@
         "mtaSts": {
           "present": 583,
           "mode": {
-            "enforce": 292,
+            "enforce": 291,
             "testing": 188,
             "none": 6
           }
@@ -27284,7 +27284,7 @@
           "present": 33,
           "mode": {
             "testing": 13,
-            "enforce": 18
+            "enforce": 17
           }
         },
         "tlsRpt": {

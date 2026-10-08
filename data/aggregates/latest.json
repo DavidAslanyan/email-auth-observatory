@@ -2,7 +2,7 @@
   "date": "2026-10-08",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00477,
+  "unknownRate": 0.00476,
   "degraded": false,
   "totals": {
     "spf": {
@@ -16,10 +16,10 @@
       "exceedsLookupLimit": 54
     },
     "dmarc": {
-      "present": 58807,
+      "present": 58808,
       "p": {
         "none": 21064,
-        "quarantine": 16651,
+        "quarantine": 16652,
         "reject": 20984
       },
       "pctBelow100": 1872
@@ -33,7 +33,7 @@
       "present": 1987,
       "mode": {
         "testing": 750,
-        "enforce": 912,
+        "enforce": 913,
         "none": 22
       }
     },
@@ -67,8 +67,8 @@
         "dmarc": {
           "present": 26956,
           "p": {
-            "none": 9184,
-            "quarantine": 7660,
+            "none": 9183,
+            "quarantine": 7661,
             "reject": 10079
           },
           "pctBelow100": 853
@@ -82,7 +82,7 @@
           "present": 941,
           "mode": {
             "testing": 381,
-            "enforce": 403,
+            "enforce": 404,
             "none": 13
           }
         },
@@ -351,8 +351,8 @@
           "present": 799,
           "p": {
             "quarantine": 247,
-            "reject": 228,
-            "none": 324
+            "reject": 227,
+            "none": 325
           },
           "pctBelow100": 32
         },
@@ -10031,9 +10031,9 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 30,
+          "present": 31,
           "p": {
-            "reject": 13,
+            "reject": 14,
             "quarantine": 11,
             "none": 6
           },
@@ -26356,11 +26356,11 @@
           "exceedsLookupLimit": 14
         },
         "dmarc": {
-          "present": 18536,
+          "present": 18537,
           "p": {
             "none": 7978,
             "quarantine": 5238,
-            "reject": 5269
+            "reject": 5270
           },
           "pctBelow100": 582
         },
@@ -26372,7 +26372,7 @@
         "mtaSts": {
           "present": 584,
           "mode": {
-            "enforce": 291,
+            "enforce": 292,
             "testing": 188,
             "none": 6
           }
@@ -26405,8 +26405,8 @@
         "dmarc": {
           "present": 11728,
           "p": {
-            "reject": 4096,
-            "none": 3792,
+            "reject": 4095,
+            "none": 3793,
             "quarantine": 3829
           },
           "pctBelow100": 311
@@ -26731,8 +26731,8 @@
         "dmarc": {
           "present": 230,
           "p": {
-            "quarantine": 45,
-            "none": 144,
+            "quarantine": 46,
+            "none": 143,
             "reject": 39
           },
           "pctBelow100": 1
@@ -27313,11 +27313,11 @@
           "exceedsLookupLimit": 50
         },
         "dmarc": {
-          "present": 52077,
+          "present": 52078,
           "p": {
             "none": 19387,
             "reject": 17810,
-            "quarantine": 14784
+            "quarantine": 14785
           },
           "pctBelow100": 1704
         },
@@ -27329,7 +27329,7 @@
         "mtaSts": {
           "present": 1711,
           "mode": {
-            "enforce": 772,
+            "enforce": 773,
             "testing": 645,
             "none": 18
           }

@@ -1010,3 +1010,15 @@
 {"domain":"dupontregistry.com","rank":95308,"field":"dmarc.pct","kind":"removed","from":10,"to":null,"ts":"2026-10-08T18:55:05.339Z"}
 {"domain":"airspacemag.com","rank":98406,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-10-08T18:55:05.339Z"}
 {"domain":"airspacemag.com","rank":98406,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-10-08T18:55:05.339Z"}
+{"domain":"cpx-research.com","rank":15574,"field":"dmarc.pct","kind":"added","from":null,"to":100,"ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"cpx-research.com","rank":15574,"field":"dmarc.adkim","kind":"added","from":null,"to":"s","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"cpx-research.com","rank":15574,"field":"dmarc.aspf","kind":"added","from":null,"to":"s","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"weidian.com","rank":22080,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"incosolutions.com","rank":41024,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"unsri.ac.id","rank":41343,"field":"dmarc.adkim","kind":"added","from":null,"to":"r","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"unsri.ac.id","rank":41343,"field":"dmarc.aspf","kind":"added","from":null,"to":"r","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"sd360.com.ve","rank":42801,"field":"dmarc.present","kind":"modified","from":false,"to":true,"ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"sd360.com.ve","rank":42801,"field":"dmarc.p","kind":"added","from":null,"to":"reject","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"sd360.com.ve","rank":42801,"field":"dmarc.adkim","kind":"added","from":null,"to":"s","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"sd360.com.ve","rank":42801,"field":"dmarc.aspf","kind":"added","from":null,"to":"s","ts":"2026-10-08T20:43:11.056Z"}
+{"domain":"annauniv.edu","rank":96415,"field":"dmarc.p","kind":"modified","from":"reject","to":"none","ts":"2026-10-08T20:43:11.056Z"}

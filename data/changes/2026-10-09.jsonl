@@ -214,3 +214,4 @@
 {"domain":"france-identite.gouv.fr","rank":91288,"field":"dmarc.sp","kind":"removed","from":"reject","to":null,"ts":"2026-10-09T10:40:21.348Z"}
 {"domain":"france-identite.gouv.fr","rank":91288,"field":"dmarc.adkim","kind":"modified","from":"r","to":"s","ts":"2026-10-09T10:40:21.348Z"}
 {"domain":"france-identite.gouv.fr","rank":91288,"field":"dmarc.aspf","kind":"modified","from":"r","to":"s","ts":"2026-10-09T10:40:21.348Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-09T15:52:32.426Z"}

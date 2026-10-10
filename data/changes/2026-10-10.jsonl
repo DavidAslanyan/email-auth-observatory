@@ -1,1 +1,2 @@
 {"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-10T06:43:51.433Z"}
+{"domain":"openstreetmap.org","rank":715,"field":"mtaSts.mode","kind":"removed","from":"enforce","to":null,"ts":"2026-10-10T15:05:22.212Z"}

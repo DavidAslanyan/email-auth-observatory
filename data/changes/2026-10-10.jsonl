@@ -148,3 +148,4 @@
 {"domain":"torrossa.com","rank":59621,"field":"spf.allQualifier","kind":"modified","from":"-","to":"~","ts":"2026-10-10T17:23:55.387Z"}
 {"domain":"dpa.com","rank":66659,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-10T17:23:55.387Z"}
 {"domain":"safe.global","rank":78846,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-10T17:23:55.387Z"}
+{"domain":"openstreetmap.org","rank":715,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-10T20:33:27.149Z"}

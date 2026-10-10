@@ -2,14 +2,14 @@
   "date": "2026-10-10",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00485,
+  "unknownRate": 0.00482,
   "degraded": false,
   "totals": {
     "spf": {
       "present": 70889,
       "allQualifier": {
-        "-all": 31678,
-        "~all": 35558,
+        "-all": 31677,
+        "~all": 35559,
         "?all": 1544,
         "+all": 27
       },
@@ -32,8 +32,8 @@
     "mtaSts": {
       "present": 1990,
       "mode": {
-        "testing": 747,
-        "enforce": 919,
+        "testing": 748,
+        "enforce": 920,
         "none": 23
       }
     },
@@ -57,8 +57,8 @@
         "spf": {
           "present": 31842,
           "allQualifier": {
-            "-all": 13534,
-            "~all": 16982,
+            "-all": 13533,
+            "~all": 16983,
             "?all": 582,
             "+all": 8
           },
@@ -81,7 +81,7 @@
         "mtaSts": {
           "present": 943,
           "mode": {
-            "testing": 380,
+            "testing": 381,
             "enforce": 407,
             "none": 14
           }
@@ -9309,7 +9309,9 @@
         },
         "mtaSts": {
           "present": 1,
-          "mode": {}
+          "mode": {
+            "enforce": 1
+          }
         },
         "tlsRpt": {
           "present": 1
@@ -26372,7 +26374,7 @@
           "present": 586,
           "mode": {
             "enforce": 295,
-            "testing": 186,
+            "testing": 187,
             "none": 6
           }
         },
@@ -26395,8 +26397,8 @@
         "spf": {
           "present": 12948,
           "allQualifier": {
-            "-all": 8380,
-            "~all": 4279,
+            "-all": 8379,
+            "~all": 4280,
             "?all": 76
           },
           "exceedsLookupLimit": 16
@@ -26514,7 +26516,7 @@
         "mtaSts": {
           "present": 694,
           "mode": {
-            "enforce": 287,
+            "enforce": 288,
             "testing": 277,
             "none": 5
           }
@@ -27304,8 +27306,8 @@
         "spf": {
           "present": 63354,
           "allQualifier": {
-            "-all": 27838,
-            "~all": 32266,
+            "-all": 27837,
+            "~all": 32267,
             "?all": 1389,
             "+all": 24
           },
@@ -27328,8 +27330,8 @@
         "mtaSts": {
           "present": 1714,
           "mode": {
-            "enforce": 778,
-            "testing": 641,
+            "enforce": 779,
+            "testing": 642,
             "none": 19
           }
         },

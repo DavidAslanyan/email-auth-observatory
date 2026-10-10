@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-10",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
   "unknownRate": 0.00482,
@@ -41,8 +41,8 @@
       "present": 2390
     },
     "dnssec": {
-      "unsigned": 91265,
-      "signed": 8470,
+      "unsigned": 91266,
+      "signed": 8469,
       "unknown": 265
     },
     "mx": {
@@ -90,8 +90,8 @@
           "present": 1105
         },
         "dnssec": {
-          "unsigned": 42327,
-          "signed": 3149,
+          "unsigned": 42328,
+          "signed": 3148,
           "unknown": 120
         },
         "mx": {
@@ -26618,8 +26618,8 @@
           "present": 90
         },
         "dnssec": {
-          "unsigned": 2908,
-          "signed": 314
+          "unsigned": 2909,
+          "signed": 313
         },
         "mx": {
           "present": 3222,
@@ -27291,8 +27291,8 @@
           "present": 43
         },
         "dnssec": {
-          "unsigned": 894,
-          "signed": 106
+          "unsigned": 895,
+          "signed": 105
         },
         "mx": {
           "present": 701,

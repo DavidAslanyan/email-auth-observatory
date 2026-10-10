@@ -145,3 +145,6 @@
 {"domain":"nomapay.kz","rank":85182,"field":"dmarc.sp","kind":"removed","from":"none","to":null,"ts":"2026-10-10T15:23:45.386Z"}
 {"domain":"om.fr","rank":99424,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-10-10T15:23:45.386Z"}
 {"domain":"om.fr","rank":99424,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-10T15:23:45.386Z"}
+{"domain":"torrossa.com","rank":59621,"field":"spf.allQualifier","kind":"modified","from":"-","to":"~","ts":"2026-10-10T17:23:55.387Z"}
+{"domain":"dpa.com","rank":66659,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-10T17:23:55.387Z"}
+{"domain":"safe.global","rank":78846,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-10T17:23:55.387Z"}

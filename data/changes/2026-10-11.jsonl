@@ -287,3 +287,7 @@
 {"domain":"spreadfirefox.com","rank":46881,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-10-11T17:43:35.629Z"}
 {"domain":"rstheme.com","rank":65354,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-10-11T17:43:35.629Z"}
 {"domain":"rstheme.com","rank":65354,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-10-11T17:43:35.629Z"}
+{"domain":"autodesk.com","rank":306,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-10-11T20:56:39.990Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-11T20:56:39.990Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-11T20:56:39.990Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-11T20:56:39.990Z"}

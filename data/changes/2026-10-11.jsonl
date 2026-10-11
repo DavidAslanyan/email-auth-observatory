@@ -112,3 +112,4 @@
 {"domain":"homeswapper.co.uk","rank":85484,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-11T00:17:05.579Z"}
 {"domain":"homeswapper.co.uk","rank":85484,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-11T00:17:05.579Z"}
 {"domain":"homeswapper.co.uk","rank":85484,"field":"mx.provider","kind":"removed","from":"microsoft","to":null,"ts":"2026-10-11T00:17:05.579Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-11T06:51:16.860Z"}

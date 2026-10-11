@@ -6,9 +6,9 @@
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70896,
+      "present": 70895,
       "allQualifier": {
-        "-all": 31686,
+        "-all": 31685,
         "~all": 35559,
         "?all": 1543,
         "+all": 27
@@ -32,8 +32,8 @@
     "mtaSts": {
       "present": 1994,
       "mode": {
-        "testing": 752,
         "enforce": 922,
+        "testing": 751,
         "none": 23
       }
     },
@@ -55,9 +55,9 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31844,
+          "present": 31843,
           "allQualifier": {
-            "-all": 13534,
+            "-all": 13533,
             "~all": 16982,
             "?all": 583,
             "+all": 8
@@ -81,8 +81,8 @@
         "mtaSts": {
           "present": 945,
           "mode": {
-            "testing": 382,
             "enforce": 408,
+            "testing": 381,
             "none": 14
           }
         },
@@ -26395,9 +26395,9 @@
       "domainsObserved": 13055,
       "totals": {
         "spf": {
-          "present": 12946,
+          "present": 12945,
           "allQualifier": {
-            "-all": 8381,
+            "-all": 8380,
             "~all": 4276,
             "?all": 76
           },
@@ -26420,8 +26420,8 @@
         "mtaSts": {
           "present": 548,
           "mode": {
-            "testing": 213,
             "enforce": 272,
+            "testing": 212,
             "none": 8
           }
         },
@@ -27258,9 +27258,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 764,
+          "present": 763,
           "allQualifier": {
-            "-all": 436,
+            "-all": 435,
             "~all": 274,
             "?all": 19
           },
@@ -27283,8 +27283,8 @@
         "mtaSts": {
           "present": 33,
           "mode": {
-            "testing": 13,
-            "enforce": 18
+            "enforce": 18,
+            "testing": 12
           }
         },
         "tlsRpt": {

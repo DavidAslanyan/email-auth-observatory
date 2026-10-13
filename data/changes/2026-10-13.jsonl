@@ -736,3 +736,12 @@
 {"domain":"chati.ge","rank":92346,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-13T19:22:56.968Z"}
 {"domain":"linkshub.watch","rank":93251,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-13T19:22:56.968Z"}
 {"domain":"linkshub.watch","rank":93251,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-13T19:22:56.968Z"}
+{"domain":"razerzone.com","rank":6277,"field":"spf.allQualifier","kind":"modified","from":"?","to":"-","ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"speedcurve.com","rank":9666,"field":"dmarc.p","kind":"modified","from":"none","to":"reject","ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"virtuoussoftware.com","rank":63137,"field":"mtaSts.mode","kind":"modified","from":"enforce","to":"testing","ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.p","kind":"removed","from":"reject","to":null,"ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.sp","kind":"removed","from":"reject","to":null,"ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.adkim","kind":"removed","from":"s","to":null,"ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-10-13T20:43:11.128Z"}

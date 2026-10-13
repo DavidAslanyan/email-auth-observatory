@@ -2,23 +2,23 @@
   "date": "2026-10-13",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00478,
+  "unknownRate": 0.00481,
   "degraded": false,
   "totals": {
     "spf": {
       "present": 70908,
       "allQualifier": {
-        "-all": 31700,
+        "-all": 31701,
         "~all": 35562,
-        "?all": 1542,
+        "?all": 1541,
         "+all": 26
       },
       "exceedsLookupLimit": 55
     },
     "dmarc": {
-      "present": 58913,
+      "present": 58912,
       "p": {
-        "none": 21068,
+        "none": 21067,
         "quarantine": 16687,
         "reject": 21053
       },
@@ -32,8 +32,8 @@
     "mtaSts": {
       "present": 1999,
       "mode": {
-        "testing": 754,
-        "enforce": 928,
+        "testing": 755,
+        "enforce": 927,
         "none": 24
       }
     },
@@ -57,9 +57,9 @@
         "spf": {
           "present": 31857,
           "allQualifier": {
-            "-all": 13541,
+            "-all": 13542,
             "~all": 16988,
-            "?all": 583,
+            "?all": 582,
             "+all": 8
           },
           "exceedsLookupLimit": 26
@@ -67,9 +67,9 @@
         "dmarc": {
           "present": 27008,
           "p": {
-            "none": 9189,
+            "none": 9188,
             "quarantine": 7680,
-            "reject": 10107
+            "reject": 10108
           },
           "pctBelow100": 839
         },
@@ -81,8 +81,8 @@
         "mtaSts": {
           "present": 947,
           "mode": {
-            "testing": 382,
-            "enforce": 408,
+            "testing": 383,
+            "enforce": 407,
             "none": 15
           }
         },
@@ -113,9 +113,9 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 1047,
+          "present": 1046,
           "p": {
-            "reject": 395,
+            "reject": 394,
             "quarantine": 313,
             "none": 336
           },
@@ -26393,9 +26393,9 @@
         "spf": {
           "present": 12945,
           "allQualifier": {
-            "-all": 8378,
+            "-all": 8379,
             "~all": 4276,
-            "?all": 76
+            "?all": 75
           },
           "exceedsLookupLimit": 16
         },
@@ -26448,9 +26448,9 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 4094,
+          "present": 4093,
           "p": {
-            "reject": 2817,
+            "reject": 2816,
             "none": 824,
             "quarantine": 440
           },
@@ -26512,8 +26512,8 @@
         "mtaSts": {
           "present": 695,
           "mode": {
-            "enforce": 288,
-            "testing": 278,
+            "enforce": 287,
+            "testing": 279,
             "none": 5
           }
         },
@@ -26592,8 +26592,8 @@
           "present": 3097,
           "p": {
             "quarantine": 521,
-            "reject": 1960,
-            "none": 615
+            "reject": 1961,
+            "none": 614
           },
           "pctBelow100": 39
         },
@@ -27310,10 +27310,10 @@
           "exceedsLookupLimit": 51
         },
         "dmarc": {
-          "present": 52174,
+          "present": 52173,
           "p": {
             "none": 19391,
-            "reject": 17873,
+            "reject": 17872,
             "quarantine": 14817
           },
           "pctBelow100": 1688
@@ -27326,8 +27326,8 @@
         "mtaSts": {
           "present": 1722,
           "mode": {
-            "enforce": 786,
-            "testing": 648,
+            "enforce": 785,
+            "testing": 649,
             "none": 20
           }
         },
@@ -27352,8 +27352,8 @@
           "present": 6775,
           "allQualifier": {
             "~all": 3022,
-            "-all": 3404,
-            "?all": 136,
+            "-all": 3405,
+            "?all": 135,
             "+all": 3
           },
           "exceedsLookupLimit": 4
@@ -27361,9 +27361,9 @@
         "dmarc": {
           "present": 6013,
           "p": {
-            "reject": 2739,
+            "reject": 2740,
             "quarantine": 1705,
-            "none": 1558
+            "none": 1557
           },
           "pctBelow100": 157
         },

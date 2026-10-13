@@ -410,3 +410,11 @@
 {"domain":"s18.bet","rank":86130,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-10-13T14:19:53.137Z"}
 {"domain":"s18.bet","rank":86130,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-10-13T14:19:53.137Z"}
 {"domain":"s18.bet","rank":86130,"field":"mx.provider","kind":"added","from":null,"to":"self-hosted","ts":"2026-10-13T14:19:53.137Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.sp","kind":"removed","from":"none","to":null,"ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-13T16:46:10.103Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-13T16:46:10.103Z"}

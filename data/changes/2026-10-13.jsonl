@@ -140,3 +140,7 @@
 {"domain":"successchaserstars.com","rank":94189,"field":"dmarc.adkim","kind":"added","from":null,"to":"r","ts":"2026-10-13T00:49:53.141Z"}
 {"domain":"successchaserstars.com","rank":94189,"field":"dmarc.aspf","kind":"added","from":null,"to":"r","ts":"2026-10-13T00:49:53.141Z"}
 {"domain":"successchaserstars.com","rank":94189,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-13T00:49:53.141Z"}
+{"domain":"4.cn","rank":6681,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-13T02:38:07.988Z"}
+{"domain":"cerkov.ru","rank":68254,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-10-13T02:38:07.988Z"}
+{"domain":"blackshark.com","rank":76602,"field":"spf.allQualifier","kind":"modified","from":"~","to":"?","ts":"2026-10-13T02:38:07.988Z"}
+{"domain":"behostings.net","rank":43235,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-13T02:38:07.988Z"}

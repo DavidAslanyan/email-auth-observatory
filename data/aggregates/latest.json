@@ -8,9 +8,9 @@
     "spf": {
       "present": 70894,
       "allQualifier": {
-        "-all": 31685,
-        "~all": 35560,
-        "?all": 1543,
+        "-all": 31686,
+        "~all": 35558,
+        "?all": 1544,
         "+all": 27
       },
       "exceedsLookupLimit": 54
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 1997,
       "mode": {
-        "enforce": 922,
+        "enforce": 923,
         "testing": 752,
         "none": 24
       }
@@ -58,8 +58,8 @@
           "present": 31850,
           "allQualifier": {
             "-all": 13531,
-            "~all": 16989,
-            "?all": 584,
+            "~all": 16988,
+            "?all": 585,
             "+all": 8
           },
           "exceedsLookupLimit": 25
@@ -222,7 +222,8 @@
         "mtaSts": {
           "present": 2,
           "mode": {
-            "testing": 1
+            "testing": 1,
+            "enforce": 1
           }
         },
         "tlsRpt": {
@@ -481,8 +482,8 @@
         "spf": {
           "present": 2863,
           "allQualifier": {
-            "~all": 1418,
-            "-all": 1073,
+            "~all": 1417,
+            "-all": 1074,
             "?all": 53,
             "+all": 1
           },
@@ -26369,7 +26370,7 @@
         "mtaSts": {
           "present": 590,
           "mode": {
-            "enforce": 296,
+            "enforce": 297,
             "testing": 189,
             "none": 7
           }
@@ -26488,8 +26489,8 @@
         "spf": {
           "present": 18655,
           "allQualifier": {
-            "~all": 12669,
-            "-all": 5326,
+            "~all": 12668,
+            "-all": 5327,
             "?all": 389,
             "+all": 8
           },
@@ -26720,8 +26721,8 @@
           "present": 550,
           "allQualifier": {
             "-all": 69,
-            "~all": 471,
-            "?all": 2
+            "~all": 470,
+            "?all": 3
           },
           "exceedsLookupLimit": 0
         },
@@ -27302,9 +27303,9 @@
         "spf": {
           "present": 63358,
           "allQualifier": {
-            "-all": 27847,
-            "~all": 32265,
-            "?all": 1388,
+            "-all": 27848,
+            "~all": 32263,
+            "?all": 1389,
             "+all": 24
           },
           "exceedsLookupLimit": 50
@@ -27375,7 +27376,7 @@
         "mtaSts": {
           "present": 244,
           "mode": {
-            "enforce": 123,
+            "enforce": 124,
             "testing": 93,
             "none": 4
           }

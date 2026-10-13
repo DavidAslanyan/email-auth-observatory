@@ -6,9 +6,9 @@
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70897,
+      "present": 70898,
       "allQualifier": {
-        "-all": 31691,
+        "-all": 31692,
         "~all": 35554,
         "?all": 1544,
         "+all": 27
@@ -18,8 +18,8 @@
     "dmarc": {
       "present": 58887,
       "p": {
-        "none": 21066,
-        "quarantine": 16684,
+        "none": 21067,
+        "quarantine": 16683,
         "reject": 21031
       },
       "pctBelow100": 1869
@@ -32,8 +32,8 @@
     "mtaSts": {
       "present": 1997,
       "mode": {
+        "testing": 752,
         "enforce": 923,
-        "testing": 751,
         "none": 24
       }
     },
@@ -55,9 +55,9 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31850,
+          "present": 31851,
           "allQualifier": {
-            "-all": 13533,
+            "-all": 13534,
             "~all": 16986,
             "?all": 585,
             "+all": 8
@@ -81,8 +81,8 @@
         "mtaSts": {
           "present": 947,
           "mode": {
+            "testing": 382,
             "enforce": 408,
-            "testing": 381,
             "none": 15
           }
         },
@@ -162,8 +162,8 @@
           "present": 2592,
           "p": {
             "reject": 942,
-            "quarantine": 617,
-            "none": 1024
+            "quarantine": 616,
+            "none": 1025
           },
           "pctBelow100": 80
         },
@@ -26392,9 +26392,9 @@
       "domainsObserved": 13051,
       "totals": {
         "spf": {
-          "present": 12942,
+          "present": 12943,
           "allQualifier": {
-            "-all": 8376,
+            "-all": 8377,
             "~all": 4275,
             "?all": 76
           },
@@ -26417,8 +26417,8 @@
         "mtaSts": {
           "present": 548,
           "mode": {
+            "testing": 213,
             "enforce": 273,
-            "testing": 212,
             "none": 8
           }
         },
@@ -27046,8 +27046,8 @@
         "dmarc": {
           "present": 459,
           "p": {
-            "quarantine": 152,
-            "none": 191,
+            "none": 192,
+            "quarantine": 151,
             "reject": 114
           },
           "pctBelow100": 16
@@ -27255,9 +27255,9 @@
       "domainsObserved": 1000,
       "totals": {
         "spf": {
-          "present": 763,
+          "present": 764,
           "allQualifier": {
-            "-all": 435,
+            "-all": 436,
             "~all": 274,
             "?all": 19
           },
@@ -27266,8 +27266,8 @@
         "dmarc": {
           "present": 726,
           "p": {
-            "none": 119,
-            "quarantine": 165,
+            "none": 120,
+            "quarantine": 164,
             "reject": 441
           },
           "pctBelow100": 9
@@ -27280,8 +27280,8 @@
         "mtaSts": {
           "present": 33,
           "mode": {
-            "enforce": 18,
-            "testing": 12
+            "testing": 13,
+            "enforce": 18
           }
         },
         "tlsRpt": {

@@ -19,8 +19,8 @@
       "present": 58912,
       "p": {
         "none": 21067,
-        "quarantine": 16687,
-        "reject": 21053
+        "quarantine": 16686,
+        "reject": 21054
       },
       "pctBelow100": 1854
     },
@@ -68,8 +68,8 @@
           "present": 27008,
           "p": {
             "none": 9188,
-            "quarantine": 7680,
-            "reject": 10108
+            "quarantine": 7679,
+            "reject": 10109
           },
           "pctBelow100": 839
         },
@@ -26402,9 +26402,9 @@
         "dmarc": {
           "present": 11737,
           "p": {
-            "reject": 4108,
+            "reject": 4109,
             "none": 3785,
-            "quarantine": 3833
+            "quarantine": 3832
           },
           "pctBelow100": 303
         },
@@ -27266,8 +27266,8 @@
           "present": 726,
           "p": {
             "none": 119,
-            "quarantine": 165,
-            "reject": 441
+            "quarantine": 164,
+            "reject": 442
           },
           "pctBelow100": 9
         },

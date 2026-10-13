@@ -226,3 +226,12 @@
 {"domain":"ambientedirect.com","rank":98020,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-10-13T06:52:08.376Z"}
 {"domain":"ambientedirect.com","rank":98020,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-10-13T06:52:08.376Z"}
 {"domain":"ambientedirect.com","rank":98020,"field":"tlsRpt.present","kind":"modified","from":false,"to":true,"ts":"2026-10-13T06:52:08.376Z"}
+{"domain":"autodesk.com","rank":306,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.p","kind":"modified","from":"quarantine","to":"none","ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.sp","kind":"added","from":null,"to":"none","ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.adkim","kind":"added","from":null,"to":"r","ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"ngenix.net","rank":533,"field":"dmarc.aspf","kind":"added","from":null,"to":"r","ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-13T07:25:24.058Z"}
+{"domain":"wordpress.com","rank":97,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-13T07:25:24.058Z"}

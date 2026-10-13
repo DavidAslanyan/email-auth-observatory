@@ -745,3 +745,4 @@
 {"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-13T20:43:11.128Z"}
 {"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.adkim","kind":"removed","from":"s","to":null,"ts":"2026-10-13T20:43:11.128Z"}
 {"domain":"bigcontent-ef387d.io","rank":25235,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-10-13T20:43:11.128Z"}
+{"domain":"azure.com","rank":28,"field":"dmarc.p","kind":"modified","from":"quarantine","to":"reject","ts":"2026-10-13T21:48:51.684Z"}

@@ -127,3 +127,4 @@
 {"domain":"blackhillsenergy.com","rank":85759,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-17T12:59:20.625Z"}
 {"domain":"blackhillsenergy.com","rank":85759,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-17T12:59:20.625Z"}
 {"domain":"crowdsignal.com","rank":95111,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-17T12:59:20.625Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-17T19:18:05.677Z"}

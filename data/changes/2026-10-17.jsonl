@@ -1,0 +1,4 @@
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-17T05:21:49.125Z"}
+{"domain":"wordpress.org","rank":47,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-17T05:21:49.125Z"}
+{"domain":"gravatar.com","rank":156,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-17T05:21:49.125Z"}
+{"domain":"tumblr.com","rank":159,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-17T05:21:49.125Z"}

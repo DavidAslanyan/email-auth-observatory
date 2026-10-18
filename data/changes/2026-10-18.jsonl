@@ -300,3 +300,13 @@
 {"domain":"mainstreethost.com","rank":95702,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-18T18:10:10.580Z"}
 {"domain":"mainstreethost.com","rank":95702,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-18T18:10:10.580Z"}
 {"domain":"mainstreethost.com","rank":95702,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-18T18:10:10.580Z"}
+{"domain":"museumofflight.org","rank":62337,"field":"dmarc.p","kind":"modified","from":"none","to":"reject","ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"museumofflight.org","rank":62337,"field":"dmarc.sp","kind":"added","from":null,"to":"none","ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"museumofflight.org","rank":62337,"field":"dmarc.pct","kind":"added","from":null,"to":100,"ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"avsim.com","rank":91845,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"athleticshoes.work","rank":92104,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"athleticshoes.work","rank":92104,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"athleticshoes.work","rank":92104,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"vncdn.vn","rank":97405,"field":"spf.allQualifier","kind":"modified","from":"-","to":"~","ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"tra.go.tz","rank":83390,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-10-18T20:54:01.141Z"}
+{"domain":"tra.go.tz","rank":83390,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-10-18T20:54:01.141Z"}

@@ -41,8 +41,8 @@
       "present": 2421
     },
     "dnssec": {
-      "unsigned": 91239,
-      "signed": 8512,
+      "unsigned": 91240,
+      "signed": 8511,
       "unknown": 249
     },
     "mx": {
@@ -90,8 +90,8 @@
           "present": 1120
         },
         "dnssec": {
-          "unsigned": 42323,
-          "signed": 3160,
+          "unsigned": 42324,
+          "signed": 3159,
           "unknown": 113
         },
         "mx": {
@@ -26619,8 +26619,8 @@
           "present": 93
         },
         "dnssec": {
-          "unsigned": 2911,
-          "signed": 314
+          "unsigned": 2912,
+          "signed": 313
         },
         "mx": {
           "present": 3225,
@@ -27292,8 +27292,8 @@
           "present": 43
         },
         "dnssec": {
-          "unsigned": 894,
-          "signed": 106
+          "unsigned": 895,
+          "signed": 105
         },
         "mx": {
           "present": 701,

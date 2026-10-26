@@ -164,3 +164,4 @@
 {"domain":"cdn-videyy.co","rank":92331,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-10-26T13:13:31.697Z"}
 {"domain":"cdn-videyy.co","rank":92331,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-26T13:13:31.697Z"}
 {"domain":"dexcom.eu","rank":95247,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-26T13:13:31.697Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-26T15:54:47.685Z"}

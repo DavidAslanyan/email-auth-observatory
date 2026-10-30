@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 2017,
       "mode": {
-        "testing": 764,
+        "testing": 765,
         "enforce": 937,
         "none": 24
       }
@@ -41,8 +41,8 @@
       "present": 2425
     },
     "dnssec": {
-      "unsigned": 91237,
-      "signed": 8518,
+      "unsigned": 91238,
+      "signed": 8517,
       "unknown": 245
     },
     "mx": {
@@ -90,8 +90,8 @@
           "present": 1124
         },
         "dnssec": {
-          "unsigned": 42317,
-          "signed": 3169,
+          "unsigned": 42318,
+          "signed": 3168,
           "unknown": 110
         },
         "mx": {
@@ -736,7 +736,7 @@
           "present": 143,
           "mode": {
             "enforce": 98,
-            "testing": 24
+            "testing": 25
           }
         },
         "tlsRpt": {
@@ -26374,7 +26374,7 @@
           "present": 591,
           "mode": {
             "enforce": 298,
-            "testing": 196,
+            "testing": 197,
             "none": 7
           }
         },
@@ -26476,8 +26476,8 @@
           "present": 12
         },
         "dnssec": {
-          "unsigned": 25441,
-          "signed": 1469,
+          "unsigned": 25442,
+          "signed": 1468,
           "unknown": 245
         },
         "mx": {
@@ -27331,7 +27331,7 @@
           "present": 1738,
           "mode": {
             "enforce": 795,
-            "testing": 655,
+            "testing": 656,
             "none": 20
           }
         },
@@ -27339,8 +27339,8 @@
           "present": 2106
         },
         "dnssec": {
-          "unsigned": 82299,
-          "signed": 7464,
+          "unsigned": 82300,
+          "signed": 7463,
           "unknown": 237
         },
         "mx": {

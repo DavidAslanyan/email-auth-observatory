@@ -936,3 +936,5 @@
 {"domain":"jazzcasino.org","rank":95994,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-30T18:05:39.319Z"}
 {"domain":"jazzcasino.org","rank":95994,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-30T18:05:39.319Z"}
 {"domain":"jazzcasino.org","rank":95994,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-30T18:05:39.319Z"}
+{"domain":"aldi.co.uk","rank":37687,"field":"mtaSts.mode","kind":"added","from":null,"to":"testing","ts":"2026-10-30T19:57:00.931Z"}
+{"domain":"linesdks.com","rank":41924,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-30T19:57:00.931Z"}

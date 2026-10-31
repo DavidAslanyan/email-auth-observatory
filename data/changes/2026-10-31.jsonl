@@ -363,3 +363,13 @@
 {"domain":"dutchbanglabank.com","rank":94833,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-10-31T17:17:39.206Z"}
 {"domain":"parkplus.io","rank":99225,"field":"dmarc.pct","kind":"added","from":null,"to":100,"ts":"2026-10-31T17:17:39.206Z"}
 {"domain":"wolvden.com","rank":7869,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"dmarc.p","kind":"removed","from":"reject","to":null,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"dmarc.sp","kind":"removed","from":"reject","to":null,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"dmarc.adkim","kind":"removed","from":"s","to":null,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-10-31T20:26:51.888Z"}
+{"domain":"libp2p.direct","rank":408,"field":"mx.isNullMx","kind":"modified","from":true,"to":false,"ts":"2026-10-31T20:26:51.888Z"}

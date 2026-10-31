@@ -184,3 +184,8 @@
 {"domain":"my-caps.com","rank":97990,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-31T00:53:31.994Z"}
 {"domain":"my-caps.com","rank":97990,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-31T00:53:31.994Z"}
 {"domain":"my-caps.com","rank":97990,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-31T00:53:31.994Z"}
+{"domain":"apache.org","rank":127,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-10-31T06:41:44.801Z"}
+{"domain":"gitlab.com","rank":381,"field":"spf.allQualifier","kind":"modified","from":"-","to":"~","ts":"2026-10-31T06:41:44.801Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-10-31T06:41:44.801Z"}
+{"domain":"youku.com","rank":906,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-10-31T06:41:44.801Z"}
+{"domain":"mobile.de","rank":674,"field":"dmarc.pct","kind":"removed","from":100,"to":null,"ts":"2026-10-31T06:41:44.801Z"}

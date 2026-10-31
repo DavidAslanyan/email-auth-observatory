@@ -352,3 +352,14 @@
 {"domain":"lakepalacecasino.org","rank":94745,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-10-31T15:20:30.714Z"}
 {"domain":"lakepalacecasino.org","rank":94745,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-10-31T15:20:30.714Z"}
 {"domain":"lakepalacecasino.org","rank":94745,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-31T15:20:30.714Z"}
+{"domain":"slt.lk","rank":14625,"field":"dmarc.sp","kind":"added","from":null,"to":"none","ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"price.ru","rank":34863,"field":"dmarc.p","kind":"modified","from":"quarantine","to":"none","ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"nzpost.co.nz","rank":40831,"field":"bimi.hasLogo","kind":"modified","from":true,"to":false,"ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"nzpost.co.nz","rank":40831,"field":"bimi.hasVmc","kind":"modified","from":false,"to":true,"ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"hebcal.com","rank":62127,"field":"dmarc.p","kind":"modified","from":"quarantine","to":"reject","ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"wahju.com","rank":88740,"field":"dmarc.present","kind":"modified","from":false,"to":true,"ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"wahju.com","rank":88740,"field":"dmarc.p","kind":"added","from":null,"to":"quarantine","ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"wahju.com","rank":88740,"field":"dmarc.pct","kind":"added","from":null,"to":100,"ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"dutchbanglabank.com","rank":94833,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"parkplus.io","rank":99225,"field":"dmarc.pct","kind":"added","from":null,"to":100,"ts":"2026-10-31T17:17:39.206Z"}
+{"domain":"wolvden.com","rank":7869,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-10-31T17:17:39.206Z"}

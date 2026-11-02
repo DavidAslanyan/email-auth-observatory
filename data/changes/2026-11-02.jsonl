@@ -119,3 +119,4 @@
 {"domain":"proximus.com","rank":98280,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-11-02T00:53:49.994Z"}
 {"domain":"proximus.com","rank":98280,"field":"spf.allQualifier","kind":"removed","from":"~","to":null,"ts":"2026-11-02T00:53:49.994Z"}
 {"domain":"proximus.com","rank":98280,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-11-02T00:53:49.994Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-11-02T07:19:18.185Z"}

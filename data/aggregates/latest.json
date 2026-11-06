@@ -2,51 +2,51 @@
   "date": "2026-11-06",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00546,
+  "unknownRate": 0.0055,
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 70924,
+      "present": 70922,
       "allQualifier": {
-        "-all": 31725,
-        "~all": 35578,
-        "?all": 1538,
+        "-all": 31719,
+        "~all": 35583,
+        "?all": 1537,
         "+all": 27
       },
       "exceedsLookupLimit": 56
     },
     "dmarc": {
-      "present": 59141,
+      "present": 59151,
       "p": {
-        "none": 21006,
-        "quarantine": 16801,
-        "reject": 21228
+        "none": 21004,
+        "quarantine": 16805,
+        "reject": 21237
       },
       "pctBelow100": 1855
     },
     "bimi": {
-      "present": 4997,
-      "hasVmc": 2879,
+      "present": 4999,
+      "hasVmc": 2882,
       "declined": 31
     },
     "mtaSts": {
       "present": 2019,
       "mode": {
-        "testing": 763,
-        "enforce": 938,
+        "testing": 762,
+        "enforce": 937,
         "none": 24
       }
     },
     "tlsRpt": {
-      "present": 2429
+      "present": 2430
     },
     "dnssec": {
-      "unsigned": 91219,
-      "signed": 8538,
+      "unsigned": 91217,
+      "signed": 8540,
       "unknown": 243
     },
     "mx": {
-      "present": 72819,
+      "present": 72813,
       "isNullMx": 410
     }
   },
@@ -55,39 +55,39 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31885,
+          "present": 31886,
           "allQualifier": {
-            "-all": 13568,
-            "~all": 17000,
-            "?all": 579,
+            "-all": 13564,
+            "~all": 17006,
+            "?all": 578,
             "+all": 8
           },
           "exceedsLookupLimit": 25
         },
         "dmarc": {
-          "present": 27099,
+          "present": 27104,
           "p": {
-            "none": 9145,
-            "quarantine": 7736,
-            "reject": 10186
+            "none": 9144,
+            "quarantine": 7738,
+            "reject": 10190
           },
-          "pctBelow100": 845
+          "pctBelow100": 847
         },
         "bimi": {
-          "present": 2959,
-          "hasVmc": 1776,
+          "present": 2960,
+          "hasVmc": 1778,
           "declined": 22
         },
         "mtaSts": {
-          "present": 962,
+          "present": 963,
           "mode": {
-            "testing": 388,
-            "enforce": 417,
+            "testing": 389,
+            "enforce": 416,
             "none": 15
           }
         },
         "tlsRpt": {
-          "present": 1126
+          "present": 1127
         },
         "dnssec": {
           "unsigned": 42310,
@@ -95,7 +95,7 @@
           "unknown": 109
         },
         "mx": {
-          "present": 32841,
+          "present": 32839,
           "isNullMx": 133
         }
       }
@@ -115,9 +115,9 @@
         "dmarc": {
           "present": 1050,
           "p": {
-            "reject": 399,
+            "reject": 400,
             "quarantine": 313,
-            "none": 335
+            "none": 334
           },
           "pctBelow100": 50
         },
@@ -130,7 +130,7 @@
           "present": 49,
           "mode": {
             "enforce": 25,
-            "testing": 19
+            "testing": 18
           }
         },
         "tlsRpt": {
@@ -150,20 +150,20 @@
       "domainsObserved": 6357,
       "totals": {
         "spf": {
-          "present": 3640,
+          "present": 3639,
           "allQualifier": {
             "-all": 1664,
-            "~all": 1739,
+            "~all": 1738,
             "?all": 125
           },
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 2615,
+          "present": 2617,
           "p": {
-            "reject": 952,
-            "quarantine": 629,
-            "none": 1025
+            "reject": 954,
+            "quarantine": 628,
+            "none": 1026
           },
           "pctBelow100": 80
         },
@@ -188,7 +188,7 @@
           "unknown": 30
         },
         "mx": {
-          "present": 3778,
+          "present": 3777,
           "isNullMx": 47
         }
       }
@@ -200,7 +200,7 @@
           "present": 700,
           "allQualifier": {
             "-all": 500,
-            "~all": 180,
+            "~all": 179,
             "?all": 3
           },
           "exceedsLookupLimit": 0
@@ -208,9 +208,9 @@
         "dmarc": {
           "present": 336,
           "p": {
-            "none": 131,
+            "none": 130,
             "reject": 102,
-            "quarantine": 97
+            "quarantine": 98
           },
           "pctBelow100": 2
         },
@@ -243,9 +243,9 @@
       "domainsObserved": 4464,
       "totals": {
         "spf": {
-          "present": 3500,
+          "present": 3499,
           "allQualifier": {
-            "-all": 1439,
+            "-all": 1438,
             "~all": 1839,
             "?all": 104,
             "+all": 3
@@ -259,11 +259,11 @@
             "none": 1128,
             "quarantine": 860
           },
-          "pctBelow100": 89
+          "pctBelow100": 88
         },
         "bimi": {
-          "present": 209,
-          "hasVmc": 102,
+          "present": 210,
+          "hasVmc": 103,
           "declined": 0
         },
         "mtaSts": {
@@ -283,7 +283,7 @@
           "unknown": 2
         },
         "mx": {
-          "present": 3585,
+          "present": 3584,
           "isNullMx": 20
         }
       }
@@ -353,7 +353,7 @@
             "reject": 227,
             "none": 319
           },
-          "pctBelow100": 31
+          "pctBelow100": 30
         },
         "bimi": {
           "present": 52,
@@ -442,9 +442,9 @@
         "dmarc": {
           "present": 1573,
           "p": {
-            "quarantine": 433,
+            "quarantine": 434,
             "reject": 485,
-            "none": 653
+            "none": 652
           },
           "pctBelow100": 48
         },
@@ -491,8 +491,8 @@
           "present": 2162,
           "p": {
             "none": 735,
-            "quarantine": 708,
-            "reject": 713
+            "quarantine": 709,
+            "reject": 712
           },
           "pctBelow100": 108
         },
@@ -665,8 +665,8 @@
         "spf": {
           "present": 1570,
           "allQualifier": {
-            "-all": 337,
-            "~all": 1185,
+            "-all": 336,
+            "~all": 1186,
             "?all": 26
           },
           "exceedsLookupLimit": 1
@@ -674,9 +674,9 @@
         "dmarc": {
           "present": 1333,
           "p": {
-            "quarantine": 246,
+            "quarantine": 244,
             "none": 875,
-            "reject": 209
+            "reject": 211
           },
           "pctBelow100": 33
         },
@@ -721,9 +721,9 @@
         "dmarc": {
           "present": 1144,
           "p": {
-            "quarantine": 342,
+            "quarantine": 343,
             "reject": 505,
-            "none": 297
+            "none": 296
           },
           "pctBelow100": 28
         },
@@ -805,7 +805,7 @@
         "spf": {
           "present": 528,
           "allQualifier": {
-            "-all": 268,
+            "-all": 269,
             "~all": 224,
             "?all": 10
           },
@@ -829,7 +829,7 @@
           "present": 34,
           "mode": {
             "enforce": 19,
-            "testing": 13
+            "testing": 14
           }
         },
         "tlsRpt": {
@@ -859,7 +859,7 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 1087,
+          "present": 1086,
           "p": {
             "quarantine": 367,
             "reject": 301,
@@ -1071,8 +1071,8 @@
           "present": 10
         },
         "dnssec": {
-          "unsigned": 1186,
-          "signed": 116,
+          "unsigned": 1185,
+          "signed": 117,
           "unknown": 3
         },
         "mx": {
@@ -1347,8 +1347,8 @@
         "spf": {
           "present": 418,
           "allQualifier": {
-            "-all": 277,
-            "~all": 123,
+            "-all": 276,
+            "~all": 124,
             "?all": 3
           },
           "exceedsLookupLimit": 0
@@ -1528,10 +1528,10 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 67,
+          "present": 68,
           "p": {
             "reject": 19,
-            "none": 27,
+            "none": 28,
             "quarantine": 21
           },
           "pctBelow100": 2
@@ -1608,9 +1608,9 @@
       "domainsObserved": 203,
       "totals": {
         "spf": {
-          "present": 103,
+          "present": 104,
           "allQualifier": {
-            "-all": 44,
+            "-all": 45,
             "~all": 48,
             "?all": 2
           },
@@ -1665,9 +1665,9 @@
         "dmarc": {
           "present": 225,
           "p": {
-            "none": 80,
+            "none": 81,
             "quarantine": 65,
-            "reject": 80
+            "reject": 79
           },
           "pctBelow100": 9
         },
@@ -1680,7 +1680,7 @@
           "present": 13,
           "mode": {
             "enforce": 7,
-            "testing": 3
+            "testing": 2
           }
         },
         "tlsRpt": {
@@ -1747,11 +1747,11 @@
           "exceedsLookupLimit": 1
         },
         "dmarc": {
-          "present": 494,
+          "present": 495,
           "p": {
             "reject": 149,
             "none": 158,
-            "quarantine": 185
+            "quarantine": 186
           },
           "pctBelow100": 26
         },
@@ -2465,9 +2465,9 @@
       "domainsObserved": 410,
       "totals": {
         "spf": {
-          "present": 350,
+          "present": 349,
           "allQualifier": {
-            "~all": 213,
+            "~all": 212,
             "-all": 129,
             "?all": 6
           },
@@ -3989,9 +3989,9 @@
       "domainsObserved": 142,
       "totals": {
         "spf": {
-          "present": 116,
+          "present": 115,
           "allQualifier": {
-            "-all": 54,
+            "-all": 53,
             "~all": 58,
             "?all": 3
           },
@@ -4023,7 +4023,7 @@
           "signed": 2
         },
         "mx": {
-          "present": 126,
+          "present": 125,
           "isNullMx": 0
         }
       }
@@ -4562,10 +4562,10 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 146,
+          "present": 147,
           "p": {
             "none": 64,
-            "reject": 32,
+            "reject": 33,
             "quarantine": 50
           },
           "pctBelow100": 5
@@ -7059,10 +7059,10 @@
           "declined": 2
         },
         "mtaSts": {
-          "present": 14,
+          "present": 13,
           "mode": {
             "enforce": 7,
-            "testing": 5
+            "testing": 4
           }
         },
         "tlsRpt": {
@@ -8258,7 +8258,7 @@
           "signed": 2
         },
         "mx": {
-          "present": 13,
+          "present": 12,
           "isNullMx": 0
         }
       }
@@ -8297,8 +8297,8 @@
           "present": 0
         },
         "dnssec": {
-          "unsigned": 38,
-          "signed": 4
+          "unsigned": 37,
+          "signed": 5
         },
         "mx": {
           "present": 17,
@@ -17785,9 +17785,10 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 1,
+          "present": 2,
           "p": {
-            "none": 1
+            "none": 1,
+            "reject": 1
           },
           "pctBelow100": 0
         },
@@ -26345,37 +26346,37 @@
   },
   "byMxProvider": {
     "self-hosted": {
-      "domainsObserved": 29247,
+      "domainsObserved": 29245,
       "totals": {
         "spf": {
           "present": 26087,
           "allQualifier": {
             "-all": 11502,
-            "~all": 12864,
-            "?all": 781,
+            "~all": 12865,
+            "?all": 780,
             "+all": 15
           },
           "exceedsLookupLimit": 13
         },
         "dmarc": {
-          "present": 18639,
+          "present": 18649,
           "p": {
-            "none": 7951,
-            "quarantine": 5305,
-            "reject": 5331
+            "none": 7953,
+            "quarantine": 5310,
+            "reject": 5334
           },
-          "pctBelow100": 577
+          "pctBelow100": 579
         },
         "bimi": {
-          "present": 1063,
-          "hasVmc": 516,
+          "present": 1065,
+          "hasVmc": 517,
           "declined": 8
         },
         "mtaSts": {
-          "present": 589,
+          "present": 588,
           "mode": {
             "enforce": 297,
-            "testing": 194,
+            "testing": 193,
             "none": 7
           }
         },
@@ -26383,23 +26384,23 @@
           "present": 705
         },
         "dnssec": {
-          "unsigned": 26503,
-          "signed": 2744
+          "unsigned": 26499,
+          "signed": 2746
         },
         "mx": {
-          "present": 29247,
+          "present": 29245,
           "isNullMx": 0
         }
       }
     },
     "microsoft": {
-      "domainsObserved": 13064,
+      "domainsObserved": 13062,
       "totals": {
         "spf": {
-          "present": 12955,
+          "present": 12953,
           "allQualifier": {
-            "-all": 8386,
-            "~all": 4273,
+            "-all": 8382,
+            "~all": 4275,
             "?all": 76,
             "+all": 1
           },
@@ -26408,11 +26409,11 @@
         "dmarc": {
           "present": 11776,
           "p": {
-            "reject": 4139,
-            "none": 3765,
+            "reject": 4140,
+            "none": 3764,
             "quarantine": 3861
           },
-          "pctBelow100": 307
+          "pctBelow100": 306
         },
         "bimi": {
           "present": 1060,
@@ -26422,7 +26423,7 @@
         "mtaSts": {
           "present": 551,
           "mode": {
-            "testing": 209,
+            "testing": 210,
             "enforce": 276,
             "none": 8
           }
@@ -26431,34 +26432,34 @@
           "present": 727
         },
         "dnssec": {
-          "unsigned": 11609,
-          "signed": 1455
+          "unsigned": 11608,
+          "signed": 1454
         },
         "mx": {
-          "present": 13064,
+          "present": 13062,
           "isNullMx": 0
         }
       }
     },
     "none": {
-      "domainsObserved": 27182,
+      "domainsObserved": 27188,
       "totals": {
         "spf": {
-          "present": 4326,
+          "present": 4327,
           "allQualifier": {
             "-all": 3189,
-            "~all": 971,
+            "~all": 972,
             "?all": 75,
             "+all": 1
           },
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 4133,
+          "present": 4135,
           "p": {
             "reject": 2847,
-            "none": 829,
-            "quarantine": 444
+            "none": 830,
+            "quarantine": 445
           },
           "pctBelow100": 39
         },
@@ -26478,7 +26479,7 @@
           "present": 12
         },
         "dnssec": {
-          "unsigned": 25468,
+          "unsigned": 25474,
           "signed": 1471,
           "unknown": 243
         },
@@ -26489,12 +26490,12 @@
       }
     },
     "google": {
-      "domainsObserved": 20603,
+      "domainsObserved": 20602,
       "totals": {
         "spf": {
           "present": 18699,
           "allQualifier": {
-            "~all": 12717,
+            "~all": 12718,
             "-all": 5332,
             "?all": 385,
             "+all": 8
@@ -26502,36 +26503,36 @@
           "exceedsLookupLimit": 16
         },
         "dmarc": {
-          "present": 17031,
+          "present": 17030,
           "p": {
-            "none": 6307,
-            "quarantine": 5368,
-            "reject": 5338
+            "none": 6304,
+            "quarantine": 5367,
+            "reject": 5342
           },
           "pctBelow100": 793
         },
         "bimi": {
-          "present": 2118,
-          "hasVmc": 1227,
+          "present": 2119,
+          "hasVmc": 1229,
           "declined": 13
         },
         "mtaSts": {
-          "present": 707,
+          "present": 708,
           "mode": {
-            "enforce": 294,
-            "testing": 286,
+            "enforce": 293,
+            "testing": 285,
             "none": 5
           }
         },
         "tlsRpt": {
-          "present": 765
+          "present": 766
         },
         "dnssec": {
-          "unsigned": 18551,
-          "signed": 2052
+          "unsigned": 18549,
+          "signed": 2053
         },
         "mx": {
-          "present": 20603,
+          "present": 20602,
           "isNullMx": 0
         }
       }
@@ -26598,8 +26599,8 @@
           "present": 3097,
           "p": {
             "quarantine": 518,
-            "reject": 1976,
-            "none": 602
+            "reject": 1977,
+            "none": 601
           },
           "pctBelow100": 40
         },
@@ -26725,7 +26726,7 @@
         "spf": {
           "present": 550,
           "allQualifier": {
-            "-all": 69,
+            "-all": 68,
             "~all": 470,
             "?all": 3
           },
@@ -26953,8 +26954,8 @@
         "spf": {
           "present": 293,
           "allQualifier": {
-            "-all": 158,
-            "~all": 125,
+            "-all": 157,
+            "~all": 126,
             "?all": 3
           },
           "exceedsLookupLimit": 2
@@ -27037,28 +27038,28 @@
       }
     },
     "yandex": {
-      "domainsObserved": 825,
+      "domainsObserved": 824,
       "totals": {
         "spf": {
-          "present": 757,
+          "present": 756,
           "allQualifier": {
             "-all": 65,
-            "~all": 406,
+            "~all": 405,
             "?all": 14
           },
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 457,
+          "present": 456,
           "p": {
-            "quarantine": 150,
+            "quarantine": 149,
             "none": 191,
             "reject": 114
           },
-          "pctBelow100": 16
+          "pctBelow100": 15
         },
         "bimi": {
-          "present": 21,
+          "present": 20,
           "hasVmc": 0,
           "declined": 0
         },
@@ -27072,11 +27073,11 @@
           "present": 2
         },
         "dnssec": {
-          "unsigned": 804,
+          "unsigned": 803,
           "signed": 21
         },
         "mx": {
-          "present": 825,
+          "present": 824,
           "isNullMx": 0
         }
       }
@@ -27306,47 +27307,47 @@
       "domainsObserved": 90000,
       "totals": {
         "spf": {
-          "present": 63374,
+          "present": 63373,
           "allQualifier": {
-            "-all": 27881,
-            "~all": 32274,
-            "?all": 1382,
+            "-all": 27875,
+            "~all": 32280,
+            "?all": 1381,
             "+all": 24
           },
           "exceedsLookupLimit": 51
         },
         "dmarc": {
-          "present": 52385,
+          "present": 52396,
           "p": {
-            "none": 19340,
-            "reject": 18033,
-            "quarantine": 14918
+            "none": 19338,
+            "reject": 18042,
+            "quarantine": 14922
           },
-          "pctBelow100": 1688
+          "pctBelow100": 1689
         },
         "bimi": {
-          "present": 4057,
-          "hasVmc": 2202,
+          "present": 4059,
+          "hasVmc": 2205,
           "declined": 20
         },
         "mtaSts": {
-          "present": 1740,
+          "present": 1741,
           "mode": {
-            "enforce": 797,
-            "testing": 654,
+            "enforce": 796,
+            "testing": 653,
             "none": 20
           }
         },
         "tlsRpt": {
-          "present": 2110
+          "present": 2111
         },
         "dnssec": {
-          "unsigned": 82283,
-          "signed": 7482,
+          "unsigned": 82281,
+          "signed": 7484,
           "unknown": 235
         },
         "mx": {
-          "present": 65519,
+          "present": 65514,
           "isNullMx": 320
         }
       }
@@ -27355,9 +27356,9 @@
       "domainsObserved": 9000,
       "totals": {
         "spf": {
-          "present": 6787,
+          "present": 6786,
           "allQualifier": {
-            "~all": 3029,
+            "~all": 3028,
             "-all": 3410,
             "?all": 137,
             "+all": 3
@@ -27365,13 +27366,13 @@
           "exceedsLookupLimit": 5
         },
         "dmarc": {
-          "present": 6031,
+          "present": 6030,
           "p": {
             "reject": 2754,
             "quarantine": 1717,
             "none": 1549
           },
-          "pctBelow100": 158
+          "pctBelow100": 157
         },
         "bimi": {
           "present": 776,
@@ -27379,7 +27380,7 @@
           "declined": 9
         },
         "mtaSts": {
-          "present": 246,
+          "present": 245,
           "mode": {
             "enforce": 123,
             "testing": 96,
@@ -27395,7 +27396,7 @@
           "unknown": 8
         },
         "mx": {
-          "present": 6600,
+          "present": 6599,
           "isNullMx": 82
         }
       }

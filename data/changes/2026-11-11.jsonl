@@ -446,3 +446,4 @@
 {"domain":"lidl-shop.com","rank":96941,"field":"dmarc.p","kind":"modified","from":"reject","to":"quarantine","ts":"2026-11-11T21:59:58.684Z"}
 {"domain":"lidl-shop.com","rank":96941,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-11-11T21:59:58.684Z"}
 {"domain":"lidl-shop.com","rank":96941,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-11-11T21:59:58.684Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"signed","to":"unsigned","ts":"2026-11-11T23:27:53.840Z"}

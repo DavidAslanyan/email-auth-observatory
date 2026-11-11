@@ -250,3 +250,4 @@
 {"domain":"ast.tv","rank":99742,"field":"dmarc.sp","kind":"added","from":null,"to":"reject","ts":"2026-11-11T14:30:28.879Z"}
 {"domain":"ast.tv","rank":99742,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-11-11T14:30:28.879Z"}
 {"domain":"ast.tv","rank":99742,"field":"mx.isNullMx","kind":"modified","from":false,"to":true,"ts":"2026-11-11T14:30:28.879Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-11-11T16:56:32.925Z"}

@@ -33,7 +33,7 @@
       "present": 2038,
       "mode": {
         "testing": 766,
-        "enforce": 945,
+        "enforce": 946,
         "none": 23
       }
     },
@@ -82,7 +82,7 @@
           "present": 969,
           "mode": {
             "testing": 389,
-            "enforce": 419,
+            "enforce": 420,
             "none": 14
           }
         },
@@ -26426,7 +26426,7 @@
           "present": 552,
           "mode": {
             "testing": 208,
-            "enforce": 277,
+            "enforce": 278,
             "none": 8
           }
         },
@@ -27290,7 +27290,7 @@
           "present": 32,
           "mode": {
             "testing": 12,
-            "enforce": 17
+            "enforce": 18
           }
         },
         "tlsRpt": {

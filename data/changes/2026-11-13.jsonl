@@ -518,3 +518,4 @@
 {"domain":"place123.net","rank":89554,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-11-13T19:53:05.145Z"}
 {"domain":"selloship.com","rank":91654,"field":"mx.provider","kind":"removed","from":"google","to":null,"ts":"2026-11-13T19:53:05.145Z"}
 {"domain":"magok.ru","rank":95838,"field":"dmarc.sp","kind":"removed","from":"reject","to":null,"ts":"2026-11-13T19:53:05.145Z"}
+{"domain":"live.com","rank":24,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-11-13T22:32:53.421Z"}

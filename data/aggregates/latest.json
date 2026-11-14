@@ -8,7 +8,7 @@
     "spf": {
       "present": 70988,
       "allQualifier": {
-        "-all": 31786,
+        "-all": 31787,
         "~all": 35609,
         "?all": 1521,
         "+all": 26
@@ -41,8 +41,8 @@
       "present": 2450
     },
     "dnssec": {
-      "unsigned": 91195,
-      "signed": 8565,
+      "unsigned": 91194,
+      "signed": 8566,
       "unknown": 240
     },
     "mx": {
@@ -57,7 +57,7 @@
         "spf": {
           "present": 31924,
           "allQualifier": {
-            "-all": 13600,
+            "-all": 13601,
             "~all": 17014,
             "?all": 575,
             "+all": 7
@@ -90,8 +90,8 @@
           "present": 1133
         },
         "dnssec": {
-          "unsigned": 42301,
-          "signed": 3188,
+          "unsigned": 42300,
+          "signed": 3189,
           "unknown": 107
         },
         "mx": {
@@ -26398,7 +26398,7 @@
         "spf": {
           "present": 12947,
           "allQualifier": {
-            "-all": 8376,
+            "-all": 8377,
             "~all": 4271,
             "?all": 76,
             "+all": 1
@@ -26620,8 +26620,8 @@
           "present": 94
         },
         "dnssec": {
-          "unsigned": 2919,
-          "signed": 309
+          "unsigned": 2918,
+          "signed": 310
         },
         "mx": {
           "present": 3228,
@@ -27263,7 +27263,7 @@
         "spf": {
           "present": 764,
           "allQualifier": {
-            "-all": 435,
+            "-all": 436,
             "~all": 274,
             "?all": 19
           },
@@ -27294,8 +27294,8 @@
           "present": 42
         },
         "dnssec": {
-          "unsigned": 895,
-          "signed": 105
+          "unsigned": 894,
+          "signed": 106
         },
         "mx": {
           "present": 703,

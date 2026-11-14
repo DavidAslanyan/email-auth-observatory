@@ -216,3 +216,5 @@
 {"domain":"betwin365.win","rank":92204,"field":"dmarc.p","kind":"removed","from":"quarantine","to":null,"ts":"2026-11-14T13:38:30.272Z"}
 {"domain":"betwin365.win","rank":92204,"field":"dmarc.adkim","kind":"removed","from":"r","to":null,"ts":"2026-11-14T13:38:30.272Z"}
 {"domain":"betwin365.win","rank":92204,"field":"dmarc.aspf","kind":"removed","from":"r","to":null,"ts":"2026-11-14T13:38:30.272Z"}
+{"domain":"dailymail.com","rank":690,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-11-14T15:37:39.866Z"}
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-11-14T15:37:39.866Z"}

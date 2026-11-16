@@ -197,3 +197,6 @@
 {"domain":"mundodenovias.com","rank":91145,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-11-16T06:42:25.136Z"}
 {"domain":"egypttrains.com","rank":92595,"field":"bimi.present","kind":"modified","from":true,"to":false,"ts":"2026-11-16T06:42:25.136Z"}
 {"domain":"egypttrains.com","rank":92595,"field":"bimi.hasLogo","kind":"modified","from":true,"to":false,"ts":"2026-11-16T06:42:25.136Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":true,"to":false,"ts":"2026-11-16T07:42:18.737Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-11-16T07:42:18.737Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-11-16T07:42:18.737Z"}

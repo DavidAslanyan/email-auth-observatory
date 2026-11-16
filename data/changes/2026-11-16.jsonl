@@ -613,3 +613,10 @@
 {"domain":"autostat.ru","rank":95073,"field":"dmarc.pct","kind":"removed","from":5,"to":null,"ts":"2026-11-16T22:20:38.356Z"}
 {"domain":"olimpic.ru","rank":96183,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-11-16T22:20:38.356Z"}
 {"domain":"olimpic.ru","rank":96183,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-11-16T22:20:38.356Z"}
+{"domain":"amrita.edu","rank":36915,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-11-16T23:46:10.551Z"}
+{"domain":"sklavenzentrale.com","rank":83082,"field":"dmarc.p","kind":"modified","from":"reject","to":"quarantine","ts":"2026-11-16T23:46:10.551Z"}
+{"domain":"everestgrp.com","rank":33332,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-11-16T23:46:10.551Z"}
+{"domain":"saregama.com","rank":68243,"field":"dmarc.p","kind":"modified","from":"none","to":"reject","ts":"2026-11-16T23:46:10.551Z"}
+{"domain":"saregama.com","rank":68243,"field":"dmarc.pct","kind":"added","from":null,"to":75,"ts":"2026-11-16T23:46:10.551Z"}
+{"domain":"saregama.com","rank":68243,"field":"dmarc.adkim","kind":"removed","from":"s","to":null,"ts":"2026-11-16T23:46:10.551Z"}
+{"domain":"saregama.com","rank":68243,"field":"dmarc.aspf","kind":"removed","from":"s","to":null,"ts":"2026-11-16T23:46:10.551Z"}

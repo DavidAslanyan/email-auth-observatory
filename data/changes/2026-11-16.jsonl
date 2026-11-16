@@ -443,3 +443,6 @@
 {"domain":"chopluna.ru","rank":92363,"field":"dmarc.present","kind":"modified","from":true,"to":false,"ts":"2026-11-16T15:58:25.425Z"}
 {"domain":"chopluna.ru","rank":92363,"field":"dmarc.p","kind":"removed","from":"quarantine","to":null,"ts":"2026-11-16T15:58:25.425Z"}
 {"domain":"chopluna.ru","rank":92363,"field":"mx.provider","kind":"removed","from":"self-hosted","to":null,"ts":"2026-11-16T15:58:25.425Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.present","kind":"modified","from":false,"to":true,"ts":"2026-11-16T19:20:41.719Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.allQualifier","kind":"added","from":null,"to":"-","ts":"2026-11-16T19:20:41.719Z"}
+{"domain":"disneyplus.com","rank":805,"field":"spf.exceedsLookupLimit","kind":"added","from":null,"to":false,"ts":"2026-11-16T19:20:41.719Z"}

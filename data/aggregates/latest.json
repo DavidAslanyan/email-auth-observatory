@@ -2,14 +2,14 @@
   "date": "2026-11-16",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00561,
+  "unknownRate": 0.00559,
   "degraded": false,
   "totals": {
     "spf": {
       "present": 71001,
       "allQualifier": {
-        "-all": 31809,
-        "~all": 35601,
+        "-all": 31810,
+        "~all": 35600,
         "?all": 1521,
         "+all": 26
       },
@@ -18,11 +18,11 @@
     "dmarc": {
       "present": 59433,
       "p": {
-        "none": 20986,
-        "quarantine": 16897,
+        "none": 20985,
+        "quarantine": 16898,
         "reject": 21446
       },
-      "pctBelow100": 1869
+      "pctBelow100": 1870
     },
     "bimi": {
       "present": 5035,
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 2041,
       "mode": {
-        "testing": 771,
+        "testing": 770,
         "enforce": 950,
         "none": 23
       }
@@ -67,11 +67,11 @@
         "dmarc": {
           "present": 27224,
           "p": {
-            "none": 9128,
-            "quarantine": 7776,
+            "none": 9127,
+            "quarantine": 7777,
             "reject": 10289
           },
-          "pctBelow100": 845
+          "pctBelow100": 846
         },
         "bimi": {
           "present": 2984,
@@ -81,7 +81,7 @@
         "mtaSts": {
           "present": 972,
           "mode": {
-            "testing": 393,
+            "testing": 392,
             "enforce": 423,
             "none": 14
           }
@@ -338,8 +338,8 @@
         "spf": {
           "present": 805,
           "allQualifier": {
-            "-all": 275,
-            "~all": 459,
+            "-all": 276,
+            "~all": 458,
             "?all": 34
           },
           "exceedsLookupLimit": 6
@@ -26360,8 +26360,8 @@
           "present": 18755,
           "p": {
             "none": 7982,
-            "quarantine": 5336,
-            "reject": 5386
+            "quarantine": 5337,
+            "reject": 5385
           },
           "pctBelow100": 582
         },
@@ -26397,8 +26397,8 @@
         "spf": {
           "present": 12946,
           "allQualifier": {
-            "-all": 8376,
-            "~all": 4271,
+            "-all": 8377,
+            "~all": 4270,
             "?all": 76,
             "+all": 1
           },
@@ -26421,7 +26421,7 @@
         "mtaSts": {
           "present": 554,
           "mode": {
-            "testing": 210,
+            "testing": 209,
             "enforce": 280,
             "none": 8
           }
@@ -26503,11 +26503,11 @@
         "dmarc": {
           "present": 17118,
           "p": {
-            "none": 6297,
+            "none": 6296,
             "quarantine": 5402,
-            "reject": 5402
+            "reject": 5403
           },
-          "pctBelow100": 799
+          "pctBelow100": 800
         },
         "bimi": {
           "present": 2128,
@@ -27309,8 +27309,8 @@
         "spf": {
           "present": 63445,
           "allQualifier": {
-            "-all": 27951,
-            "~all": 32302,
+            "-all": 27952,
+            "~all": 32301,
             "?all": 1368,
             "+all": 23
           },
@@ -27319,11 +27319,11 @@
         "dmarc": {
           "present": 52655,
           "p": {
-            "none": 19327,
+            "none": 19326,
             "reject": 18231,
-            "quarantine": 15004
+            "quarantine": 15005
           },
-          "pctBelow100": 1702
+          "pctBelow100": 1703
         },
         "bimi": {
           "present": 4090,
@@ -27334,7 +27334,7 @@
           "present": 1758,
           "mode": {
             "enforce": 804,
-            "testing": 663,
+            "testing": 662,
             "none": 19
           }
         },

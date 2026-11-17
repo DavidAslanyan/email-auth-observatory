@@ -6,21 +6,21 @@
   "degraded": false,
   "totals": {
     "spf": {
-      "present": 71003,
+      "present": 71001,
       "allQualifier": {
-        "-all": 31818,
-        "~all": 35597,
+        "-all": 31817,
+        "~all": 35596,
         "?all": 1521,
         "+all": 26
       },
       "exceedsLookupLimit": 59
     },
     "dmarc": {
-      "present": 59451,
+      "present": 59450,
       "p": {
-        "none": 20992,
+        "none": 20993,
         "quarantine": 16901,
-        "reject": 21456
+        "reject": 21454
       },
       "pctBelow100": 1870
     },
@@ -32,7 +32,7 @@
     "mtaSts": {
       "present": 2043,
       "mode": {
-        "testing": 770,
+        "testing": 771,
         "enforce": 950,
         "none": 23
       }
@@ -55,9 +55,9 @@
       "domainsObserved": 45596,
       "totals": {
         "spf": {
-          "present": 31935,
+          "present": 31934,
           "allQualifier": {
-            "-all": 13616,
+            "-all": 13615,
             "~all": 17013,
             "?all": 574,
             "+all": 7
@@ -65,11 +65,11 @@
           "exceedsLookupLimit": 25
         },
         "dmarc": {
-          "present": 27236,
+          "present": 27235,
           "p": {
-            "none": 9132,
+            "none": 9133,
             "quarantine": 7778,
-            "reject": 10295
+            "reject": 10293
           },
           "pctBelow100": 847
         },
@@ -640,7 +640,7 @@
           "present": 12,
           "mode": {
             "enforce": 3,
-            "testing": 6,
+            "testing": 7,
             "none": 1
           }
         },
@@ -2559,10 +2559,10 @@
       "domainsObserved": 240,
       "totals": {
         "spf": {
-          "present": 113,
+          "present": 112,
           "allQualifier": {
             "-all": 37,
-            "~all": 60,
+            "~all": 59,
             "?all": 4
           },
           "exceedsLookupLimit": 0
@@ -26346,10 +26346,10 @@
       "domainsObserved": 29207,
       "totals": {
         "spf": {
-          "present": 26082,
+          "present": 26081,
           "allQualifier": {
             "-all": 11521,
-            "~all": 12864,
+            "~all": 12863,
             "?all": 771,
             "+all": 15
           },
@@ -26358,9 +26358,9 @@
         "dmarc": {
           "present": 18767,
           "p": {
-            "none": 7989,
+            "none": 7990,
             "quarantine": 5335,
-            "reject": 5393
+            "reject": 5392
           },
           "pctBelow100": 582
         },
@@ -26420,7 +26420,7 @@
         "mtaSts": {
           "present": 555,
           "mode": {
-            "testing": 209,
+            "testing": 210,
             "enforce": 280,
             "none": 8
           }
@@ -26442,9 +26442,9 @@
       "domainsObserved": 27194,
       "totals": {
         "spf": {
-          "present": 4334,
+          "present": 4333,
           "allQualifier": {
-            "-all": 3203,
+            "-all": 3202,
             "~all": 967,
             "?all": 74,
             "+all": 1
@@ -26452,9 +26452,9 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 4151,
+          "present": 4150,
           "p": {
-            "reject": 2868,
+            "reject": 2867,
             "none": 838,
             "quarantine": 433
           },
@@ -27306,20 +27306,20 @@
       "domainsObserved": 90000,
       "totals": {
         "spf": {
-          "present": 63447,
+          "present": 63445,
           "allQualifier": {
-            "-all": 27960,
-            "~all": 32298,
+            "-all": 27959,
+            "~all": 32297,
             "?all": 1368,
             "+all": 23
           },
           "exceedsLookupLimit": 53
         },
         "dmarc": {
-          "present": 52672,
+          "present": 52671,
           "p": {
-            "none": 19332,
-            "reject": 18241,
+            "none": 19333,
+            "reject": 18239,
             "quarantine": 15008
           },
           "pctBelow100": 1703
@@ -27333,7 +27333,7 @@
           "present": 1760,
           "mode": {
             "enforce": 804,
-            "testing": 662,
+            "testing": 663,
             "none": 19
           }
         },

@@ -1,2 +1,4 @@
 {"domain":"google.com","rank":1,"field":"bimi.present","kind":"modified","from":false,"to":true,"ts":"2026-11-19T08:27:23.447Z"}
 {"domain":"chatgpt.com","rank":75,"field":"bimi.hasVmc","kind":"modified","from":false,"to":true,"ts":"2026-11-19T08:27:23.447Z"}
+{"domain":"disqus.com","rank":860,"field":"dmarc.p","kind":"modified","from":"none","to":"quarantine","ts":"2026-11-19T18:00:09.359Z"}
+{"domain":"disqus.com","rank":860,"field":"dmarc.sp","kind":"removed","from":"none","to":null,"ts":"2026-11-19T18:00:09.359Z"}

@@ -2,14 +2,14 @@
   "date": "2026-11-22",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00579,
+  "unknownRate": 0.00578,
   "degraded": false,
   "totals": {
     "spf": {
       "present": 71051,
       "allQualifier": {
-        "-all": 31863,
-        "~all": 35611,
+        "-all": 31864,
+        "~all": 35610,
         "?all": 1514,
         "+all": 24
       },
@@ -199,8 +199,8 @@
         "spf": {
           "present": 696,
           "allQualifier": {
-            "-all": 497,
-            "~all": 179,
+            "-all": 498,
+            "~all": 178,
             "?all": 3
           },
           "exceedsLookupLimit": 0
@@ -26729,8 +26729,8 @@
         "spf": {
           "present": 548,
           "allQualifier": {
-            "-all": 71,
-            "~all": 466,
+            "-all": 72,
+            "~all": 465,
             "?all": 2
           },
           "exceedsLookupLimit": 0
@@ -27314,8 +27314,8 @@
         "spf": {
           "present": 63493,
           "allQualifier": {
-            "-all": 28004,
-            "~all": 32312,
+            "-all": 28005,
+            "~all": 32311,
             "?all": 1362,
             "+all": 21
           },

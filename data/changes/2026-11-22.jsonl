@@ -1034,3 +1034,4 @@
 {"domain":"uploadb.com","rank":87548,"field":"dmarc.p","kind":"removed","from":"none","to":null,"ts":"2026-11-22T21:05:40.521Z"}
 {"domain":"cats.com","rank":88492,"field":"dmarc.pct","kind":"removed","from":90,"to":null,"ts":"2026-11-22T21:05:40.521Z"}
 {"domain":"pns.co.za","rank":91407,"field":"tlsRpt.present","kind":"modified","from":true,"to":false,"ts":"2026-11-22T21:05:40.521Z"}
+{"domain":"meipian.cn","rank":50523,"field":"spf.allQualifier","kind":"modified","from":"~","to":"-","ts":"2026-11-22T23:39:49.511Z"}

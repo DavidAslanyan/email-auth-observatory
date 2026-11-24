@@ -2,7 +2,7 @@
   "date": "2026-11-24",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00576,
+  "unknownRate": 0.00577,
   "degraded": false,
   "totals": {
     "spf": {

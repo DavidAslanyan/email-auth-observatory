@@ -2,7 +2,7 @@
   "date": "2026-11-27",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00599,
+  "unknownRate": 0.00598,
   "degraded": false,
   "totals": {
     "spf": {
@@ -16,11 +16,11 @@
       "exceedsLookupLimit": 59
     },
     "dmarc": {
-      "present": 59734,
+      "present": 59735,
       "p": {
         "none": 21003,
         "quarantine": 16983,
-        "reject": 21646
+        "reject": 21647
       },
       "pctBelow100": 1879
     },
@@ -33,7 +33,7 @@
       "present": 2069,
       "mode": {
         "testing": 784,
-        "enforce": 949,
+        "enforce": 950,
         "none": 23
       }
     },
@@ -65,11 +65,11 @@
           "exceedsLookupLimit": 25
         },
         "dmarc": {
-          "present": 27335,
+          "present": 27336,
           "p": {
             "none": 9111,
             "quarantine": 7810,
-            "reject": 10384
+            "reject": 10385
           },
           "pctBelow100": 856
         },
@@ -734,7 +734,7 @@
         "mtaSts": {
           "present": 144,
           "mode": {
-            "enforce": 97,
+            "enforce": 98,
             "testing": 27
           }
         },
@@ -26440,7 +26440,7 @@
           "present": 562,
           "mode": {
             "testing": 216,
-            "enforce": 280,
+            "enforce": 281,
             "none": 8
           }
         },
@@ -26471,9 +26471,9 @@
           "exceedsLookupLimit": 0
         },
         "dmarc": {
-          "present": 4175,
+          "present": 4176,
           "p": {
-            "reject": 2882,
+            "reject": 2883,
             "none": 847,
             "quarantine": 434
           },
@@ -27335,10 +27335,10 @@
           "exceedsLookupLimit": 53
         },
         "dmarc": {
-          "present": 52936,
+          "present": 52937,
           "p": {
             "none": 19351,
-            "reject": 18416,
+            "reject": 18417,
             "quarantine": 15078
           },
           "pctBelow100": 1710
@@ -27351,7 +27351,7 @@
         "mtaSts": {
           "present": 1785,
           "mode": {
-            "enforce": 803,
+            "enforce": 804,
             "testing": 675,
             "none": 19
           }

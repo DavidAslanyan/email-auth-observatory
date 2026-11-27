@@ -1553,3 +1553,7 @@
 {"domain":"venlafaxineinfo.com","rank":86732,"field":"spf.allQualifier","kind":"removed","from":"-","to":null,"ts":"2026-11-27T21:28:32.213Z"}
 {"domain":"venlafaxineinfo.com","rank":86732,"field":"spf.exceedsLookupLimit","kind":"removed","from":false,"to":null,"ts":"2026-11-27T21:28:32.213Z"}
 {"domain":"venlafaxineinfo.com","rank":86732,"field":"mx.isNullMx","kind":"modified","from":true,"to":false,"ts":"2026-11-27T21:28:32.213Z"}
+{"domain":"salesforce-dns.com","rank":10664,"field":"dmarc.present","kind":"modified","from":false,"to":true,"ts":"2026-11-27T23:30:09.626Z"}
+{"domain":"salesforce-dns.com","rank":10664,"field":"dmarc.p","kind":"added","from":null,"to":"reject","ts":"2026-11-27T23:30:09.626Z"}
+{"domain":"salesforce-dns.com","rank":10664,"field":"dmarc.pct","kind":"added","from":null,"to":100,"ts":"2026-11-27T23:30:09.626Z"}
+{"domain":"birmingham.gov.uk","rank":34042,"field":"mtaSts.mode","kind":"added","from":null,"to":"enforce","ts":"2026-11-27T23:30:09.626Z"}

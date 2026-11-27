@@ -2,7 +2,7 @@
   "date": "2026-11-27",
   "listId": "N2Q8W",
   "domainsObserved": 100000,
-  "unknownRate": 0.00591,
+  "unknownRate": 0.0059,
   "degraded": false,
   "totals": {
     "spf": {
@@ -32,8 +32,8 @@
     "mtaSts": {
       "present": 2063,
       "mode": {
+        "testing": 783,
         "enforce": 949,
-        "testing": 782,
         "none": 23
       }
     },
@@ -41,8 +41,8 @@
       "present": 2482
     },
     "dnssec": {
-      "unsigned": 91166,
-      "signed": 8599,
+      "unsigned": 91167,
+      "signed": 8598,
       "unknown": 235
     },
     "mx": {
@@ -81,8 +81,8 @@
         "mtaSts": {
           "present": 981,
           "mode": {
+            "testing": 400,
             "enforce": 422,
-            "testing": 399,
             "none": 14
           }
         },
@@ -90,8 +90,8 @@
           "present": 1151
         },
         "dnssec": {
-          "unsigned": 42293,
-          "signed": 3199,
+          "unsigned": 42294,
+          "signed": 3198,
           "unknown": 104
         },
         "mx": {
@@ -26431,8 +26431,8 @@
         "mtaSts": {
           "present": 560,
           "mode": {
+            "testing": 214,
             "enforce": 280,
-            "testing": 213,
             "none": 8
           }
         },
@@ -26629,8 +26629,8 @@
           "present": 96
         },
         "dnssec": {
-          "unsigned": 2922,
-          "signed": 310
+          "unsigned": 2923,
+          "signed": 309
         },
         "mx": {
           "present": 3232,
@@ -27296,16 +27296,16 @@
         "mtaSts": {
           "present": 32,
           "mode": {
-            "enforce": 18,
-            "testing": 11
+            "testing": 12,
+            "enforce": 18
           }
         },
         "tlsRpt": {
           "present": 42
         },
         "dnssec": {
-          "unsigned": 894,
-          "signed": 106
+          "unsigned": 895,
+          "signed": 105
         },
         "mx": {
           "present": 703,

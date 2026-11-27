@@ -1,0 +1,2 @@
+{"domain":"bankofamerica.com","rank":889,"field":"dnssec","kind":"modified","from":"unsigned","to":"signed","ts":"2026-11-27T00:59:34.936Z"}
+{"domain":"autodesk.com","rank":306,"field":"mtaSts.mode","kind":"removed","from":"testing","to":null,"ts":"2026-11-27T00:59:34.936Z"}
